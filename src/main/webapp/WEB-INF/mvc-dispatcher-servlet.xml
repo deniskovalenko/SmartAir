@@ -11,6 +11,8 @@
     <!--this enables Jackson to convert objects to JSON with @ResponseBody annotation-->
     <mvc:annotation-driven />
 
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+
      <!-- freemarker config -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="/WEB-INF/pages/"></property>
