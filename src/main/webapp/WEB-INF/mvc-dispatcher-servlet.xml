@@ -8,17 +8,8 @@
 
     <context:component-scan base-package="com.breathe"/>
 
+    <!--this enables Jackson to convert objects to JSON with @ResponseBody annotation-->
     <mvc:annotation-driven />
-
-    <!--<mvc:annotation-driven>-->
-        <!--<mvc:message-converters>-->
-            <!--<bean class="com.example.converter.GsonMessageConverter" />-->
-            <!--<bean-->
-                    <!--class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">-->
-                <!--<property name="prefixJson" value="true" />-->
-            <!--</bean>-->
-        <!--</mvc:message-converters>-->
-    <!--</mvc:annotation-driven>-->
 
      <!-- freemarker config -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
@@ -30,8 +21,4 @@
         <property name="prefix" value=""> </property>
         <property name="suffix" value=".ftl"></property>
     </bean>
-
-
-
-
 </beans>

@@ -1,4 +1,4 @@
-package com.breathe.service;
+package com.breathe.service.implementation;
 
 import com.breathe.controller.common.mappers.StatisticMapper;
 import com.breathe.dao.StatisticDAO;
