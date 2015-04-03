@@ -3,6 +3,7 @@ package com.breathe.service.implementation;
 import com.breathe.controller.common.mappers.StatisticMapper;
 import com.breathe.dao.UserDAO;
 import com.breathe.model.DeviceModel;
+import com.breathe.model.UserModel;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
 
@@ -18,13 +19,21 @@ public class UserService {
         userDAO = new UserDAO(co2Database);
     }
 
-    public List<DeviceModel> findDevicesByUser(String username) {
-        List<DBObject> devices = userDAO.findDevicesByUser(username);
+    public List<DeviceModel> findDevicesByUser(String userId) {
+        List<DBObject> devices = userDAO.findDevicesByUser(userId);
         return  StatisticMapper.convertDevicesList(devices);
     }
 
-    public Boolean addEntity(String username, String email, String password, String name, String surname,
-                             String country, String city, List<DeviceModel> devices) {
+    public Boolean addUser(UserModel user) {
+        String username = user.getUsername();
+        String email = user.getEmail();
+        String password = user.getPassword();
+        String name = user.getName();
+        String surname = user.getSurname();
+        String country = user.getCountry();
+        String city = user.getCity();
+        List<DeviceModel> devices = user.getDevices();
+        //TODO add generation of _id like new RandomUUID
         return userDAO.addUser(username, email, password, name, surname,
                 country, city, devices);
     }
