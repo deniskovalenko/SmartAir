@@ -1,6 +1,7 @@
 package com.breathe.dao;
 
 import com.mongodb.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,12 +10,15 @@ import java.util.List;
 /**
  * Created by denis on 12.03.15.
  */
-
+//@Repository
 public class StatisticDAO {
     DBCollection dataCollection;
 
     public StatisticDAO(final DB co2Database) {
         dataCollection = co2Database.getCollection("data");
+    }
+
+    public StatisticDAO() {
     }
 
 

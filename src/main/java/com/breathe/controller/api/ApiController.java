@@ -1,11 +1,14 @@
 package com.breathe.controller.api;
 
 import com.breathe.model.StatisticModel;
-import com.breathe.service.implementation.StatisticService;
-import com.breathe.service.implementation.UserService;
+import com.breathe.service.StatisticService;
+import com.breathe.service.UserService;
+import com.breathe.service.implementation.StatisticServiceImpl;
+import com.breathe.service.implementation.UserServiceImpl;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,14 +25,19 @@ import java.util.List;
 @Controller
 @RequestMapping("/api")
 public class ApiController {
-    private StatisticService statisticService;
+//    @Autowired
+//    private StatisticService statisticService;
+//    @Autowired
+//    private UserService userService;
+
     private UserService userService;
+    private StatisticService statisticService;
 
     public ApiController() throws UnknownHostException {
         final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));
         final DB co2Database = mongoClient.getDB("co2");
-        this.statisticService = new StatisticService(co2Database);
-        this.userService = new UserService(co2Database);
+        this.statisticService = new StatisticServiceImpl(co2Database);
+        this.userService = new UserServiceImpl(co2Database);
     }
 
     @RequestMapping(value = "/statistic", method = RequestMethod.GET)

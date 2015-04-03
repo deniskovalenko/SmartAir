@@ -2,11 +2,14 @@ package com.breathe.controller.user;
 
 import com.breathe.dao.StatisticDAO;
 import com.breathe.model.StatisticModel;
-import com.breathe.service.implementation.StatisticService;
+import com.breathe.service.StatisticService;
+import com.breathe.service.UserService;
+import com.breathe.service.implementation.StatisticServiceImpl;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -20,21 +23,21 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class UserController {
+//    @Autowired
+//    private StatisticService statisticService;
 
-//    @Autowired StatisticService statisticService
+    private static final String ROOT = "user";
+    public final static int PER_PAGE = 30;
+    private StatisticDAO statisticDAO;
+   private StatisticServiceImpl statisticService;
 
     public UserController() throws UnknownHostException {
         final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));
         final DB co2Database = mongoClient.getDB("co2");
 
         statisticDAO = new StatisticDAO(co2Database);
-        this.statisticService = new StatisticService(co2Database);
+        this.statisticService = new StatisticServiceImpl(co2Database);
     }
-
-    private static final String ROOT = "user";
-    public final static int PER_PAGE = 30;
-    private StatisticDAO statisticDAO;
-    private StatisticService statisticService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getStatisticList(ModelMap model) {

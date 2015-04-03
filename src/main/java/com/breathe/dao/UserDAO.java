@@ -3,6 +3,7 @@ package com.breathe.dao;
 import com.breathe.model.DeviceModel;
 import com.breathe.utils.EmailValidator;
 import com.mongodb.*;
+import org.springframework.stereotype.Repository;
 import sun.misc.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
@@ -16,6 +17,8 @@ import java.util.Random;
 /**
  * Created by amira on 02.04.15.
  */
+
+//@Repository
 public class UserDAO {
     DBCollection usersCollection;
 
@@ -24,6 +27,9 @@ public class UserDAO {
 
     public UserDAO(final DB co2Database) {
         usersCollection = co2Database.getCollection("users");
+    }
+
+    public UserDAO() {
     }
 
     public List<DBObject> findDevicesByUser(String username) {

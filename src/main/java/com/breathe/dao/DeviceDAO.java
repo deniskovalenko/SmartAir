@@ -4,12 +4,17 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by amira on 03.04.15.
  */
+//@Repository
 public class DeviceDAO {
     DBCollection deviceCollection; //collection of manufactured, but maybe not purchased yet devices
+
+    public DeviceDAO() {
+    }
 
     public DeviceDAO(final DB co2Database) {
         deviceCollection = co2Database.getCollection("data");

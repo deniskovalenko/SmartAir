@@ -5,9 +5,14 @@ import com.breathe.dao.DeviceDAO;
 import com.breathe.dao.StatisticDAO;
 import com.breathe.model.DeviceModel;
 import com.breathe.model.StatisticModel;
+import com.breathe.service.StatisticService;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import org.springframework.stereotype.Component;
 
+import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.List;
 
@@ -15,14 +20,20 @@ import java.util.List;
  * Created by denis on 14.03.15.
  */
 
-public class StatisticService {
+//@Component
+public class StatisticServiceImpl implements StatisticService {
     private StatisticDAO statisticDAO;
     private DeviceDAO deviceDAO;
 
-    public StatisticService(final DB co2Database) {
+    public StatisticServiceImpl(final DB co2Database) {
         statisticDAO = new StatisticDAO(co2Database);
         deviceDAO = new DeviceDAO(co2Database);
     }
+//
+//    public StatisticServiceImpl() throws UnknownHostException {
+//                final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));
+//        final DB co2Database = mongoClient.getDB("co2");
+//    }
 
     public List<StatisticModel> findByDateDescending(int page, int limit) {
         List<DBObject> data = statisticDAO.findByDateDescending(page, limit);

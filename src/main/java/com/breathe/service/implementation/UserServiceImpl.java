@@ -4,18 +4,24 @@ import com.breathe.controller.common.mappers.StatisticMapper;
 import com.breathe.dao.UserDAO;
 import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;
+import com.breathe.service.UserService;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Created by amira on 02.04.15.
  */
-public class UserService {
+//@Component
+public class UserServiceImpl implements UserService {
     private UserDAO userDAO;
 
-    public UserService(final DB co2Database) {
+//    public UserServiceImpl() {
+//    }
+
+    public UserServiceImpl(final DB co2Database) {
         userDAO = new UserDAO(co2Database);
     }
 
