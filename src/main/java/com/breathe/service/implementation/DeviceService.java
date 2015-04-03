@@ -1,8 +1,8 @@
 package com.breathe.service.implementation;
 
-import DAO.DeviceDAO;
-import Mappers.StatisticMapper;
-import Model.DeviceModel;
+import com.breathe.controller.common.mappers.StatisticMapper;
+import com.breathe.dao.DeviceDAO;
+import com.breathe.model.DeviceModel;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
 
@@ -26,6 +26,8 @@ public class DeviceService {
     }
 
     public Boolean addDevice(String device_id, String device_name, Integer delay, double co2MinLevel) {
+        //TODO - change to addDevice(DeviceModel)
+        //TODO and generate unique device ID
         if (ifDeviceExists(device_id)) return false;
         return deviceDAO.addDevice(device_id, device_name, delay, co2MinLevel);
     }

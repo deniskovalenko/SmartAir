@@ -1,7 +1,7 @@
 package com.breathe.dao;
 
-import Model.DeviceModel;
-import Utils.EmailValidator;
+import com.breathe.model.DeviceModel;
+import com.breathe.utils.EmailValidator;
 import com.mongodb.*;
 import sun.misc.BASE64Encoder;
 
@@ -52,7 +52,7 @@ public class UserDAO {
         String passwordHash = makePasswordHash(password, Integer.toString(random.nextInt()));
 
         BasicDBObject user = new BasicDBObject();
-// TODO _id : new UUID.randomUUID
+        // TODO _id : new UUID.randomUUID
         user.append("username", username)
             .append("password", passwordHash)
             .append("name", name)

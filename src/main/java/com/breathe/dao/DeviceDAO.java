@@ -9,10 +9,11 @@ import com.mongodb.DBObject;
  * Created by amira on 03.04.15.
  */
 public class DeviceDAO {
-    DBCollection deviceCollection;
+    DBCollection deviceCollection; //collection of manufactured, but maybe not purchased yet devices
 
     public DeviceDAO(final DB co2Database) {
         deviceCollection = co2Database.getCollection("data");
+        //TODO - change to device collection
     }
 
     public DBObject findByDeviceId(String deviceId) {
@@ -21,6 +22,9 @@ public class DeviceDAO {
     }
 
     public boolean ifDeviceExists(String deviceId) {
+        //T this method search, if there is any record in statistic collection with deviceID
+        // would return null, if you've just bought and added device to your account
+        //TODO - change to search in device collection, or even in device array of particular user..
         return (deviceCollection.find(new BasicDBObject("device_id", deviceId)).count() > 0);
     }
 
