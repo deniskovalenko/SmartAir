@@ -42,9 +42,10 @@ public class StatisticDAO {
         return  result;
     }
 
-    public boolean addEntity(String device_id, double temperature, double co2) {
+    public boolean addEntity(String device_id, double temperature, double co2, double humidity) {
         BasicDBObject post = new BasicDBObject("device_id", device_id);
         post.append("temperature", temperature);
+        post.append("humidity", humidity);
         post.append("co2", co2);
         post.append("date", new Date());
 
