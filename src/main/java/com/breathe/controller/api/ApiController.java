@@ -1,8 +1,8 @@
 package com.breathe.controller.api;
 
-import com.breathe.dao.StatisticDAO;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.implementation.StatisticService;
+import com.breathe.service.implementation.UserService;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -22,16 +22,14 @@ import java.util.List;
 @Controller
 @RequestMapping("/api")
 public class ApiController {
-    private StatisticDAO statisticDAO;
     private StatisticService statisticService;
+    private UserService userService;
 
     public ApiController() throws UnknownHostException {
         final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));
         final DB co2Database = mongoClient.getDB("co2");
-
-
-        statisticDAO = new StatisticDAO(co2Database);
         this.statisticService = new StatisticService(co2Database);
+        this.userService = new UserService(co2Database);
     }
 
     @RequestMapping(value = "/statistic", method = RequestMethod.GET)
@@ -44,6 +42,6 @@ public class ApiController {
     @RequestMapping(value = "/devices", method = RequestMethod.GET)
     public @ResponseBody
     List<com.breathe.model.DeviceModel> getDevicesByUserId(@RequestParam final String userid) {
-        return statisticService.findDevicesByUser(userid);
+        return userService.findDevicesByUser(userid);
     }
 }
