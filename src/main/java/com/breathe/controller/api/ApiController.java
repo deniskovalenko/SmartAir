@@ -10,10 +10,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.UnknownHostException;
 import java.util.Date;
@@ -42,14 +39,20 @@ public class ApiController {
 
     @RequestMapping(value = "/statistic", method = RequestMethod.GET)
     public @ResponseBody
-    List<StatisticModel> getStatisticByDevice(@RequestParam final String deviceid, @RequestParam final long st_date,
-                                              @RequestParam final long end_date) {
-        return statisticService.findByDevice(deviceid, new Date(st_date), new Date(end_date), true);
+    List<StatisticModel> getStatisticByDevice(@RequestParam final String deviceId, @RequestParam final long startDate,
+                                              @RequestParam final long endDate) {
+        return statisticService.findByDevice(deviceId, new Date(startDate), new Date(endDate), true);
     }
 
     @RequestMapping(value = "/devices", method = RequestMethod.GET)
     public @ResponseBody
-    List<com.breathe.model.DeviceModel> getDevicesByUserId(@RequestParam final String userid) {
-        return userService.findDevicesByUser(userid);
+    List<com.breathe.model.DeviceModel> getDevicesByUserId(@RequestParam final String userId) {
+        return userService.findDevicesByUser(userId);
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public void login() {
+        //RequestBody.;
+
     }
 }

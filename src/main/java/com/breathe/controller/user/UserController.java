@@ -29,7 +29,7 @@ public class UserController {
     private static final String ROOT = "user";
     public final static int PER_PAGE = 30;
     private StatisticDAO statisticDAO;
-   private StatisticServiceImpl statisticService;
+    private StatisticServiceImpl statisticService;
 
     public UserController() throws UnknownHostException {
         final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));
@@ -59,8 +59,6 @@ public class UserController {
         return new ModelAndView(ROOT + "/statisticList", model);
     }
 
-
-
     @RequestMapping(value = "/addData", method = RequestMethod.GET)
     public ModelAndView addData() {
         return new ModelAndView(ROOT + "/addData");
@@ -70,5 +68,13 @@ public class UserController {
     public String saveData (@ModelAttribute("statistic") StatisticModel stat) {
         statisticService.addEntity(stat);
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView loginPage() {
+        Map<String, Object> model = new HashMap<>();
+        model.put("username", "");
+        model.put("login_error", "");
+        return new ModelAndView("common/login", model);
     }
 }

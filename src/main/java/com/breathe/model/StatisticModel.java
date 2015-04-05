@@ -11,6 +11,7 @@ public class StatisticModel {
     private double temperature;
     private double co2;
     private double humidity;
+
     private Date date;
 
     public String getDevice_id() {

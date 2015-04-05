@@ -27,14 +27,8 @@
 
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.1</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
 
@@ -101,14 +95,18 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+            <!-- Deploy wars to Tomcat 7 with mvn tomcat7:deploy or tomcat7:redeploy -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
+                    <server>Tomcat</server>
+                    <url>http://localhost:8080/manager</url>
+                    <username>admin</username>
+                    <password>admin</password>
                     <path>/</path>
-                    <port>8090</port>
-                    <contextReloadable>true</contextReloadable>
+                    <!--<port>8080</port>-->
                 </configuration>
             </plugin>
             <plugin>
