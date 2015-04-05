@@ -1,0 +1,265 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	min-width: 1200px;
+	font-family: Arial,Verdana,sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+	background-color: #F1F1F1;
+	color: #000;
+	border: 0px none;
+	font: inherit;
+	vertical-align: baseline;
+	background-color:  #F1F1F1;
+}
+
+#sitewrapper {
+	height: 100%;
+	width: 100%;
+}
+
+#menu-wrapper {
+	display: block;
+	height: 70px;
+	width: 100%;
+	font-family: Arial;
+	font-size: 14px;
+	background-color: #34495E;
+}
+
+#menu {
+	display: block;
+	margin: 0px auto;
+	max-width: 1920px;
+	background-color: #2F4252;
+}
+
+#main-logo {
+	float: left;
+}
+
+#main-logo a {
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	height: 70px;
+}
+
+#main-menu {
+	float: left;
+}
+
+#main-menu ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	height: 70px;
+	border-left: 1px solid #34495E;
+}
+
+#main-menu li {
+	margin: 0px;
+	padding: 0px;
+	border-right: 1px solid #34495E;
+	list-style: outside none none;
+	float: left;
+	width: auto;
+	position: relative;
+}
+
+#main-menu li a {
+	display: block;
+	float: left;
+	width: auto;
+	height: 70px;
+	line-height: 70px;
+	padding: 0px 13px;
+	font-family: "Myriad","Trebuchet MS",Arial,Tahoma;
+	font-size: 18px;
+	color: #FFF;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#main-menu li a:hover {
+	background-color: #34495E;
+}
+
+#auth {
+	float: right;
+}
+
+#auth a {
+	display: block;
+	float: left;
+	width: auto;
+	height: 70px;
+	line-height: 70px;
+	padding: 0px 13px;
+	font-family: "Myriad","Trebuchet MS",Arial,Tahoma;
+	font-size: 18px;
+	color: #FFF;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	border-left: 1px solid #34495E;
+}
+
+#main-menu-clear {
+	clear: both;
+}
+
+#auth a:hover {
+	background-color: #34495E;
+}
+
+#header-wrapper {
+	height: 300px;
+	width: 100%;
+	background-color: #34495E;
+}
+
+#header {
+	margin: 0px auto;
+	height: 300px;
+	width: 100%;
+	max-width: 1920px;
+	background-image: url("images/header.png");
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+
+#header {
+
+}
+
+#slogan {
+	float: left;
+	font-family: Arial,Verdana,sans-serif;
+	padding-top: 55px;
+	padding-left: 95px;
+	color: #FFF;
+}
+
+#bigtext {
+	display: block;
+	font-size: 60px;
+}
+
+#smalltext {
+	display: block;
+	padding-top: 20px;
+	font-size: 24px;
+}
+
+#header-buttons{
+	float: right;
+	padding-top: 55px;
+	margin-right:200px; 
+}
+
+.btn {
+	width: 200px;
+	display: inline-block;
+	position: relative;
+	padding: 10px 20px;
+	font-size: 36px;
+	text-align: center;
+	color: #FFF;
+	
+	cursor: pointer;
+	vertical-align: middle;
+	/*line-height: 1.5em;*/
+	border-radius: 5px;
+	transition: background-color 0.3s ease 0s;
+	/*font: inherit;*/
+	font-family: Arial,Verdana,sans-serif;
+	text-decoration: none;
+	margin-top: 20px;
+}
+
+.green-btn {
+	background-color: #28AF61;
+	border: 2px solid #28AF61;
+}
+
+.green-btn:hover{
+	background-color: #2bbb68;
+	border: 2px solid #2bbb68;
+}
+
+.white-btn {
+	border: 2px solid #FFF;
+	background: none repeat scroll 0% 0% transparent;
+}
+
+.white-btn:hover{
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+#content-wrapper {
+	width: 100%;
+	background-color: #34495E;
+}
+
+#content {
+	max-width: 1920px;
+	margin: 0px auto;
+	/*background-color: #E1E1E1;*/
+	background-color: #2F4252;
+}
+
+.info {
+	padding: 50px;
+}
+
+.round-img {
+	border-radius: 50%;
+    /*box-shadow: 0 0 5px #333;*/
+}
+
+.descrption-box {
+	font-size: 24px;
+	/*box-shadow: 0 0 5px #333;*/
+	height: 240px;
+	/*width: auto;*/
+	border: 3px #EEE;
+
+}
+
+.description-text-right {
+	background-color: #FFF;
+	border-radius: 20px;
+	padding: 30px;
+	margin-left:50px;
+	max-width: 1410px;
+	/*min-width: 200px;*/
+}
+
+.description-text-right::after {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 15px 15px 15px 0;
+	border-color: transparent #007bff transparent transparent;
+	line-height: 0px;
+	_border-color: #000000 #007bff #000000 #000000;
+	_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+.block {
+    background: green;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    color: #fff;
+   }
+.block::after {
+    content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: 20px; bottom: -20px; /* Положение треугольника */
+    border: 10px solid transparent; /* Прозрачные границы */
+    border-top: 10px solid green; /* Добавляем треугольник */
+   }
