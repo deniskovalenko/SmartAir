@@ -77,4 +77,12 @@ public class UserController {
         model.put("login_error", "");
         return new ModelAndView("common/login", model);
     }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public ModelAndView registerPage() {
+        Map<String, Object> model = new HashMap<>();
+        model.put("username", "");
+        model.put("login_error", "");
+        return new ModelAndView("common/signup", model);
+    }
 }

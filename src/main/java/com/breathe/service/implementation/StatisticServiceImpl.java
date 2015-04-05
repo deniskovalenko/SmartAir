@@ -1,18 +1,13 @@
 package com.breathe.service.implementation;
 
-import com.breathe.controller.common.mappers.StatisticMapper;
+import com.breathe.utils.mappers.StatisticMapper;
 import com.breathe.dao.DeviceDAO;
 import com.breathe.dao.StatisticDAO;
-import com.breathe.model.DeviceModel;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.StatisticService;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import org.springframework.stereotype.Component;
 
-import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.List;
 

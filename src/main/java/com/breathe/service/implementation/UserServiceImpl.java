@@ -1,13 +1,12 @@
 package com.breathe.service.implementation;
 
-import com.breathe.controller.common.mappers.StatisticMapper;
+import com.breathe.utils.mappers.StatisticMapper;
 import com.breathe.dao.UserDAO;
 import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;
 import com.breathe.service.UserService;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 

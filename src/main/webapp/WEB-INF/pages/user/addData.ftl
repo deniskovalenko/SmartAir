@@ -27,11 +27,11 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <#--<#if username??>-->
-                 <#--<li class="active">  <a href="/logout">Logout</a> </u> </li>-->
-                <#--<#else>-->
-                 <#--<li>  <a href="/login">Login</a> </u> </li>-->
-                <#--</#if>-->
+                <#if username??>
+                 <li class="active">  <a href="/logout">Logout</a> </u> </li>
+                <#else>
+                 <li>  <a href="/login">Login</a> </u> </li>
+                </#if>
             </ul>
             <#--<form action="/search" method="POST" class="navbar-form navbar-right">-->
                 <#--<input name="tag" type="text" class="form-control" placeholder="Search...">-->

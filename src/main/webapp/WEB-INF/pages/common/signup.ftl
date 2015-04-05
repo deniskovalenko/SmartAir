@@ -43,7 +43,12 @@
     <form class="form" method="post">
 
         <label for="inputEmail" class="">Username</label>
-        <input name="username" value="${username}" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Email address" required autofocus>
+        <#if username??>
+            <input name="username" value="${username}" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Email address" required autofocus>
+        <#else>
+            <input name="username" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Email address" required autofocus>
+        </#if>
+
 
 
         <div class="error">
@@ -66,7 +71,12 @@
             
 
         <label class="">Email (optional)</label>
-        <input type="text" name="email" value="${email}" class="form-control"  style="width:250px;height:35px">
+        <#if email??>
+            <input type="text" name="email" value="${email}" class="form-control"  style="width:250px;height:35px">
+        <#else>
+            <input type="text" name="email" class="form-control"  style="width:250px;height:35px">
+        </#if>
+
 
         <div class="error">
 	         ${email_error!""}

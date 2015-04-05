@@ -1,4 +1,4 @@
-package com.breathe.controller.common.mappers;
+package com.breathe.utils.mappers;
 
 
 import com.breathe.model.DeviceModel;
