@@ -53,12 +53,12 @@ public class UserDAO {
             return false;
         }
 
-        String passwordHash = makePasswordHash(password, Integer.toString(random.nextInt()));
+       // String passwordHash = makePasswordHash(password, Integer.toString(random.nextInt()));
 
         BasicDBObject user = new BasicDBObject();
         // TODO _id : new UUID.randomUUID
         user.append("username", username)
-            .append("password", passwordHash)
+           // .append("password", passwordHash)
             .append("name", name)
             .append("surname", surname)
             .append("country", country)
@@ -97,26 +97,26 @@ public class UserDAO {
 
         String salt = hashedAndSalted.split(",")[1];
 
-        if (!hashedAndSalted.equals(makePasswordHash(password, salt))) {
-            System.out.println("Submitted password is not a match");
-            return null;
-        }
+//        if (!hashedAndSalted.equals(makePasswordHash(password, salt))) {
+//            System.out.println("Submitted password is not a match");
+//            return null;
+//        }
 
         return user;
     }
 
-    private String makePasswordHash(String password, String salt) {
-        try {
-            String saltedAndHashed = password + "," + salt;
-            MessageDigest digest = MessageDigest.getInstance("MD5");
-            digest.update(saltedAndHashed.getBytes());
-            BASE64Encoder encoder = new BASE64Encoder();
-            byte hashedBytes[] = (new String(digest.digest(), "UTF-8")).getBytes();
-            return encoder.encode(hashedBytes) + "," + salt;
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("MD5 is not available", e);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("UTF-8 unavailable?  Not a chance", e);
-        }
-    }
+//    private String makePasswordHash(String password, String salt) {
+//        try {
+//            String saltedAndHashed = password + "," + salt;
+//            MessageDigest digest = MessageDigest.getInstance("MD5");
+//            digest.update(saltedAndHashed.getBytes());
+//            BASE64Encoder encoder = new BASE64Encoder();
+//            byte hashedBytes[] = (new String(digest.digest(), "UTF-8")).getBytes();
+//            return encoder.encode(hashedBytes) + "," + salt;
+//        } catch (NoSuchAlgorithmException e) {
+//            throw new RuntimeException("MD5 is not available", e);
+//        } catch (UnsupportedEncodingException e) {
+//            throw new RuntimeException("UTF-8 unavailable?  Not a chance", e);
+//        }
+//    }
 }

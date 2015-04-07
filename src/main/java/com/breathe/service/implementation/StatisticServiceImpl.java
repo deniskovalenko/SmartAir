@@ -48,7 +48,6 @@ public class StatisticServiceImpl implements StatisticService {
     public boolean addEntity(StatisticModel stat) {
         //TODO provide check in devices colleciton
        // if (!deviceDAO.ifDeviceExists(stat.getDeviceId())) return false;
-
         return statisticDAO.addEntity(stat.getDeviceId(), stat.getTemperature(), stat.getCo2(), stat.getHumidity());
         //TODO: check if data is valid
 //        return statisticDAO.addEntity(stat.getDeviceId(), stat.getTemperature(), stat.getCo2());
