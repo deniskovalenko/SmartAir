@@ -40,7 +40,12 @@ public class StatisticServiceImpl implements StatisticService {
         return StatisticMapper.convertStatisticList(data);
     }
 
-    public Boolean addEntity(StatisticModel stat) {
+    public List<StatisticModel> findByDevice(String deviceId, int skip, int limit, boolean dateSortDescending) {
+        List<DBObject> data = statisticDAO.findByDevice(deviceId, skip, limit, dateSortDescending);
+        return StatisticMapper.convertStatisticList(data);
+    }
+
+    public boolean addEntity(StatisticModel stat) {
         if (!deviceDAO.ifDeviceExists(stat.getDevice_id())) return false;
 
         return statisticDAO.addEntity(stat.getDevice_id(), stat.getTemperature(), stat.getCo2(), stat.getHumidity());

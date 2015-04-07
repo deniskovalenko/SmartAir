@@ -9,15 +9,15 @@ public class DeviceModel {
 
     private String device_name;
 
-    private Integer delay;
+    private double delay;
 
     private double co2MinLevel;
 
-    public Integer getDelay() {
+    public double getDelay() {
         return delay;
     }
 
-    public void setDelay(Integer delay) {
+    public void setDelay(double delay) {
         this.delay = delay;
     }
 
