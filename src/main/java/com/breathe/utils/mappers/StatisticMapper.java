@@ -16,7 +16,7 @@ public class StatisticMapper {
     static public StatisticModel convertStatisticDbObject(DBObject statisticDbObject) {
         try {
             StatisticModel stat = new StatisticModel();
-            stat.setCo2((Double) statisticDbObject.get("co2"));
+            stat.setCo2((Integer) statisticDbObject.get("co2"));
             stat.setDeviceId((String) statisticDbObject.get("deviceId"));
             stat.setDate((Date) statisticDbObject.get("date"));
             stat.setTemperature((Double) statisticDbObject.get("temperature"));

@@ -39,20 +39,37 @@ public class ApiServiceImpl implements ApiService {
            apiDevices.add(DeviceMapper.convertDeviceDbObject(device));
          }
          //add current co2,humidity and temperature data and their deltas
-        List<DBObject> lastData = new ArrayList<>(2);
+        List<DBObject> lastData;
         for(ApiDeviceModel apiDevice : apiDevices) {
             //get two latest records for this device
             lastData = statisticDAO.findByDevice(apiDevice.getDeviceId(), 0, 2, true);
-            StatisticModel current = StatisticMapper.convertStatisticDbObject(lastData.get(0));
-            StatisticModel previous = StatisticMapper.convertStatisticDbObject(lastData.get(1));
-            //set currents to data from latest record
-            apiDevice.setCurrentCO2(current.getCo2());
-            apiDevice.setCurrentHumidity(current.getHumidity());
-            apiDevice.setCurrentTemperature(current.getTemperature());
-            //set deltas to current-previous
-            apiDevice.setDeltaCO2(current.getCo2() - previous.getCo2());
-            apiDevice.setDeltaHumidity(current.getHumidity() - previous.getHumidity());
-            apiDevice.setDeltaTemperature(current.getTemperature() - previous.getTemperature());
+            if (lastData.size() == 0) {
+                apiDevice.setCurrentCO2(0);
+                apiDevice.setCurrentTemperature(0);
+                apiDevice.setCurrentHumidity(0);
+                apiDevice.setDeltaCO2(0);
+                apiDevice.setDeltaTemperature(0);
+                apiDevice.setDeltaHumidity(0);
+            } else if (lastData.size() == 1) {
+                StatisticModel current = StatisticMapper.convertStatisticDbObject(lastData.get(0));
+                apiDevice.setCurrentCO2(current.getCo2());
+                apiDevice.setCurrentHumidity(current.getHumidity());
+                apiDevice.setCurrentTemperature(current.getTemperature());
+                apiDevice.setDeltaCO2(0);
+                apiDevice.setDeltaTemperature(0);
+                apiDevice.setDeltaHumidity(0);
+            } else {
+                StatisticModel current = StatisticMapper.convertStatisticDbObject(lastData.get(0));
+                StatisticModel previous = StatisticMapper.convertStatisticDbObject(lastData.get(1));
+                //set currents to data from latest record
+                apiDevice.setCurrentCO2(current.getCo2());
+                apiDevice.setCurrentHumidity(current.getHumidity());
+                apiDevice.setCurrentTemperature(current.getTemperature());
+                //set deltas to current-previous
+                apiDevice.setDeltaCO2(current.getCo2() - previous.getCo2());
+                apiDevice.setDeltaHumidity(current.getHumidity() - previous.getHumidity());
+                apiDevice.setDeltaTemperature(current.getTemperature() - previous.getTemperature());
+            }
         }
         return  apiDevices;
     }

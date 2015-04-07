@@ -9,7 +9,7 @@ import java.util.Date;
 public class StatisticModel {
     private String deviceId;
     private double temperature;
-    private double co2;
+    private int co2;
     private double humidity;
 
     private Date date;
@@ -38,11 +38,11 @@ public class StatisticModel {
         this.humidity = humidity;
     }
 
-    public double getCo2() {
+    public int getCo2() {
         return co2;
     }
 
-    public void setCo2(double co2) {
+    public void setCo2(int co2) {
         this.co2 = co2;
     }
 

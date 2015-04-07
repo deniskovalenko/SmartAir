@@ -9,23 +9,23 @@ public class DeviceModel {
 
     private String deviceName;
 
-    private double delay;
+    private int delay;
 
-    private double co2MinLevel;
+    private int co2MinLevel;
 
-    public double getDelay() {
+    public int getDelay() {
         return delay;
     }
 
-    public void setDelay(double delay) {
+    public void setDelay(int delay) {
         this.delay = delay;
     }
 
-    public double getCo2MinLevel() {
+    public int getCo2MinLevel() {
         return co2MinLevel;
     }
 
-    public void setCo2MinLevel(double co2MinLevel) {
+    public void setCo2MinLevel(int co2MinLevel) {
         this.co2MinLevel = co2MinLevel;
     }
 

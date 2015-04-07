@@ -22,8 +22,8 @@ public class DeviceMapper {
             ApiDeviceModel device = new ApiDeviceModel();
             device.setDeviceId((String) deviceDbObject.get("deviceId"));
             device.setDeviceName((String) deviceDbObject.get("deviceName"));
-            device.setCo2MinLevel((Double) deviceDbObject.get("co2Min"));
-            device.setDelay((Double) deviceDbObject.get("delay"));
+            device.setCo2MinLevel((Integer) deviceDbObject.get("co2Min"));
+            device.setDelay((Integer) deviceDbObject.get("delay"));
             return  device;
         } catch (Exception e)
         {
