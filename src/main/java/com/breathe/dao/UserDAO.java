@@ -34,7 +34,7 @@ public class UserDAO {
 
     public List<DBObject> findDevicesByUser(String username) {
         List<DBObject> result = new ArrayList<>();
-        DBObject user = usersCollection.findOne(new BasicDBObject("username", username));
+        DBObject user = usersCollection.findOne(new BasicDBObject("_id", username));
         BasicDBList devices = (BasicDBList) user.get("devices");
         for (Object device : devices ) {
 
