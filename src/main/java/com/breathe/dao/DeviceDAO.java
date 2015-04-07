@@ -33,7 +33,7 @@ public class DeviceDAO {
         return (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0);
     }
 
-    public boolean addDevice(String deviceId, String deviceName, Integer delay, double co2MinLevel) {
+    public boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel) {
         if (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0) {
             System.out.println("Device with this device_id already exists: " + deviceId);
             return false;
