@@ -20,19 +20,19 @@ public class DeviceServiceImpl implements DeviceService {
         deviceDAO = new DeviceDAO(co2Database);
     }
 
-    public DeviceModel findDevicesById(String device_id) {
-        DBObject device = deviceDAO.findByDeviceId(device_id);
+    public DeviceModel findDevicesById(String deviceId) {
+        DBObject device = deviceDAO.findByDeviceId(deviceId);
         return  StatisticMapper.convertDeviceDbObject(device);
     }
 
-    public Boolean ifDeviceExists(String device_id) {
-        return deviceDAO.ifDeviceExists(device_id);
+    public boolean ifDeviceExists(String deviceId) {
+        return deviceDAO.ifDeviceExists(deviceId);
     }
 
-    public Boolean addDevice(String device_id, String device_name, Integer delay, double co2MinLevel) {
+    public boolean addDevice(String deviceId, String deviceName, Integer delay, double co2MinLevel) {
         //TODO - change to addDevice(DeviceModel)
         //TODO and generate unique device ID
-        if (ifDeviceExists(device_id)) return false;
-        return deviceDAO.addDevice(device_id, device_name, delay, co2MinLevel);
+        if (ifDeviceExists(deviceId)) return false;
+        return deviceDAO.addDevice(deviceId, deviceName, delay, co2MinLevel);
     }
 }

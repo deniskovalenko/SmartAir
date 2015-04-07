@@ -17,7 +17,7 @@ public class StatisticMapper {
         try {
             StatisticModel stat = new StatisticModel();
             stat.setCo2((Double) statisticDbObject.get("co2"));
-            stat.setDevice_id((String) statisticDbObject.get("device_id"));
+            stat.setDeviceId((String) statisticDbObject.get("deviceId"));
             stat.setDate((Date) statisticDbObject.get("date"));
             stat.setTemperature((Double) statisticDbObject.get("temperature"));
             return  stat;
@@ -40,8 +40,8 @@ public class StatisticMapper {
     static public DeviceModel convertDeviceDbObject(DBObject deviceDbObject) {
         try {
             DeviceModel device = new DeviceModel();
-            device.setDevice_id((String)deviceDbObject.get("device_id"));
-            device.setDevice_name((String)deviceDbObject.get("device_name"));
+            device.setDeviceId((String) deviceDbObject.get("deviceId"));
+            device.setDeviceName((String) deviceDbObject.get("deviceName"));
             return  device;
         } catch (Exception e)
         {

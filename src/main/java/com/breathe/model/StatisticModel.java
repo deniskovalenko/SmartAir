@@ -7,19 +7,19 @@ import java.util.Date;
  */
 
 public class StatisticModel {
-    private String device_id;
+    private String deviceId;
     private double temperature;
     private double co2;
     private double humidity;
 
     private Date date;
 
-    public String getDevice_id() {
-        return device_id;
+    public String getDeviceId() {
+        return deviceId;
     }
 
-    public void setDevice_id(String device_id) {
-        this.device_id = device_id;
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
     public double getTemperature() {

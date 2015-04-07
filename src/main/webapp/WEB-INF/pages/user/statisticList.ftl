@@ -77,7 +77,7 @@
 
             <tr>
                 <td style="padding-left:10px; padding-right:10px;">${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}</td>
-                <td style="padding-left:10px; padding-right:10px;">${entity["device_id"]}</td>
+                <td style="padding-left:10px; padding-right:10px;">${entity["deviceId"]}</td>
                 <td style="text-align:center;">${entity["temperature"]}</td>
                 <td style="text-align:center;">${entity["co2"]}</td>
             </tr>
@@ -96,7 +96,7 @@
 
             <#--<tr>-->
                 <#--<td >${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}</td>-->
-                <#--<td >${entity["device_name"]}</td>-->
+                <#--<td >${entity["deviceName"]}</td>-->
                 <#--<td >${entity["temperature"]}</td>-->
                 <#--<td >${entity["co2"]}</td>-->
             <#--</tr>-->

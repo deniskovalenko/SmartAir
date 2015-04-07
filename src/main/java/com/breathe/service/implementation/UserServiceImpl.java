@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         return  StatisticMapper.convertDevicesList(devices);
     }
 
-    public Boolean addUser(UserModel user) {
+    public boolean addUser(UserModel user) {
         String username = user.getUsername();
         String email = user.getEmail();
         String password = user.getPassword();

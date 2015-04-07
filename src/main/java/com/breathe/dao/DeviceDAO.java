@@ -22,7 +22,7 @@ public class DeviceDAO {
     }
 
     public DBObject findByDeviceId(String deviceId) {
-        DBObject result = deviceCollection.findOne(new BasicDBObject("device_id", deviceId));
+        DBObject result = deviceCollection.findOne(new BasicDBObject("deviceId", deviceId));
         return  result;
     }
 
@@ -30,17 +30,17 @@ public class DeviceDAO {
         //T this method search, if there is any record in statistic collection with deviceID
         // would return null, if you've just bought and added device to your account
         //TODO - change to search in device collection, or even in device array of particular user..
-        return (deviceCollection.find(new BasicDBObject("device_id", deviceId)).count() > 0);
+        return (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0);
     }
 
-    public boolean addDevice(String device_id, String device_name, Integer delay, double co2MinLevel) {
-        if (deviceCollection.find(new BasicDBObject("device_id", device_id)).count() > 0) {
-            System.out.println("Device with this device_id already exists: " + device_id);
+    public boolean addDevice(String deviceId, String deviceName, Integer delay, double co2MinLevel) {
+        if (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0) {
+            System.out.println("Device with this device_id already exists: " + deviceId);
             return false;
         }
 
-        BasicDBObject post = new BasicDBObject("device_id", device_id)
-            .append("device_name", device_name)
+        BasicDBObject post = new BasicDBObject("deviceId", deviceId)
+            .append("deviceName", deviceName)
             .append("delay", delay)
             .append("co2MinLevel", co2MinLevel);
 

@@ -10,8 +10,8 @@ import com.mongodb.DBObject;
 public class DeviceMapper {
     static public ApiDeviceModel convertApiDeviceDbObject(DeviceModel device) {
         ApiDeviceModel apiDevice = new ApiDeviceModel();
-        apiDevice.setDevice_id(device.getDevice_id());
-        apiDevice.setDevice_name(device.getDevice_name());
+        apiDevice.setDeviceId(device.getDeviceId());
+        apiDevice.setDeviceName(device.getDeviceName());
         apiDevice.setCo2MinLevel(device.getCo2MinLevel());
         apiDevice.setDelay(device.getDelay());
         return apiDevice;
@@ -20,8 +20,8 @@ public class DeviceMapper {
     static public ApiDeviceModel convertDeviceDbObject(DBObject deviceDbObject) {
         try {
             ApiDeviceModel device = new ApiDeviceModel();
-            device.setDevice_id((String)deviceDbObject.get("device_id"));
-            device.setDevice_name((String)deviceDbObject.get("device_name"));
+            device.setDeviceId((String) deviceDbObject.get("deviceId"));
+            device.setDeviceName((String) deviceDbObject.get("deviceName"));
             device.setCo2MinLevel((Double) deviceDbObject.get("co2Min"));
             device.setDelay((Double) deviceDbObject.get("delay"));
             return  device;

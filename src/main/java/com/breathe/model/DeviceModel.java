@@ -5,9 +5,9 @@ package com.breathe.model;
  */
 
 public class DeviceModel {
-    private String device_id;
+    private String deviceId;
 
-    private String device_name;
+    private String deviceName;
 
     private double delay;
 
@@ -29,20 +29,20 @@ public class DeviceModel {
         this.co2MinLevel = co2MinLevel;
     }
 
-    public String getDevice_name() {
-        return device_name;
+    public String getDeviceName() {
+        return deviceName;
     }
 
-    public void setDevice_name(String device_name) {
-        this.device_name = device_name;
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
     }
 
-    public String getDevice_id() {
+    public String getDeviceId() {
 
-        return device_id;
+        return deviceId;
     }
 
-    public void setDevice_id(String device_id) {
-        this.device_id = device_id;
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 }

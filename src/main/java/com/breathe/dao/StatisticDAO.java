@@ -36,7 +36,7 @@ public class StatisticDAO {
     public List<DBObject> findByDevice(String deviceId, Date startDate, Date endDate, boolean dateSortDescending) {
         List<DBObject> result;
         int sortParam = (dateSortDescending) ? -1 : 1; // if sortDescending then sort : -1, if ascending 1
-        DBCursor cursor = dataCollection.find(new BasicDBObject("device_id", deviceId).
+        DBCursor cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId).
                 append("date", new BasicDBObject("$gte", startDate).append("$lt", endDate))).sort(new BasicDBObject("date", sortParam));
         try {
             result = cursor.toArray();
@@ -49,7 +49,7 @@ public class StatisticDAO {
     public List<DBObject> findByDevice(String deviceId, int skip, int limit, boolean dateSortDescending) {
         List<DBObject> result;
         int sortParam = (dateSortDescending) ? -1 : 1; // if sortDescending then sort : -1, if ascending 1
-        DBCursor cursor = dataCollection.find(new BasicDBObject("device_id", deviceId)).
+        DBCursor cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId)).
                 sort(new BasicDBObject("date", sortParam)).
                 skip(skip).
                 limit(limit);
@@ -62,7 +62,7 @@ public class StatisticDAO {
     }
 
     public boolean addEntity(String device_id, double temperature, double co2, double humidity) {
-        BasicDBObject post = new BasicDBObject("device_id", device_id);
+        BasicDBObject post = new BasicDBObject("deviceId", device_id);
         post.append("temperature", temperature);
         post.append("humidity", humidity);
         post.append("co2", co2);

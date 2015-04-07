@@ -12,7 +12,7 @@ public interface UserService {
 
     List<DeviceModel> findDevicesByUser(String userId);
 
-    Boolean addUser(UserModel user);
+    boolean addUser(UserModel user);
 }
 
 

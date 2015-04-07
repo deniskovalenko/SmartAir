@@ -46,11 +46,11 @@ public class StatisticServiceImpl implements StatisticService {
     }
 
     public boolean addEntity(StatisticModel stat) {
-        if (!deviceDAO.ifDeviceExists(stat.getDevice_id())) return false;
+        if (!deviceDAO.ifDeviceExists(stat.getDeviceId())) return false;
 
-        return statisticDAO.addEntity(stat.getDevice_id(), stat.getTemperature(), stat.getCo2(), stat.getHumidity());
+        return statisticDAO.addEntity(stat.getDeviceId(), stat.getTemperature(), stat.getCo2(), stat.getHumidity());
         //TODO: check if data is valid
-//        return statisticDAO.addEntity(stat.getDevice_id(), stat.getTemperature(), stat.getCo2());
+//        return statisticDAO.addEntity(stat.getDeviceId(), stat.getTemperature(), stat.getCo2());
     }
 
 }

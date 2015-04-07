@@ -3,7 +3,6 @@ package com.breathe.service.implementation;
 import com.breathe.dao.StatisticDAO;
 import com.breathe.dao.UserDAO;
 import com.breathe.model.ApiDeviceModel;
-import com.breathe.model.DeviceModel;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.ApiService;
 import com.breathe.utils.mappers.DeviceMapper;
@@ -11,7 +10,6 @@ import com.breathe.utils.mappers.StatisticMapper;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -44,7 +42,7 @@ public class ApiServiceImpl implements ApiService {
         List<DBObject> lastData = new ArrayList<>(2);
         for(ApiDeviceModel apiDevice : apiDevices) {
             //get two latest records for this device
-            lastData = statisticDAO.findByDevice(apiDevice.getDevice_id(), 0, 2, true);
+            lastData = statisticDAO.findByDevice(apiDevice.getDeviceId(), 0, 2, true);
             StatisticModel current = StatisticMapper.convertStatisticDbObject(lastData.get(0));
             StatisticModel previous = StatisticMapper.convertStatisticDbObject(lastData.get(1));
             //set currents to data from latest record

@@ -3,7 +3,6 @@ package com.breathe.dao;
 import com.breathe.model.DeviceModel;
 import com.breathe.utils.EmailValidator;
 import com.mongodb.*;
-import org.springframework.stereotype.Repository;
 import sun.misc.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
@@ -32,12 +31,11 @@ public class UserDAO {
     public UserDAO() {
     }
 
-    public List<DBObject> findDevicesByUser(String username) {
+    public List<DBObject> findDevicesByUser(String userId) {
         List<DBObject> result = new ArrayList<>();
-        DBObject user = usersCollection.findOne(new BasicDBObject("_id", username));
+        DBObject user = usersCollection.findOne(new BasicDBObject("_id", userId));
         BasicDBList devices = (BasicDBList) user.get("devices");
         for (Object device : devices ) {
-
             result.add((DBObject) device);
         }
         return  result;
@@ -72,7 +70,7 @@ public class UserDAO {
 
         ArrayList<String> devicesArray = new ArrayList<String>();
         for(DeviceModel device: devices) {
-            devicesArray.add(device.getDevice_id());
+            devicesArray.add(device.getDeviceId());
         }
         user.append("devices", devicesArray);
 
