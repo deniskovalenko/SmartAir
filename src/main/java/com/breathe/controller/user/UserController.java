@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
 //    @Autowired
 //    private StatisticService statisticService;
@@ -70,19 +70,4 @@ public class UserController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView loginPage() {
-        Map<String, Object> model = new HashMap<>();
-        model.put("username", "");
-        model.put("login_error", "");
-        return new ModelAndView("common/login", model);
-    }
-
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public ModelAndView registerPage() {
-        Map<String, Object> model = new HashMap<>();
-        model.put("username", "");
-        model.put("login_error", "");
-        return new ModelAndView("common/signup", model);
-    }
 }

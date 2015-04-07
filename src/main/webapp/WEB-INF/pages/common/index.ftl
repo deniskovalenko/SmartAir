@@ -10,7 +10,7 @@
 		<div id="menu-wrapper">
 			<div id="menu">
 				<div id="main-logo">
-					<a href="/"><img src="/resources/images/logo.png" alt="logo" border="0"/></a>
+					<a href="/user"><img src="/resources/images/logo.png" alt="logo" border="0"/></a>
 				</div>
 				<div id="main-menu">
 					<ul>
@@ -18,8 +18,8 @@
 						<#--<li><a title="Узнайте о вреде большой концентрации углекислого газа для человеческого организма" href="/">Почему это важно?</a></li>-->
 						<#--<li><a title="Как приобрести устройство и начать пользоваться нашим сервисом" href="/">Где это достать?</a></li>-->
                             <li><a title="What is iBreahte" href="/">What is iBreathe?</a></li>
-                            <li><a title="Learn more about danger of high-density of CO2" href="/">Why is it important?</a></li>
-                            <li><a title="How to purchase and start using our service" href="/">Where can I get it?</a></li>
+                            <li><a title="Learn more about danger of high-density of CO2" href="/user">Why is it important?</a></li>
+                            <li><a title="How to purchase and start using our service" href="/user">Where can I get it?</a></li>
 					</ul>
 				</div>
 				<div id="auth">
@@ -40,8 +40,8 @@
 				<div id="header-buttons">
 					<#--<a class="btn green-btn" href="/">Приобрести</a><br>-->
 					<#--<a class="btn white-btn" href="/">Подробнее</a>-->
-                        <a class="btn green-btn" href="/">Order</a><br>
-                        <a class="btn white-btn" href="/">Details</a>
+                        <a class="btn green-btn" href="/user">Order</a><br>
+                        <a class="btn white-btn" href="/user">Details</a>
 				</div>
 			</div>
 		</div>

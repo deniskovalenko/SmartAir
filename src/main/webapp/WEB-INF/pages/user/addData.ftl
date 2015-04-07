@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Statistics home page</a>
+            <a class="navbar-brand" href="/user">Statistics home page</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -43,7 +43,7 @@
 <div class="container" style="margin-top: 50px">
 
     <div class="starter-template">
-        <form name="statistic" action="/addData" method="POST">
+        <form name="statistic" action="/user/addData" method="POST">
         ${errors!""}
             <h2>Device_name</h2>
             <input class="form-control" type="text" name="device_id" width="120"><br>

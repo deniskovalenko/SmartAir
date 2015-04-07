@@ -25,13 +25,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Statistics home page</a>
+            <a class="navbar-brand" href="/user">Statistics home page</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <#--<li class="active"><a href="#">Home</a></li>-->
 
-                 <li>   <a href="/addData">New entity</a> </li>
+                 <li>   <a href="user/addData">New entity</a> </li>
 
             </ul>
 
@@ -55,11 +55,11 @@
 
     <ul class="pagination">
         <#if 0 < page >
-            <li> <a href="/page/${page-1}">prev</a></li>
+            <li> <a href="user/page/${page-1}">prev</a></li>
         </#if>
 
         <#if rows_perpage-1 < size >
-            <li><a href="/page/${page+1}">next</a>  </li>
+            <li><a href="user/page/${page+1}">next</a>  </li>
         </#if>
 
     </ul>
@@ -115,11 +115,11 @@
             <li><a href="/tag/${tag}/${page+1}">next</a></li>
         <#else>
             <#if 0 < page >
-                <li> <a href="/page/${page-1}">prev</a></li>
+                <li> <a href="user/page/${page-1}">prev</a></li>
             </#if>
 
             <#if rows_perpage -1 < elementCount>
-                <li><a href="/page/${page+1}">next</a></li>
+                <li><a href="user/page/${page+1}">next</a></li>
             </#if>
         </#if>
     </ul>
