@@ -159,11 +159,12 @@
 
 </div><!-- /.container -->
 
+</body>
+
 <footer class="footer">
     <div class="container">
         <p class="text-muted" style="text-align: center">PZ-12-1 2015</p>
-	<p class="text-muted" style="text-align: center">Tatarchenko, Sheremet, Kovalenko, Pleshkanovskiy, Sych,</p>
+        <p class="text-muted" style="text-align: center">Tatarchenko, Sheremet, Kovalenko, Pleshkanovskiy, Sych, Sovgyr</p>
     </div>
 </footer>
-</body>
 </html>
