@@ -42,11 +42,11 @@
 
     <form class="form" method="post">
 
-        <label for="inputEmail" class="">Username</label>
+        <label for="inputUsername" class="">Username</label>
         <#if username??>
-            <input name="username" value="${username}" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Email address" required autofocus>
+            <input name="username" value="${username}" type="text" id="inputUsername" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
         <#else>
-            <input name="username" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Email address" required autofocus>
+            <input name="username" type="text" id="inputUsername" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
         </#if>
 
 
