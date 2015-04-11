@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/resources/images/favicon.ico">
 
-    <title>Login</title>
+    <title>SmartAir - Login</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">

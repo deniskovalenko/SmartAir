@@ -3,7 +3,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 	
-	<title>IBreathe - Keep your area co2 free</title>
+	<title>SmartAir - Keep your area co2 free</title>
 	<link type="text/css" rel="stylesheet" href="/resources/css/stylesheet.css"/>
 	<link rel="icon" href="/resources/images/favicon.ico">
 </head>
@@ -19,7 +19,7 @@
 						<#--<li><a title="Что такое iBreahte" href="/">Что это?</a></li>-->
 						<#--<li><a title="Узнайте о вреде большой концентрации углекислого газа для человеческого организма" href="/">Почему это важно?</a></li>-->
 						<#--<li><a title="Как приобрести устройство и начать пользоваться нашим сервисом" href="/">Где это достать?</a></li>-->
-                            <li><a title="What is iBreahte" href="/">What is iBreathe?</a></li>
+                            <li><a title="What is SmartAir" href="/">What is iBreathe?</a></li>
                             <li><a title="Learn more about danger of high-density of CO2" href="/user">Why is it important?</a></li>
                             <li><a title="How to purchase and start using our service" href="/user">Where can I get it?</a></li>
 					</ul>
@@ -37,7 +37,7 @@
 			<div id="header">
 				<div id="slogan">
 					<span id="bigtext">Keep you area CO<sup>2</sup>-free</span>
-					<span id="smalltext">Service that helps you keep track of the air quality</span>
+					<span id="smalltext">Service that helps you to keep track of air quality</span>
 				</div>
 				<div id="header-buttons">
 					<#--<a class="btn green-btn" href="/">Приобрести</a><br>-->

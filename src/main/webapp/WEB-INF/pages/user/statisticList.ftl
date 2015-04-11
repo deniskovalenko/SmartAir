@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <meta name="google-site-verification" content="yqEVAdMcIMlxJlEa-IbHZak0JerbA8uLyOVRFUFKLhM" />
 
-    <title>Statistic received from Arduino</title>
+    <title>SmartAir - Statistics</title>
 	
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
@@ -27,7 +27,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/user">Statistics home page</a>
+            <a class="navbar-brand" href="/user">SmartAir</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -46,7 +46,7 @@
 
 
     <div class="starter-template">
-        <h1>CO2 Arduino Statistics</h1>
+        <h1>Your SmartAir data:</h1>
 
     <#assign  size =  data?size >
     <#if per_page?? >
@@ -161,7 +161,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted" style="text-align: center">PZ-12-1 2015</p>
+        <#--<p class="text-muted" style="text-align: center">PZ-12-1 2015</p>-->
 	<p class="text-muted" style="text-align: center">Tatarchenko, Sheremet, Kovalenko, Pleshkanovskiy, Sych,</p>
     </div>
 </footer>
