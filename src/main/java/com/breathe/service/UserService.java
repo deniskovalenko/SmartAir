@@ -13,6 +13,8 @@ public interface UserService {
     List<DeviceModel> findDevicesByUser(String userId);
 
     boolean addUser(UserModel user);
+
+    UserModel validateLogin(String username, String password);
 }
 
 
