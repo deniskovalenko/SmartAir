@@ -72,14 +72,42 @@
                 <th style="padding:10px; text-align:center;">Posted by</th>
                 <th style="padding:10px; text-align:center;">Temperature (*C)</th>
                 <th style="padding:10px; text-align:center;">CO2 (ppm)</th>
+                <th style="padding:10px; text-align:center;">Humidity</th>
             </tr>
         <#list data as entity>
 
             <tr>
-                <td style="padding-left:10px; padding-right:10px;">${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}</td>
-                <td style="padding-left:10px; padding-right:10px;">${entity["deviceId"]}</td>
-                <td style="text-align:center;">${entity["temperature"]}</td>
-                <td style="text-align:center;">${entity["co2"]}</td>
+                <td style="padding-left:10px; padding-right:10px;">
+                    ${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}
+                </td>
+                <td style="padding-left:10px; padding-right:10px;">
+                    <#if entity["deviceId"]??>
+                         ${entity["deviceId"]}
+                    <#else>
+                        no data
+                    </#if>
+                </td>
+                <td style="text-align:center;">
+                    <#if entity["temperature"]??>
+                         ${entity["temperature"]}
+                    <#else>
+                        no data
+                    </#if>
+                </td>
+                <td style="text-align:center;">
+                    <#if entity["co2"]??>
+                         ${entity["co2"]}
+                    <#else>
+                        no data
+                    </#if>
+                </td>
+                <td style="text-align:center;">
+                    <#if entity["humidity"]??>
+                        ${entity["humidity"]}
+                    <#else>
+                        no data
+                    </#if>
+                </td>
             </tr>
 
             <#assign elementCount=elementCount+1>
