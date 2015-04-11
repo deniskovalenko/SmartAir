@@ -19,7 +19,7 @@
 						<#--<li><a title="Что такое iBreahte" href="/">Что это?</a></li>-->
 						<#--<li><a title="Узнайте о вреде большой концентрации углекислого газа для человеческого организма" href="/">Почему это важно?</a></li>-->
 						<#--<li><a title="Как приобрести устройство и начать пользоваться нашим сервисом" href="/">Где это достать?</a></li>-->
-                            <li><a title="What is SmartAir" href="/">What is iBreathe?</a></li>
+                            <li><a title="What is SmartAir" href="/">What is SmartAir?</a></li>
                             <li><a title="Learn more about danger of high-density of CO2" href="/user">Why is it important?</a></li>
                             <li><a title="How to purchase and start using our service" href="/user">Where can I get it?</a></li>
 					</ul>
