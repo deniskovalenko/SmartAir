@@ -1,7 +1,9 @@
 package com.breathe.dao;
 
 import com.breathe.model.DeviceModel;
+import com.breathe.model.UserModel;
 import com.breathe.utils.EmailValidator;
+import com.breathe.utils.mappers.UserMapper;
 import com.mongodb.*;
 import sun.misc.BASE64Encoder;
 
@@ -42,8 +44,7 @@ public class UserDAO {
     }
 
     // validates that username is unique and insert into db
-    public boolean addUser(String username, String email, String password, String name, String surname,
-            String country, String city, List<DeviceModel> devices) {
+    public boolean addUser(String username, String email, String password, List<DeviceModel> devices) {
         if (usersCollection.find(new BasicDBObject("username", username)).count() > 0) {
             System.out.println("User with this username already exists: " + username);
             return false;
@@ -57,20 +58,18 @@ public class UserDAO {
 
         BasicDBObject user = new BasicDBObject();
         // TODO _id : new UUID.randomUUID
-        user.append("username", username)
+        user.append("username", username).append("password", password);
            // .append("password", passwordHash)
-            .append("name", name)
-            .append("surname", surname)
-            .append("country", country)
-            .append("city", city);
 
         if (email != null && !email.equals("") && emailValidator.validate(email)) {
             user.append("email", email);
         }
 
         ArrayList<String> devicesArray = new ArrayList<String>();
-        for(DeviceModel device: devices) {
-            devicesArray.add(device.getDeviceId());
+        if ((devices != null) && (!devices.isEmpty())) {
+            for (DeviceModel device : devices) {
+                devicesArray.add(device.getDeviceId());
+            }
         }
         user.append("devices", devicesArray);
 
@@ -84,23 +83,26 @@ public class UserDAO {
     }
 
     public DBObject validateLogin(String username, String password) {
-        DBObject user;
-
-        user = usersCollection.findOne(new BasicDBObject("_id", username));
+        DBObject user = usersCollection.findOne(new BasicDBObject("username", username));
 
         if (user == null) {
             System.out.println("User not in database");
             return null;
         }
 
-        String hashedAndSalted = user.get("password").toString();
+//        String hashedAndSalted = user.get("password").toString();
 
-        String salt = hashedAndSalted.split(",")[1];
+//        String salt = hashedAndSalted.split(",")[1];
 
 //        if (!hashedAndSalted.equals(makePasswordHash(password, salt))) {
 //            System.out.println("Submitted password is not a match");
 //            return null;
 //        }
+
+        if (!user.get("password").toString().equals(password)) {
+            System.out.println("Wrong password");
+            return null;
+        }
 
         return user;
     }
