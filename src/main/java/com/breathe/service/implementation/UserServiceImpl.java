@@ -5,6 +5,7 @@ import com.breathe.dao.UserDAO;
 import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;
 import com.breathe.service.UserService;
+import com.breathe.utils.mappers.UserMapper;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
 
@@ -17,8 +18,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private UserDAO userDAO;
 
-//    public UserServiceImpl() {
-//    }
+    public UserServiceImpl() {
+    }
 
     public UserServiceImpl(final DB co2Database) {
         userDAO = new UserDAO(co2Database);
@@ -33,13 +34,12 @@ public class UserServiceImpl implements UserService {
         String username = user.getUsername();
         String email = user.getEmail();
         String password = user.getPassword();
-        String name = user.getName();
-        String surname = user.getSurname();
-        String country = user.getCountry();
-        String city = user.getCity();
         List<DeviceModel> devices = user.getDevices();
         //TODO add generation of _id like new RandomUUID
-        return userDAO.addUser(username, email, password, name, surname,
-                country, city, devices);
+        return userDAO.addUser(username, email, password, devices);
+    }
+
+    public UserModel validateLogin(String username, String password) {
+        return UserMapper.convertUserDbObject(userDAO.validateLogin(username, password));
     }
 }
