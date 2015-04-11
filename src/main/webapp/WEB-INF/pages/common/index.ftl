@@ -25,8 +25,6 @@
 					</ul>
 				</div>
 				<div id="auth">
-					<#--<a href="/signup">Регистрация</a>-->
-					<#--<a href="/login">Войти</a>-->
                         <a href="/signup">Sign Up</a>
                         <a href="/login">Log in</a>
 				</div>

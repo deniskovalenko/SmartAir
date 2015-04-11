@@ -38,14 +38,15 @@
 
 </div> <!-- /container -->
 <div style="text-align: center">Need to Create an account? <a href="/signup">Signup</a></div>
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted" style="text-align: center">Denis Kovalenko 2014</p>
-    </div>
-</footer>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted" style="text-align: center">PZ-12-1 2015</p>
+        <p class="text-muted" style="text-align: center">Tatarchenko, Sheremet, Kovalenko, Pleshkanovskiy, Sych, Sovgyr</p>
+    </div>
+</footer>
 </html>
 
 
