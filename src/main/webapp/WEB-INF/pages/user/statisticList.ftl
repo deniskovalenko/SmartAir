@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +10,10 @@
     <meta name="google-site-verification" content="yqEVAdMcIMlxJlEa-IbHZak0JerbA8uLyOVRFUFKLhM" />
 
     <title>Statistic received from Arduino</title>
-
+	
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="icon" href="/resources/images/favicon.ico">
 </head>
 
 <body>
@@ -72,14 +74,42 @@
                 <th style="padding:10px; text-align:center;">Posted by</th>
                 <th style="padding:10px; text-align:center;">Temperature (*C)</th>
                 <th style="padding:10px; text-align:center;">CO2 (ppm)</th>
+                <th style="padding:10px; text-align:center;">Humidity</th>
             </tr>
         <#list data as entity>
 
             <tr>
-                <td style="padding-left:10px; padding-right:10px;">${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}</td>
-                <td style="padding-left:10px; padding-right:10px;">${entity["deviceId"]}</td>
-                <td style="text-align:center;">${entity["temperature"]}</td>
-                <td style="text-align:center;">${entity["co2"]}</td>
+                <td style="padding-left:10px; padding-right:10px;">
+                    ${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}
+                </td>
+                <td style="padding-left:10px; padding-right:10px;">
+                    <#if entity["deviceId"]??>
+                         ${entity["deviceId"]}
+                    <#else>
+                        no data
+                    </#if>
+                </td>
+                <td style="text-align:center;">
+                    <#if entity["temperature"]??>
+                         ${entity["temperature"]}
+                    <#else>
+                        no data
+                    </#if>
+                </td>
+                <td style="text-align:center;">
+                    <#if entity["co2"]??>
+                         ${entity["co2"]}
+                    <#else>
+                        no data
+                    </#if>
+                </td>
+                <td style="text-align:center;">
+                    <#if entity["humidity"]??>
+                        ${entity["humidity"]}
+                    <#else>
+                        no data
+                    </#if>
+                </td>
             </tr>
 
             <#assign elementCount=elementCount+1>

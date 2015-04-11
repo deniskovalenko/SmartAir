@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	
 	<title>IBreathe - Keep your area co2 free</title>
 	<link type="text/css" rel="stylesheet" href="/resources/css/stylesheet.css"/>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<link rel="icon" href="/resources/images/favicon.ico">
 </head>
 <body>
 	<div id="site-wrapper">
