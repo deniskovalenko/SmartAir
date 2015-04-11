@@ -44,7 +44,7 @@ public class UserDAO {
     }
 
     // validates that username is unique and insert into db
-    public boolean addUser(String username, String email, String password, List<DeviceModel> devices) {
+    public boolean addUser(String userId, String username, String email, String password, List<DeviceModel> devices) {
         if (usersCollection.find(new BasicDBObject("username", username)).count() > 0) {
             System.out.println("User with this username already exists: " + username);
             return false;
@@ -57,10 +57,9 @@ public class UserDAO {
        // String passwordHash = makePasswordHash(password, Integer.toString(random.nextInt()));
 
         BasicDBObject user = new BasicDBObject();
-        // TODO _id : new UUID.randomUUID
         user.append("username", username).append("password", password);
            // .append("password", passwordHash)
-
+        user.append("_id", userId);
         if (email != null && !email.equals("") && emailValidator.validate(email)) {
             user.append("email", email);
         }

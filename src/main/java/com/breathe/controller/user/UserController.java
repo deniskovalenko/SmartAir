@@ -41,6 +41,7 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getStatisticList(ModelMap model) {
+        //change to StatisticService, and in service find method add user's timezone
         List<DBObject> data = statisticDAO.findByDateDescending(0, PER_PAGE);
         model.put("per_page", PER_PAGE);
         model.put("page", 0);

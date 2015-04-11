@@ -10,6 +10,7 @@ import com.mongodb.DB;
 import com.mongodb.DBObject;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by amira on 02.04.15.
@@ -32,11 +33,12 @@ public class UserServiceImpl implements UserService {
 
     public boolean addUser(UserModel user) {
         String username = user.getUsername();
+        String userId = UUID.randomUUID().toString();
         String email = user.getEmail();
         String password = user.getPassword();
         List<DeviceModel> devices = user.getDevices();
         //TODO add generation of _id like new RandomUUID
-        return userDAO.addUser(username, email, password, devices);
+        return userDAO.addUser(userId, username, email, password, devices);
     }
 
     public UserModel validateLogin(String username, String password) {
