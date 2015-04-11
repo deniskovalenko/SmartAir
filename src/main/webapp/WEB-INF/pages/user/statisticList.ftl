@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +10,10 @@
     <meta name="google-site-verification" content="yqEVAdMcIMlxJlEa-IbHZak0JerbA8uLyOVRFUFKLhM" />
 
     <title>Statistic received from Arduino</title>
-
+	
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link rel="icon" href="/resources/images/favicon.ico">
 </head>
 
 <body>

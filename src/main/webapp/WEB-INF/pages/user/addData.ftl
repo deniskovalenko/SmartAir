@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
+    <link rel="icon" href="/resources/images/favicon.ico">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <title>Create a new test entity</title>
 </head>
