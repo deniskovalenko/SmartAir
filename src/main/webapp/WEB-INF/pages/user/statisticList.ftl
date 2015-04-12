@@ -27,7 +27,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/user">SmartAir</a>
+               <a href="/">
+                   <img src="/resources/images/leave.png" alt="logo" border="0">
+                   <img src="/resources/images/logo.png" alt="logo" border="0">
+                </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
