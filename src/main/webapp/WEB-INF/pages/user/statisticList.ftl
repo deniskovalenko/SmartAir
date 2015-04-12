@@ -36,7 +36,7 @@
             <ul class="nav navbar-nav">
                 <#--<li class="active"><a href="#">Home</a></li>-->
 
-                 <li>   <a href="/user/addData">New entity</a> </li>
+                <#-- <li>   <a href="/user/addData">New entity</a> </li> -->		
 
             </ul>
 
@@ -44,7 +44,7 @@
     </div>
 </nav>
 
-<div class="container" style="margin-top: 30px">
+<div class="container" style="margin-top: 50px">
 
 
 
