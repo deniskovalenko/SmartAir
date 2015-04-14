@@ -27,7 +27,7 @@ import java.util.Map;
 public class WelcomeController {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
 
     private static final String REDIRECT = "redirect:/";

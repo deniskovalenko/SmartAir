@@ -2,17 +2,13 @@ package com.breathe.controller.user;
 
 import com.breathe.model.StatisticModel;
 import com.breathe.service.StatisticService;
-import com.breathe.service.implementation.StatisticServiceImpl;
-import com.mongodb.DB;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.net.UnknownHostException;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +17,7 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private StatisticServiceImpl statisticService;
+    private StatisticService statisticService;
 
     private static final String ROOT = "user";
     public final static int PER_PAGE = 30;

@@ -24,11 +24,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/api")
 public class ApiController {
-//    @Autowired
-//    private StatisticService statisticService;
-//    @Autowired
-//    private UserService userService;
-
     @Autowired
     private UserService userService;
     @Autowired
