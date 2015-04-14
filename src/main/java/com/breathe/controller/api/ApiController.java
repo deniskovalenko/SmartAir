@@ -30,11 +30,11 @@ public class ApiController {
 //    private UserService userService;
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
     @Autowired
-    private StatisticServiceImpl statisticService;
+    private StatisticService statisticService;
     @Autowired
-    private ApiServiceImpl apiService;
+    private ApiService apiService;
 
     public ApiController() throws UnknownHostException {
         final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));

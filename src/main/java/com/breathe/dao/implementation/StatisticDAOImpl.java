@@ -1,10 +1,10 @@
 package com.breathe.dao.implementation;
 
+import com.breathe.dao.StatisticDAO;
 import com.mongodb.*;
 import org.springframework.stereotype.Repository;
 
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,13 +12,13 @@ import java.util.List;
  * Created by denis on 12.03.15.
  */
 @Repository
-public class StatisticDAO {
+public class StatisticDAOImpl implements StatisticDAO {
     DBCollection dataCollection;
     MongoClient mongoClient;
     DB co2Database;
 
 
-    public StatisticDAO() throws UnknownHostException{
+    public StatisticDAOImpl() throws UnknownHostException{
         mongoClient= new MongoClient(new MongoClientURI("mongodb://localhost"));
         co2Database = mongoClient.getDB("co2");
         dataCollection = co2Database.getCollection("data");

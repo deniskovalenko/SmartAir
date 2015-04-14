@@ -1,11 +1,9 @@
 package com.breathe.service.implementation;
 
-import com.breathe.dao.DeviceDAL;
+import com.breathe.dao.DeviceDAO;
 import com.breathe.utils.mappers.StatisticMapper;
-import com.breathe.dao.implementation.DeviceDAO;
 import com.breathe.model.DeviceModel;
 import com.breathe.service.DeviceService;
-import com.mongodb.DB;
 import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

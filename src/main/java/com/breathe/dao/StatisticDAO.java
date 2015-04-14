@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by denis on 14.04.15.
  */
-public interface StatisticDAL {
+public interface StatisticDAO {
     List<DBObject> findByDateDescending(int page, int limit);
 
     List<DBObject> findByDevice(String deviceId, int skip, int limit, boolean dateSortDescending);

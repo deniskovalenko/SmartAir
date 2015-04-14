@@ -1,7 +1,6 @@
 package com.breathe.service.implementation;
 
-import com.breathe.dao.UserDAL;
-import com.breathe.dao.implementation.UserDAO;
+import com.breathe.dao.UserDAO;
 import com.breathe.utils.mappers.StatisticMapper;
 import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;

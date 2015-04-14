@@ -1,18 +1,12 @@
 package com.breathe.dao.implementation;
 
-import com.breathe.dao.UserDAL;
+import com.breathe.dao.UserDAO;
 import com.breathe.model.DeviceModel;
-import com.breathe.model.UserModel;
 import com.breathe.utils.EmailValidator;
-import com.breathe.utils.mappers.UserMapper;
 import com.mongodb.*;
 import org.springframework.stereotype.Repository;
-import sun.misc.BASE64Encoder;
 
-import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +17,7 @@ import java.util.Random;
  */
 
 @Repository
-public class UserDAO implements UserDAL {
+public class UserDAOImpl implements UserDAO {
     private DBCollection usersCollection;
     private MongoClient mongoClient;
     private DB co2Database;
@@ -32,7 +26,7 @@ public class UserDAO implements UserDAL {
     private Random random = new SecureRandom();
     private EmailValidator emailValidator = new EmailValidator();
 
-    public UserDAO() throws UnknownHostException {
+    public UserDAOImpl() throws UnknownHostException {
          mongoClient= new MongoClient(new MongoClientURI("mongodb://localhost"));
          co2Database = mongoClient.getDB("co2");
          usersCollection = co2Database.getCollection("users");

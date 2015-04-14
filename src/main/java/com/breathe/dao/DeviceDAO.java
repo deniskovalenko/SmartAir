@@ -5,7 +5,7 @@ import com.mongodb.DBObject;
 /**
  * Created by denis on 14.04.15.
  */
-public interface DeviceDAL {
+public interface DeviceDAO {
     DBObject findByDeviceId(String deviceId);
 
     //TODO change to void

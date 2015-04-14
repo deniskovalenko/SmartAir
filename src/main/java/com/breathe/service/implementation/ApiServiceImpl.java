@@ -1,9 +1,7 @@
 package com.breathe.service.implementation;
 
-import com.breathe.dao.StatisticDAL;
-import com.breathe.dao.implementation.StatisticDAO;
-import com.breathe.dao.UserDAL;
-import com.breathe.dao.implementation.UserDAO;
+import com.breathe.dao.StatisticDAO;
+import com.breathe.dao.UserDAO;
 import com.breathe.model.ApiDeviceModel;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.ApiService;

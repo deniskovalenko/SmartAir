@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by denis on 14.04.15.
  */
-public interface UserDAL {
+public interface UserDAO {
     List<DBObject> findDevices(String userId);
 
 
