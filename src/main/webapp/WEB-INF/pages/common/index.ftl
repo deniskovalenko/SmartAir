@@ -2,6 +2,8 @@
 <html>
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta name="google-site-verification" content="yqEVAdMcIMlxJlEa-IbHZak0JerbA8uLyOVRFUFKLhM" />
+	<meta name="google-site-verification" content="-2u6NzbFCW-LpLIE6tLmyjfpPfWbOmCe9nP-wS2hHj0" />
 	
 	<title>SmartAir - Keep your area co2 free</title>
 	<link type="text/css" rel="stylesheet" href="/resources/css/stylesheet.css"/>
