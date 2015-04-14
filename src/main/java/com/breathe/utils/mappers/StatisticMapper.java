@@ -20,6 +20,7 @@ public class StatisticMapper {
             stat.setDeviceId((String) statisticDbObject.get("deviceId"));
             stat.setDate((Date) statisticDbObject.get("date"));
             stat.setTemperature((Double) statisticDbObject.get("temperature"));
+            stat.setHumidity((Double) statisticDbObject.get("humidity"));
             return  stat;
         } catch (Exception e)
         {
