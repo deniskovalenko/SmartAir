@@ -1,12 +1,15 @@
 package com.breathe.service.implementation;
 
+import com.breathe.dao.DeviceDAL;
+import com.breathe.dao.StatisticDAL;
+import com.breathe.dao.implementation.DeviceDAO;
+import com.breathe.dao.implementation.StatisticDAO;
 import com.breathe.utils.mappers.StatisticMapper;
-import com.breathe.dao.DeviceDAO;
-import com.breathe.dao.StatisticDAO;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.StatisticService;
-import com.mongodb.DB;
 import com.mongodb.DBObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -14,16 +17,13 @@ import java.util.List;
 /**
  * Created by denis on 14.03.15.
  */
-
-//@Component
+@Service
 public class StatisticServiceImpl implements StatisticService {
+    @Autowired
     private StatisticDAO statisticDAO;
+    @Autowired
     private DeviceDAO deviceDAO;
 
-    public StatisticServiceImpl(final DB co2Database) {
-        statisticDAO = new StatisticDAO(co2Database);
-        deviceDAO = new DeviceDAO(co2Database);
-    }
 //
 //    public StatisticServiceImpl() throws UnknownHostException {
 //                final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));

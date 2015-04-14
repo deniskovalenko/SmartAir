@@ -1,24 +1,24 @@
 package com.breathe.service.implementation;
 
+import com.breathe.dao.DeviceDAL;
 import com.breathe.utils.mappers.StatisticMapper;
-import com.breathe.dao.DeviceDAO;
+import com.breathe.dao.implementation.DeviceDAO;
 import com.breathe.model.DeviceModel;
 import com.breathe.service.DeviceService;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by amira on 03.04.15.
  */
-//@Component
+@Service
 public class DeviceServiceImpl implements DeviceService {
+    @Autowired
     private DeviceDAO deviceDAO;
 
 //    public DeviceServiceImpl() {}
-
-    public DeviceServiceImpl(final DB co2Database) {
-        deviceDAO = new DeviceDAO(co2Database);
-    }
 
     public DeviceModel findDevicesById(String deviceId) {
         DBObject device = deviceDAO.findByDeviceId(deviceId);

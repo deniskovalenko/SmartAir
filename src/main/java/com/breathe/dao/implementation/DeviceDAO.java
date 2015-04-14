@@ -1,24 +1,23 @@
-package com.breathe.dao;
+package com.breathe.dao.implementation;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
+import com.mongodb.*;
 import org.springframework.stereotype.Repository;
+
+import java.net.UnknownHostException;
 
 /**
  * Created by amira on 03.04.15.
  */
-//@Repository
+@Repository
 public class DeviceDAO {
     DBCollection deviceCollection; //collection of manufactured, but maybe not purchased yet devices
+    MongoClient mongoClient;
+    DB co2Database;
 
-    public DeviceDAO() {
-    }
-
-    public DeviceDAO(final DB co2Database) {
+    public DeviceDAO() throws UnknownHostException{
+        mongoClient= new MongoClient(new MongoClientURI("mongodb://localhost"));
+        co2Database = mongoClient.getDB("co2");
         deviceCollection = co2Database.getCollection("data");
-        //TODO - change to device collection
     }
 
     public DBObject findByDeviceId(String deviceId) {

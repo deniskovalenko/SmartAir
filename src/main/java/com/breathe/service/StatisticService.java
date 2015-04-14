@@ -10,6 +10,8 @@ import java.util.List;
  */
 public interface StatisticService {
 
+    List<StatisticModel> findByDateDescending(int page, int limit);
+
     List<StatisticModel> findByDevice(String deviceId, int skip, int limit, boolean dateSortDescending);
 
     List<StatisticModel> findByDevice(String deviceId, Date startDate, Date endDate, boolean sortDescending);

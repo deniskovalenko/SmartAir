@@ -26,16 +26,11 @@ import java.util.Map;
 @RequestMapping("/")
 public class WelcomeController {
 
-//    @Autowired
-    private UserService userService;
+    @Autowired
+    private UserServiceImpl userService;
+
+
     private static final String REDIRECT = "redirect:/";
-
-    public WelcomeController() throws UnknownHostException {
-        final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));
-        final DB co2Database = mongoClient.getDB("co2");
-
-        this.userService = new UserServiceImpl(co2Database);
-    }
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView greetings(ModelMap model) {

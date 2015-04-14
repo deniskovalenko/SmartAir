@@ -2,6 +2,7 @@ package com.breathe.service;
 
 import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface UserService {
 
     List<DeviceModel> findDevicesByUser(String userId);
 
-    boolean addUser(UserModel user);
+    void addUser(UserModel user);
 
     UserModel validateLogin(String username, String password);
 }

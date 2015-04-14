@@ -1,14 +1,17 @@
 package com.breathe.service.implementation;
 
-import com.breathe.dao.StatisticDAO;
-import com.breathe.dao.UserDAO;
+import com.breathe.dao.StatisticDAL;
+import com.breathe.dao.implementation.StatisticDAO;
+import com.breathe.dao.UserDAL;
+import com.breathe.dao.implementation.UserDAO;
 import com.breathe.model.ApiDeviceModel;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.ApiService;
 import com.breathe.utils.mappers.DeviceMapper;
 import com.breathe.utils.mappers.StatisticMapper;
-import com.mongodb.DB;
 import com.mongodb.DBObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,24 +20,22 @@ import java.util.List;
 /**
  * Created by denis on 07.04.15.
  */
+@Service
 public class ApiServiceImpl implements ApiService {
 
+    @Autowired
     private UserDAO userDAO;
+    @Autowired
     private StatisticDAO statisticDAO;
 
 //    public UserServiceImpl() {
 //    }
 
-    public ApiServiceImpl(final DB co2Database) {
-        userDAO = new UserDAO(co2Database);
-        statisticDAO = new StatisticDAO(co2Database);
-    }
-
     public List<ApiDeviceModel> getDevices(String userId) {
         List<ApiDeviceModel> apiDevices = new ArrayList<>();
 
         //get user's devices
-        List<DBObject> devices = userDAO.findDevicesByUser(userId);
+        List<DBObject> devices = userDAO.findDevices(userId);
         for(DBObject device : devices) {
            apiDevices.add(DeviceMapper.convertDeviceDbObject(device));
          }

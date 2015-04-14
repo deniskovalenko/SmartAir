@@ -29,16 +29,16 @@ public class ApiController {
 //    @Autowired
 //    private UserService userService;
 
-    private UserService userService;
-    private StatisticService statisticService;
-    private ApiService apiService;
+    @Autowired
+    private UserServiceImpl userService;
+    @Autowired
+    private StatisticServiceImpl statisticService;
+    @Autowired
+    private ApiServiceImpl apiService;
 
     public ApiController() throws UnknownHostException {
         final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));
         final DB co2Database = mongoClient.getDB("co2");
-        this.statisticService = new StatisticServiceImpl(co2Database);
-        this.userService = new UserServiceImpl(co2Database);
-        this.apiService = new ApiServiceImpl(co2Database);
     }
 
     @RequestMapping(value = "/statistic", method = RequestMethod.GET)

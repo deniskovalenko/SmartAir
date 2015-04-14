@@ -1,12 +1,9 @@
 package com.breathe.controller.user;
 
-import com.breathe.dao.StatisticDAO;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.StatisticService;
-import com.breathe.service.UserService;
 import com.breathe.service.implementation.StatisticServiceImpl;
 import com.mongodb.DB;
-import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,31 +20,15 @@ import java.util.Map;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-//    @Autowired
-//    private StatisticService statisticService;
+    @Autowired
+    private StatisticServiceImpl statisticService;
 
     private static final String ROOT = "user";
     public final static int PER_PAGE = 30;
-    private StatisticDAO statisticDAO;
-    private StatisticServiceImpl statisticService;
-
-    public UserController() throws UnknownHostException {
-        final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));
-        final DB co2Database = mongoClient.getDB("co2");
-
-        statisticDAO = new StatisticDAO(co2Database);
-        this.statisticService = new StatisticServiceImpl(co2Database);
-    }
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getStatisticList(ModelMap model) {
-        //change to StatisticService, and in service find method add user's timezone
-        List<DBObject> data = statisticDAO.findByDateDescending(0, PER_PAGE);
-        model.put("per_page", PER_PAGE);
-        model.put("page", 0);
-        model.put("data", data);
-
-        return new ModelAndView(ROOT + "/statisticList", model);
+        return getStatisticPage(0);
 	}
 
     @RequestMapping(value = "/page/{page}", method = RequestMethod.GET)

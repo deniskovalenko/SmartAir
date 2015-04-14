@@ -1,13 +1,16 @@
-package com.breathe.dao;
+package com.breathe.dao.implementation;
 
+import com.breathe.dao.UserDAL;
 import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;
 import com.breathe.utils.EmailValidator;
 import com.breathe.utils.mappers.UserMapper;
 import com.mongodb.*;
+import org.springframework.stereotype.Repository;
 import sun.misc.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
+import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -19,21 +22,23 @@ import java.util.Random;
  * Created by amira on 02.04.15.
  */
 
-//@Repository
-public class UserDAO {
-    DBCollection usersCollection;
+@Repository
+public class UserDAO implements UserDAL {
+    private DBCollection usersCollection;
+    private MongoClient mongoClient;
+    private DB co2Database;
+
 
     private Random random = new SecureRandom();
     private EmailValidator emailValidator = new EmailValidator();
 
-    public UserDAO(final DB co2Database) {
-        usersCollection = co2Database.getCollection("users");
+    public UserDAO() throws UnknownHostException {
+         mongoClient= new MongoClient(new MongoClientURI("mongodb://localhost"));
+         co2Database = mongoClient.getDB("co2");
+         usersCollection = co2Database.getCollection("users");
     }
 
-    public UserDAO() {
-    }
-
-    public List<DBObject> findDevicesByUser(String userId) {
+    public List<DBObject> findDevices(String userId) {
         List<DBObject> result = new ArrayList<>();
         DBObject user = usersCollection.findOne(new BasicDBObject("_id", userId));
         BasicDBList devices = (BasicDBList) user.get("devices");
@@ -44,14 +49,14 @@ public class UserDAO {
     }
 
     // validates that username is unique and insert into db
-    public boolean addUser(String userId, String username, String email, String password, List<DeviceModel> devices) {
+    public void addUser(String userId, String username, String email, String password, List<DeviceModel> devices) {
         if (usersCollection.find(new BasicDBObject("username", username)).count() > 0) {
             System.out.println("User with this username already exists: " + username);
-            return false;
+            //TODO throw exception
         }
         if (usersCollection.find(new BasicDBObject("email", email)).count() > 0) {
             System.out.println("User with this email already exists: " + email);
-            return false;
+            //TODO throw ecception
         }
 
        // String passwordHash = makePasswordHash(password, Integer.toString(random.nextInt()));
@@ -74,10 +79,8 @@ public class UserDAO {
 
         try {
             usersCollection.insert(user);
-            return true;
         } catch (MongoException.DuplicateKey e) {
             System.out.println("Username already in use: " + username);
-            return false;
         }
     }
 

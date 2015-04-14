@@ -82,8 +82,15 @@
         <#list data as entity>
 
             <tr>
+                <#--<td style="padding-left:10px; padding-right:10px;">-->
+                    <#--${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}-->
+                <#--</td>-->
                 <td style="padding-left:10px; padding-right:10px;">
+                    <#if entity["date"]??>
                     ${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}
+                    <#else>
+                        no data
+                    </#if>
                 </td>
                 <td style="padding-left:10px; padding-right:10px;">
                     <#if entity["deviceId"]??>
