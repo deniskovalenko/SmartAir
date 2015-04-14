@@ -1,6 +1,6 @@
 package com.breathe.utils.mappers;
 
-import com.breathe.model.ApiDeviceModel;
+import com.breathe.model.api.ApiDeviceModel;
 import com.breathe.model.DeviceModel;
 import com.mongodb.DBObject;
 

@@ -2,7 +2,7 @@ package com.breathe.service.implementation;
 
 import com.breathe.dao.StatisticDAO;
 import com.breathe.dao.UserDAO;
-import com.breathe.model.ApiDeviceModel;
+import com.breathe.model.api.ApiDeviceModel;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.ApiService;
 import com.breathe.utils.mappers.DeviceMapper;

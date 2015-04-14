@@ -1,6 +1,6 @@
 package com.breathe.service;
 
-import com.breathe.model.ApiDeviceModel;
+import com.breathe.model.api.ApiDeviceModel;
 import com.breathe.model.StatisticModel;
 
 import java.util.Date;

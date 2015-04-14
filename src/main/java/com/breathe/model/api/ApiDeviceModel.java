@@ -1,4 +1,6 @@
-package com.breathe.model;
+package com.breathe.model.api;
+
+import com.breathe.model.DeviceModel;
 
 /**
  * Created by denis on 07.04.15.
