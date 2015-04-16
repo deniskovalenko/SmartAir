@@ -1,5 +1,6 @@
 package com.breathe.controller.user;
 
+import com.breathe.model.ChartDataSetModel;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.StatisticService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,20 @@ public class UserController {
         model.put("page", page);
         model.put("data", data);
         return new ModelAndView(ROOT + "/statisticList", model);
+    }
+    @RequestMapping(value = "/chart", method = RequestMethod.GET)
+    public ModelAndView getStatisticChart() {
+      //  List<StatisticModel> data = statisticService.findByDateDescending(page, PER_PAGE);
+      //  Map<String, Object> model = new HashMap<>();
+       // model.put("per_page", PER_PAGE);
+       // model.put("page", page);
+       // model.put("data", data);
+        return new ModelAndView(ROOT + "/chart");
+    }
+
+    @RequestMapping(value = "/chart/{page}", method = RequestMethod.GET)
+    public @ResponseBody List<ChartDataSetModel> getChartData(@PathVariable("page") int page) {
+        return statisticService.getChartData("someId", page, PER_PAGE);
     }
 
     @RequestMapping(value = "/addData", method = RequestMethod.GET)

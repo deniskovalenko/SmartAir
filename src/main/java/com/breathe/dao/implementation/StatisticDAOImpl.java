@@ -80,6 +80,4 @@ public class StatisticDAOImpl implements StatisticDAO {
 
         return true;
     }
-
-
 }
