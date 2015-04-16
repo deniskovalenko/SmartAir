@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
     <script src="/resources/js/nv.d3.js"></script>
 
-
+    <script src="/resources/js/jquery-2.1.3.js"></script>
     <script src="/resources/js/chart.js"></script>
 
 
@@ -60,22 +60,22 @@
     <div class="starter-template">
         <h1>Your SmartAir data:</h1>
 
-    <#assign  size =  data?size >
-    <#if per_page?? >
-        <#assign rows_perpage = per_page>
-    <#else>
-        <#assign rows_perpage = 10>
-    </#if>
+    <#--<#assign  size =  data?size >-->
+    <#--<#if per_page?? >-->
+        <#--<#assign rows_perpage = per_page>-->
+    <#--<#else>-->
+        <#--<#assign rows_perpage = 10>-->
+    <#--</#if>-->
 
-    <ul class="pagination">
-        <#if 0 < page >
-            <li> <a href="/user/page/${page-1}">prev</a></li>
-        </#if>
+    <#--<ul class="pagination">-->
+        <#--<#if 0 < page >-->
+            <#--<li> <a href="/user/page/${page-1}">prev</a></li>-->
+        <#--</#if>-->
 
-        <#if rows_perpage-1 < size >
-            <li><a href="/user/page/${page+1}">next</a>  </li>
-        </#if>
-   </ul>
+        <#--<#if rows_perpage-1 < size >-->
+            <#--<li><a href="/user/page/${page+1}">next</a>  </li>-->
+        <#--</#if>-->
+   <#--</ul>-->
 
         <div id="Statistic" style="height: 400px;"></div>
 

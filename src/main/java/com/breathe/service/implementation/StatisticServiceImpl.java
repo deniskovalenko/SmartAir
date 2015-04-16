@@ -30,13 +30,6 @@ public class StatisticServiceImpl implements StatisticService {
     @Autowired
     private UserService userService;
 
-
-//
-//    public StatisticServiceImpl() throws UnknownHostException {
-//                final MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost"));
-//        final DB co2Database = mongoClient.getDB("co2");
-//    }
-
     public List<StatisticModel> findByDateDescending(int page, int limit) {
         List<DBObject> data = statisticDAO.findByDateDescending(page, limit);
         return StatisticMapper.convertStatisticList(data);
@@ -63,6 +56,7 @@ public class StatisticServiceImpl implements StatisticService {
     public List<ChartDataSetModel> getChartData(String userId, int page, int limit) {
         List<DeviceModel> devices = userService.findDevicesByUser(userId);
         List<ChartDataSetModel> dataSets = new ArrayList<>();
+//        int i = 0;
         for (DeviceModel device :devices) {
             ChartDataSetModel dataSet = new ChartDataSetModel();
             dataSet.setKey(device.getDeviceName());
@@ -72,6 +66,7 @@ public class StatisticServiceImpl implements StatisticService {
             for(StatisticModel stat : stats) {
                 values.add(new ChartPoint(stat.getDate(), stat.getCo2()));
             }
+//            i++;
             dataSet.setValues(values);
             dataSets.add(dataSet);
         }

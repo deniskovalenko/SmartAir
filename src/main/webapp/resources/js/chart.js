@@ -1,6 +1,8 @@
 // Wrapping in nv.addGraph allows for '0 timeout render', stores rendered charts in nv.graphs, and may do more in the future... it's NOT required
 var chart;
 
+
+
 nv.addGraph(function() {
     chart = nv.models.lineChart()
         .options({
@@ -21,10 +23,10 @@ nv.addGraph(function() {
         .tickFormat(d3.format(',.2f'))
     ;
 
-
-    d3.select('#Statistic').append('svg')
-        .datum(sinAndCos())
-        .call(chart);
+    getChartData();
+//    d3.select('#Statistic').append('svg')
+//        .datum(getChartData())
+//        .call(chart);
     //here making ajax call
 
     nv.utils.windowResize(chart.update);
@@ -34,6 +36,15 @@ nv.addGraph(function() {
 /**************************************
  * Simple test data generator
  */
+
+function getChartData() {
+    $.getJSON( "/user/chart", function( result ) {
+        d3.select('#Statistic').append('svg')
+        .datum(result)
+        .call(chart);
+    });
+}
+
 function sinAndCos() {
     var sin = [],sin2 = [],
         cos = [];

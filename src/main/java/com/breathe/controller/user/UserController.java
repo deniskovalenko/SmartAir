@@ -37,7 +37,7 @@ public class UserController {
         model.put("data", data);
         return new ModelAndView(ROOT + "/statisticList", model);
     }
-    @RequestMapping(value = "/chart", method = RequestMethod.GET)
+    @RequestMapping(value = "/statistic", method = RequestMethod.GET)
     public ModelAndView getStatisticChart() {
       //  List<StatisticModel> data = statisticService.findByDateDescending(page, PER_PAGE);
       //  Map<String, Object> model = new HashMap<>();
@@ -46,10 +46,15 @@ public class UserController {
        // model.put("data", data);
         return new ModelAndView(ROOT + "/chart");
     }
+    @RequestMapping(value = "/chart", method = RequestMethod.GET)
+    public @ResponseBody List<ChartDataSetModel> getDefaultChartData() {
+        return getChartData(0);
+    }
 
     @RequestMapping(value = "/chart/{page}", method = RequestMethod.GET)
     public @ResponseBody List<ChartDataSetModel> getChartData(@PathVariable("page") int page) {
-        return statisticService.getChartData("someId", page, PER_PAGE);
+        //hardcoded userId
+        return statisticService.getChartData("700caba5-9d40-4d34-9d6c-b15e40c5425f", page, PER_PAGE);
     }
 
     @RequestMapping(value = "/addData", method = RequestMethod.GET)
