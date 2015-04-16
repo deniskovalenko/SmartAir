@@ -64,7 +64,12 @@ public class StatisticServiceImpl implements StatisticService {
             List<StatisticModel> stats = this.findByDevice(device.getDeviceId(), page, limit, true);
             List<ChartPoint> values = new ArrayList<>();
             for(StatisticModel stat : stats) {
-                values.add(new ChartPoint(stat.getDate(), stat.getCo2()));
+                try {
+                    values.add(new ChartPoint(stat.getDate(), stat.getCo2()));
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                }
+
             }
 //            i++;
             dataSet.setValues(values);
