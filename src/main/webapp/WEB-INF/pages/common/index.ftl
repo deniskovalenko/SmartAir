@@ -50,7 +50,7 @@
 		<div id="content-wrapper">
 			<div id="content">
 				<div class="info">
-					<div><img class="round-img" src="/resources/images/lamp.png"/></div>
+					<div><!--<img class="round-img" src="/resources/images/lamp.png"/>--></div>
 				</div>
 			</div>
 		</div>
