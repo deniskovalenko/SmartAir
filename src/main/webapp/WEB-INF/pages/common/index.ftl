@@ -15,10 +15,7 @@
 		<div id="menu-wrapper">
 			<div id="menu">
 				<div id="main-logo">
-					<a href="/">
-						<img src="/resources/images/leave.png" alt="logo" height="50px" border="0"/>
-                        <img src="/resources/images/logo.png" alt="logo" height="50px" border="0"/>
-					</a>
+					<a href="/"><img src="/resources/images/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/logo.png" alt="logo" height="50px" border="0"/></a>
 				</div>
 				<div id="main-menu" class="menu-text-style">
 					<ul>

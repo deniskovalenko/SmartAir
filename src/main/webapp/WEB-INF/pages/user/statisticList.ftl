@@ -28,10 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-               <a href="/">
-                   <img src="/resources/images/leave.png" height="50px" alt="logo" border="0">
-                   <img src="/resources/images/logo.png" height="50px" alt="logo" border="0">
-                </a>
+               <a href="/"><img src="/resources/images/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <#--<ul class="nav navbar-nav">-->
