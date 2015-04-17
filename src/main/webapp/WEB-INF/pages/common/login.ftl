@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -22,31 +23,39 @@
 </head>
 
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container extra-padding">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img src="/resources/images/leave.png" alt="logo" height="50px" border="0"/>
+                <img src="/resources/images/logo.png" alt="logo" height="50px" border="0"/>
+            </a>
+        </div>
+    </div>
+</nav>
+<div align="center" style="margin-top: 100px; margin-bottom: 30px">
+    <h3 class="form-signin-heading dark-gray-text">Log in.</h3>
+    <h4 class="gray-text">Need to create an account? <a href="/signup">Sign Up</a></h4>
+</div>
+<div align="center">
+    <form class="form" method="post">
 
-<div style="" align="center">
+        <label for="inputEmail" class="">Username</label>
+        <input name="username" value="${username}" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
 
-    <form  method="post">
-
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input name="username" value="${username}" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
+        <label for="inputPassword" class="">Password</label>
         <input type="password"name="password" value="" id="inputPassword" class="form-control"  style="width:250px;height:35px" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit"  style="width:250px;height:35px">Sign in</button>
+
+        <input class="btn btn-primary btn-submit" style="margin-top: 10px" type="submit" value="Sign In">
+        <#--<button class="btn btn-lg btn-primary btn-block" type="submit"  style="width:250px;height:35px">Sign in</button>-->
         <div class="error"> ${login_error}</div>
     </form>
+</div>
 
-</div> <!-- /container -->
-<div style="text-align: center">Need to Create an account? <a href="/signup">Signup</a></div>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted" style="text-align: center">PZ-12-1 2015</p>
-        <p class="text-muted" style="text-align: center">Tatarchenko, Sheremet, Kovalenko, Pleshkanovskiy, Sych, Sovgyr</p>
-    </div>
-</footer>
+
 </html>
 
 

@@ -13,6 +13,7 @@
 	
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css"/>
     <link rel="icon" href="/resources/images/favicon.ico">
 </head>
 
@@ -28,19 +29,24 @@
                 <span class="icon-bar"></span>
             </button>
                <a href="/">
-                   <img src="/resources/images/leave.png" alt="logo" border="0">
-                   <img src="/resources/images/logo.png" alt="logo" border="0">
+                   <img src="/resources/images/leave.png" height="50px" alt="logo" border="0">
+                   <img src="/resources/images/logo.png" height="50px" alt="logo" border="0">
                 </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
+            <#--<ul class="nav navbar-nav">-->
                 <#--<li class="active"><a href="#">Home</a></li>-->
 
-                <#-- <li>   <a href="/user/addData">New entity</a> </li> -->		
-
-            </ul>
+                 <#--<li>   <a href="/user/addData">New entity</a> </li> -->
+            <#--</ul>-->
+            <div id="auth" class="menu-text-style">
+                <a href="#">User</a>
+                <a href="#">Log Out</a>
+            </div>
 
         </div><!--/.nav-collapse -->
+
+
     </div>
 </nav>
 
@@ -49,7 +55,7 @@
 
 
     <div class="starter-template">
-        <h1>Your SmartAir data:</h1>
+        <h1 align="center" class="dark-gray-text">Statistics</h1>
 
     <#assign  size =  data?size >
     <#if per_page?? >
@@ -127,10 +133,10 @@
         <#--</table>-->
         <table class="table table-striped" >
             <tr>
-                <th >Date/Time</th>
-                <th >Posted by</th>
-                <th >Temperature (*C)</th>
-                <th >CO2 (ppm)</th>
+                <th>Date/Time</th>
+                <th>Posted by</th>
+                <th>Temperature (*C)</th>
+                <th>CO<sub>2</sub> (ppm)</th>
                 <th>Humidity</th>
             </tr>
         <#list data as entity>

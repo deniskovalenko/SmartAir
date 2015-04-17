@@ -10,6 +10,8 @@
     <title>SmartAir - Statistics</title>
 
     <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css"/>
     <link rel="icon" href="/resources/images/favicon.ico">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link href="/resources/css/nv.d3.css" rel="stylesheet" type="text/css">
@@ -22,7 +24,7 @@
 
 <body>
 <div class="container">
-        <h1>Your SmartAir data:</h1>
+        <h1 align="center">Statistics</h1>
 
         <div class="row">
              <div class="col-md-4">
