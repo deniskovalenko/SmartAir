@@ -46,18 +46,18 @@ public class UserController {
         return new ModelAndView(ROOT + "/chart", model);
     }
 
-    @RequestMapping(value = "/chart", method = RequestMethod.GET)
-    public @ResponseBody List<ChartDataSetModel> getDefaultChartData() {
-        return getChartData(0);
-    }
+//    @RequestMapping(value = "/chart", method = RequestMethod.GET)
+//    public @ResponseBody List<ChartDataSetModel> getDefaultChartData() {
+//        return getChartData(0);
+//    }
+//
+//    @RequestMapping(value = "/chart/{page}", method = RequestMethod.GET)
+//    public @ResponseBody List<ChartDataSetModel> getChartData(@PathVariable("page") int page) {
+//        //hardcoded userId
+//        return statisticService.getChartData("700caba5-9d40-4d34-9d6c-b15e40c5425f", page, 5);
+//    }
 
-    @RequestMapping(value = "/chart/{page}", method = RequestMethod.GET)
-    public @ResponseBody List<ChartDataSetModel> getChartData(@PathVariable("page") int page) {
-        //hardcoded userId
-        return statisticService.getChartData("700caba5-9d40-4d34-9d6c-b15e40c5425f", page, 5);
-    }
-
-    @RequestMapping(value = "/chart/{page}", method = RequestMethod.GET)
+    @RequestMapping(value = "/chartData", method = RequestMethod.GET)
     public @ResponseBody List<ChartDataSetModel> getStatisticData(@Validated @ModelAttribute ChartSearchFilterModel filter) {
         //hardcoded userId
         return statisticService.getChartData("700caba5-9d40-4d34-9d6c-b15e40c5425f", filter);

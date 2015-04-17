@@ -39,7 +39,8 @@ nv.addGraph(function() {
  */
 
 function getChartData() {
-    $.getJSON( "/user/chart", function( result ) {
+
+    $.getJSON( "/user/chartData", "count=1&mode=0&skip=0" , function( result ) {
         d3.select('#Statistic').append('svg')
         .datum(result)
         .call(chart);

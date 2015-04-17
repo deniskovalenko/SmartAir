@@ -40,6 +40,7 @@ public class StatisticDAOImpl implements StatisticDAO {
         List<DBObject> result;
         int sortParam = (dateSortDescending) ? -1 : 1; // if sortDescending then sort : -1, if ascending 1
         DBCursor cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId).
+                //TODO - from $lt to $lte, because last record was not included to chart request.
                 append("date", new BasicDBObject("$gte", startDate).append("$lt", endDate))).sort(new BasicDBObject("date", sortParam));
         try {
             result = cursor.toArray();

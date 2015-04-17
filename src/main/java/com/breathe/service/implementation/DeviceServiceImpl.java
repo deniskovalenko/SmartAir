@@ -16,8 +16,6 @@ public class DeviceServiceImpl implements DeviceService {
     @Autowired
     private DeviceDAO deviceDAO;
 
-//    public DeviceServiceImpl() {}
-
     public DeviceModel findDevicesById(String deviceId) {
         DBObject device = deviceDAO.findByDeviceId(deviceId);
         return  StatisticMapper.convertDeviceDbObject(device);

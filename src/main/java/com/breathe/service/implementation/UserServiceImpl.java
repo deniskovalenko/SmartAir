@@ -21,13 +21,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDAO userDAO;
 
-    public UserServiceImpl() {
-    }
-
-//    public UserServiceImpl(final DB co2Database) {
-//        userDAO = new UserDAO(co2Database);
-//    }
-
     public List<DeviceModel> findDevicesByUser(String userId) {
         List<DBObject> devices = userDAO.findDevices(userId);
         return  StatisticMapper.convertDevicesList(devices);
