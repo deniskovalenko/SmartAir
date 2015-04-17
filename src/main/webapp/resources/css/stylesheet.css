@@ -21,7 +21,7 @@ body {
 
 #menu-wrapper {
 	display: block;
-	height: 70px;
+	height: 50px;
 	width: 100%;
 	font-family: Arial;
 	font-size: 14px;
@@ -45,7 +45,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	display: block;
-	height: 70px;
+	height: 50px;
 }
 
 #main-menu {
@@ -56,31 +56,40 @@ body {
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
-	height: 70px;
+	height: 50px;
 	/*border-left: 1px solid #34495E;*/
-	border-left: 1px solid #E6E6E6;
+	/*border-left: 1px solid #E6E6E6;*/
 }
 
 #main-menu li {
 	margin: 0px;
 	padding: 0px;
-	border-right: 1px solid #E6E6E6;
+	/*border-right: 1px solid #E6E6E6;*/
 	list-style: outside none none;
 	float: left;
 	width: auto;
 	position: relative;
 }
 
+.menu-text-style a {
+	font-family: "proxima-nova-n4","proxima-nova",sans-serif;
+	font-style: normal;
+	font-weight: 400 !important;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #5a5a5a;
+	/*font-family:"proxima_novalight",Arial,Helvetica,sans-serif;*/
+	/*font-family: "Myriad","Trebuchet MS",Arial,Tahoma;*/
+	font-size: 14px;
+}
+
 #main-menu li a {
 	display: block;
 	float: left;
 	width: auto;
-	height: 70px;
-	line-height: 70px;
+	height: 50px;
+	line-height: 50px;
 	padding: 0px 13px;
-	font-family: "Myriad","Trebuchet MS",Arial,Tahoma;
-	font-size: 18px;
-	color: #000;
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
@@ -98,16 +107,15 @@ body {
 	display: block;
 	float: left;
 	width: auto;
-	height: 70px;
-	line-height: 70px;
+	height: 50px;
+	line-height: 50px;
 	padding: 0px 13px;
-	font-family: "Myriad","Trebuchet MS",Arial,Tahoma;
-	font-size: 18px;
-	color: #000;
+	/*font-family: "Myriad","Trebuchet MS",Arial,Tahoma;*/
+	/*font-size: 18px;*/
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
-	border-left: 1px solid #E6E6E6;
+	/*border-left: 1px solid #E6E6E6;*/
 }
 
 #main-menu-clear {
@@ -133,10 +141,6 @@ body {
 	background-image: url("/resources/images/header.png");
 	background-position: center top;
 	background-repeat: no-repeat;
-}
-
-#header {
-
 }
 
 #slogan {
