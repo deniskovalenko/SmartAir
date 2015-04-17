@@ -125,7 +125,7 @@
             <#--<#assign elementCount=elementCount+1>-->
         <#--</#list>-->
         <#--</table>-->
-        <table class="table" >
+        <table class="table table-striped" >
             <tr>
                 <th >Date/Time</th>
                 <th >Posted by</th>
