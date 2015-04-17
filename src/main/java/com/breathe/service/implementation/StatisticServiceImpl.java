@@ -7,6 +7,7 @@ import com.breathe.model.chart.ChartPoint;
 import com.breathe.model.DeviceModel;
 import com.breathe.model.chart.ChartSearchFilterModel;
 import com.breathe.service.UserService;
+import com.breathe.utils.ColorGenerator;
 import com.breathe.utils.mappers.StatisticMapper;
 import com.breathe.model.StatisticModel;
 import com.breathe.service.StatisticService;
@@ -28,6 +29,8 @@ public class StatisticServiceImpl implements StatisticService {
     private StatisticDAO statisticDAO;;
     @Autowired
     private UserService userService;
+    @Autowired
+    private ColorGenerator colorGenerator;
 
     public List<StatisticModel> findByDateDescending(int page, int limit) {
         List<DBObject> data = statisticDAO.findByDateDescending(page, limit);
@@ -58,7 +61,7 @@ public class StatisticServiceImpl implements StatisticService {
         for (DeviceModel device :devices) {
             ChartDataSetModel dataSet = new ChartDataSetModel();
             dataSet.setKey(device.getDeviceName());
-            dataSet.setColor("#ff7f0e");
+            dataSet.setColor(colorGenerator.getRandomColorString());
             List<StatisticModel> stats = this.findByDevice(device.getDeviceId(), page, limit, true);
             List<ChartPoint> values = new ArrayList<>();
             for(StatisticModel stat : stats) {
@@ -87,7 +90,7 @@ public class StatisticServiceImpl implements StatisticService {
             ChartDataSetModel dataSet = new ChartDataSetModel();
             dataSet.setKey(device.getDeviceName());
             //TODO make different colors?
-            dataSet.setColor("#ff7f0e");
+            dataSet.setColor(colorGenerator.getRandomColorString());
             //then search from "DATE" - mode*count*page -> "DATE - page"
             List<StatisticModel> stats = this.findByDevice(device.getDeviceId(),searchStartDate, searchEndDate, true );
 
@@ -110,10 +113,13 @@ public class StatisticServiceImpl implements StatisticService {
         Date latestStatisticDate = findByDevice(devices.get(0).getDeviceId(), 0, 1, true).get(0).getDate();
         //TODO provide better way to select init date
         for (int i = 1; i < devices.size(); i++) {
-            lastData = findByDevice(devices.get(i).getDeviceId(), 0, 1, true).get(0);
-            //if current device's last statistic record comes later ...
-            if (lastData.getDate().after(latestStatisticDate)) {
-                latestStatisticDate = lastData.getDate();
+            List<StatisticModel> statistic = findByDevice(devices.get(i).getDeviceId(), 0, 1, true);
+            if (statistic.size()!=0) {
+                lastData = statistic.get(0);
+                //if current device's last statistic record comes later ...
+                if (lastData.getDate().after(latestStatisticDate)) {
+                    latestStatisticDate = lastData.getDate();
+                }
             }
         }
         return latestStatisticDate;
