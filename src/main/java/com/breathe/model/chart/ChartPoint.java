@@ -1,4 +1,4 @@
-package com.breathe.model;
+package com.breathe.model.chart;
 
 import java.util.Date;
 

@@ -6,10 +6,19 @@ import java.util.List;
  * Created by amira on 02.04.15.
  */
 public class UserModel {
+    private String userId;
     private String username;
     private String email;
     private String password;
     private List<DeviceModel> devices;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getUsername() {
         return username;

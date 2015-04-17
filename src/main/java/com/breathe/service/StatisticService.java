@@ -1,7 +1,8 @@
 package com.breathe.service;
 
-import com.breathe.model.ChartDataSetModel;
+import com.breathe.model.chart.ChartDataSetModel;
 import com.breathe.model.StatisticModel;
+import com.breathe.model.chart.ChartSearchFilterModel;
 
 import java.util.Date;
 import java.util.List;
@@ -18,6 +19,8 @@ public interface StatisticService {
     List<StatisticModel> findByDevice(String deviceId, Date startDate, Date endDate, boolean sortDescending);
 
     List<ChartDataSetModel> getChartData(String userId, int page, int limit);
+
+    public List<ChartDataSetModel> getChartData(String userId, ChartSearchFilterModel filter);
 
     boolean addEntity(StatisticModel stat);
 }
