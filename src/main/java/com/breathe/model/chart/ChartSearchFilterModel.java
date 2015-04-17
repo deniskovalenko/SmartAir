@@ -18,56 +18,43 @@ public class ChartSearchFilterModel {
     /**
      * @return time offset from LastDate point.
      */
-    private DateTime getOffset() {
-        DateTime offset = new DateTime();
-        switch (this.getMode()) {
-            case 0 :
-                offset.plusHours(this.getCount());
-                break;
-            case 1 :
-                offset.plusDays(this.getCount());
-                break;
-            case 2 :
-                offset.plusWeeks(this.getCount());
-                break;
-            default:
-
-        }
-        return offset;
-    }
 
     public Date getStartDate(Date date) {
-      //  endDate - getOffset()
-        DateTime startDate = new DateTime(this.getEndDate(date));
+      //  endDate - offset
+        DateTime endDate = new DateTime(this.getEndDate(date));
+        DateTime startDate;
         switch (this.getMode()) {
             case 0 :
-                startDate.minusHours(this.getCount());
+                startDate = endDate.minusHours(this.getCount());
                 break;
             case 1 :
-                startDate.minusDays(this.getCount());
+                startDate = endDate.minusDays(this.getCount());
                 break;
             case 2 :
-                startDate.minusWeeks(this.getCount());
+                startDate = endDate.minusWeeks(this.getCount());
                 break;
             default:
+                startDate = endDate;
         }
         return startDate.toDate();
     }
 
     public Date getEndDate(Date date) {
        //  date - skip*offset;
-        DateTime endDate = new DateTime(date);
+        DateTime currentDate = new DateTime(date);
+        DateTime endDate;
         switch (this.getMode()) {
             case 0 :
-                endDate.minusHours(this.getCount() * this.getSkip());
+                endDate = currentDate.minusHours(this.getCount() * this.getSkip());
                 break;
             case 1 :
-                endDate.minusDays(this.getCount() * this.getSkip());
+                endDate = currentDate.minusDays(this.getCount() * this.getSkip());
                 break;
             case 2 :
-                endDate.minusWeeks(this.getCount() * this.getSkip());
+                endDate = currentDate.minusWeeks(this.getCount() * this.getSkip());
                 break;
             default:
+                endDate = currentDate;
         }
         return endDate.toDate();
     }
