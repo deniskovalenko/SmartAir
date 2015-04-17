@@ -10,15 +10,15 @@
     <title>SmartAir - Statistics</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css"/>
+
+    <link rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css" type="text/css"/>
     <link rel="icon" href="/resources/images/favicon.ico">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link href="/resources/css/nv.d3.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/resources/css/nv.d3.min.css" type="text/css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
-    <script src="/resources/js/nv.d3.js"></script>
-    <script src="/resources/js/jquery-2.1.3.js"></script>
+    <script src="/resources/js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="/resources/js/nv.d3.min.js"></script>
+    <script src="/resources/js/jquery-2.1.3.min.js"></script>
     <script src="/resources/js/chart.js"></script>
 </head>
 
