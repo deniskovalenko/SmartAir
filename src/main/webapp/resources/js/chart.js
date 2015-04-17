@@ -14,9 +14,10 @@ nv.addGraph(function() {
     // chart sub-models (ie. xAxis, yAxis, etc) when accessed directly, return themselves, not the parent chart, so need to chain separately
     chart.xAxis
         .axisLabel("Time")
-        .tickFormat(d3.format(',.1f'))
         .staggerLabels(true)
     ;
+    chart.xAxis
+        .tickFormat(function(d) { return d3.time.format('%c')(new Date(d)) });
 
     chart.yAxis
         .axisLabel('CO2')

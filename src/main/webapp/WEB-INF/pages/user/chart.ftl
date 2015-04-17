@@ -24,6 +24,32 @@
 
 <body>
 <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/"><img src="/resources/images/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/logo.png" height="50px" alt="logo" border="0"></a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+    <#--<ul class="nav navbar-nav">-->
+    <#--<li class="active"><a href="#">Home</a></li>-->
+
+    <#--<li>   <a href="/user/addData">New entity</a> </li> -->
+    <#--</ul>-->
+        <div id="auth" class="menu-text-style">
+            <a href="#">User</a>
+            <a href="#">Log Out</a>
+        </div>
+
+    </div><!--/.nav-collapse -->
+
+
+</div>
+
+<div class="container">
         <h1 align="center">Statistics</h1>
 
         <div class="row">
@@ -33,10 +59,10 @@
         </div>
         <div class="row">
             <div class="col-md-1">
-                <input id="count" type="number" name="count" class="form-control" max="24" min="1" value="1">
+                <input id="count" name="count"  type="number" class="form-control" max="24" min="1" value="1">
             </div>
             <div class="col-md-2">
-                <select class="form-control">
+                <select name="mode" class="form-control">
                     <option value="0">hour</option>
                     <option value="1">day</option>
                     <option value="2">week</option>
@@ -44,18 +70,22 @@
             </div>
         </div>
 
-        <ul class="pagination">
-            <li> <a href="/user/statistic">&lt prev</a></li>
-            <li> <a href="/user/statistic">next &gt</a></li>
-        </ul>
+         <div id="pagination">
+         <#if currentPage !??>
+             <#assign currentPage = 0>
+         </#if>
+
+         <ul class="pagination">
+                <li> <a href="#" page="${currentPage+1}">&lt prev</a></li>
+            <#if currentPage &gt; 0>
+                <li> <a href="#" page="${currentPage-1}">next &gt</a></li>
+            </#if>
+         </ul>
+
+         </div>
 
         <div id="Statistic" style="height: 400px;"></div>
 
-    <script type="text/javascript">
-        $('input').bootstrapNumber({upClass : 'danger', downClass : 'success'});
-
-
-    </script>
 </div>
 </body>
 
