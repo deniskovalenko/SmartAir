@@ -1,5 +1,6 @@
 package com.breathe.dao;
 
+import com.breathe.model.DeviceModel;
 import com.mongodb.DBObject;
 
 /**
@@ -13,5 +14,5 @@ public interface DeviceDAO {
 
     boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel);
 
-    boolean addDevice(String userId, String deviceId, String deviceName, int delay, int co2MinLevel);
+    boolean addDevice(String userId, DeviceModel device);
 }

@@ -8,7 +8,7 @@ import com.breathe.model.DeviceModel;
 public interface DeviceService {
     boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel);
 
-    boolean addDevice(String userId, String deviceId, String deviceName, int delay, int co2MinLevel);
+    boolean addDevice(String userId, DeviceModel device);
 
     DeviceModel findDevicesById(String deviceId);
 }

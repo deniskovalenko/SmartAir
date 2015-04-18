@@ -1,6 +1,7 @@
 package com.breathe.dao.implementation;
 
 import com.breathe.dao.DeviceDAO;
+import com.breathe.model.DeviceModel;
 import com.mongodb.*;
 import org.springframework.stereotype.Repository;
 
@@ -56,9 +57,9 @@ public class DeviceDAOImpl implements DeviceDAO {
         return true;
     }
 
-    public boolean addDevice(String userId, String deviceId, String deviceName, int delay, int co2MinLevel) {
-        if (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0) {
-            System.out.println("Device with this device_id already exists: " + deviceId);
+    public boolean addDevice(String userId, DeviceModel device) {
+        if (deviceCollection.find(new BasicDBObject("deviceId", device.getDeviceId())).count() > 0) {
+            System.out.println("Device with this device_id already exists: " + device.getDeviceId());
             return false;
         }
         if (usersCollection.find(new BasicDBObject("_id", userId)).count() == 0) {
@@ -67,10 +68,10 @@ public class DeviceDAOImpl implements DeviceDAO {
         }
 
         DBObject find = new BasicDBObject("_id", userId);
-        DBObject push = new BasicDBObject("devices", new BasicDBObject("deviceId", deviceId)
-                .append("deviceName", deviceName)
-                .append("delay", delay)
-                .append("co2Min", co2MinLevel));
+        DBObject push = new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId())
+                .append("deviceName", device.getDeviceName())
+                .append("delay", device.getDelay())
+                .append("co2Min", device.getCo2MinLevel()));
         try {
             usersCollection.update(find, new BasicDBObject("$push", push));
         } catch (Exception e) {
