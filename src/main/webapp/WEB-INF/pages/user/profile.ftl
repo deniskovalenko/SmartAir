@@ -33,8 +33,17 @@
     <#--<li>   <a href="/user/addData">New entity</a> </li> -->
     <#--</ul>-->
         <div id="auth" class="menu-text-style">
-            <a href="#">${username}</a>
-            <a href="#">Log Out</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">${username}</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Имя юзера <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
 
     </div><!--/.nav-collapse -->
