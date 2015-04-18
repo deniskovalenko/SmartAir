@@ -38,14 +38,23 @@
     <form class="form" method="post">
 
         <label for="inputEmail" class="">Username</label>
-        <input name="username" value="${username}" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
+        <#if username??>
+            <input name="username" value="${username}" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
+        <#else>
+            <input name="username" value="" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
+        </#if>
+
 
         <label for="inputPassword" class="">Password</label>
-        <input type="password"name="password" value="" id="inputPassword" class="form-control"  style="width:250px;height:35px" placeholder="Password" required>
+        <input type="password" name="password" value="" id="inputPassword" class="form-control"  style="width:250px;height:35px" placeholder="Password" required>
 
         <input class="btn btn-primary btn-submit" style="margin-top: 10px" type="submit" value="Sign In">
         <#--<button class="btn btn-lg btn-primary btn-block" type="submit"  style="width:250px;height:35px">Sign in</button>-->
-        <div class="error"> ${login_error}</div>
+        <div class="error">
+            <#if login_error??>
+                ${login_error}
+            </#if>
+        </div>
     </form>
 </div>
 
