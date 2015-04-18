@@ -34,9 +34,9 @@
     <#--<li>   <a href="/user/addData">New entity</a> </li> -->
     <#--</ul>-->
         <#--<div id="auth" class="menu-text-style">-->
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
+        <#--<nav class="navbar navbar-default">-->
+            <#--<div class="container-fluid">-->
+                <#--<div class="navbar-header">-->
             <ul class="nav navbar-nav navbar-right menu-text-style">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Devices<span class="caret"></span></a>
@@ -63,8 +63,8 @@
                     </ul>
                 </li>
             </ul>
-        </div>
-</div></nav>
+        <#--</div>-->
+<#--</div></nav>-->
     </div><!--/.nav-collapse -->
 
 
