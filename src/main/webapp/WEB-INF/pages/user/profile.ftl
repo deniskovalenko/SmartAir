@@ -67,7 +67,7 @@
                                 </#if>
                             </h3>
                             <p>
-                            <#if device["co2min"]??>
+                            <#if device["co2Min"]??>
                                 CO<sub>2</sub> minimum level: ${device["co2min"]} ppm
                             </#if>
 
