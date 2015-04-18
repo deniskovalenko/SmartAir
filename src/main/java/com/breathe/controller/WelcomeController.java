@@ -2,10 +2,6 @@ package com.breathe.controller;
 
 import com.breathe.model.UserModel;
 import com.breathe.service.UserService;
-import com.breathe.service.implementation.UserServiceImpl;
-import com.mongodb.DB;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +30,7 @@ public class WelcomeController {
     private static final String SIGN_UP = "signup";
     private static final String COMMON = "common/";
     private static final String INDEX = "index";
+    private static final String PROFILE = "user/profile";
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView greetings(ModelMap model) {
@@ -57,7 +53,7 @@ public class WelcomeController {
         } else {
             Map<String, Object> model = new HashMap<>();
             model.put("username", user.getUsername());
-            return new ModelAndView("user/userProfile", model);
+            return new ModelAndView(PROFILE, model);
         }
     }
 
