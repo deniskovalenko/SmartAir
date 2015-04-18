@@ -76,7 +76,7 @@
                                 Delay: ${device["delay"]} milliseconds.
                             </#if>
                             </p>
-                            <p><a href="#" class="btn btn-primary" role="button">Chart</a> <a href="#" class="btn btn-default" role="button">Table</a></p>
+                            <p><a href="/user/statistic" class="btn btn-primary" role="button">Chart</a> <a href="/user" class="btn btn-default" role="button">Table</a></p>
                         </div>
                     </div>
                 </div>
