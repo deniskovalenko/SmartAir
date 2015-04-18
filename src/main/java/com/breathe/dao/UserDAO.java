@@ -18,5 +18,5 @@ public interface UserDAO {
     //TODO change to bool
     DBObject validateLogin(String username, String password);
 
-
+    DBObject getUserById(String userId);
 }
