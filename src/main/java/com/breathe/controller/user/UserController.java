@@ -1,9 +1,11 @@
 package com.breathe.controller.user;
 
+import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;
 import com.breathe.model.chart.ChartDataSetModel;
 import com.breathe.model.StatisticModel;
 import com.breathe.model.chart.ChartSearchFilterModel;
+import com.breathe.service.DeviceService;
 import com.breathe.service.StatisticService;
 import com.breathe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class UserController {
     private StatisticService statisticService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private DeviceService deviceService;
 
     private static final String ROOT = "user";
     public final static int PER_PAGE = 30;
@@ -86,11 +90,27 @@ public class UserController {
             model.put("username", user.getUsername());
             model.put("devices_count", user.getDevices().size());
             model.put("devices", user.getDevices());
+            model.put("user_id", userId);
             return new ModelAndView(ROOT + "/profile", model);
         }
         else {
             return new ModelAndView("redirect:/");
         }
+    }
+
+    @RequestMapping(value = "/addDevice", method = RequestMethod.GET)
+    public ModelAndView addDevice(@RequestParam("user_id") String userId) {
+        Map<String, Object> model = new HashMap<>();
+        model.put("user_id", userId);
+        return new ModelAndView(ROOT + "/addDevice", model);
+    }
+
+    @RequestMapping(value = "/addDevice", method = RequestMethod.POST)
+    public ModelAndView addDevice (@ModelAttribute("device") DeviceModel device, @RequestParam("user_id") String userId) {
+        deviceService.addDevice(userId, device);
+        Map<String, Object> model = new HashMap<>();
+        model.put("user_id", userId);
+        return new ModelAndView("redirect:/" + ROOT + "/profile", model);
     }
 
 }
