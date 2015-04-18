@@ -33,7 +33,7 @@
     <#--<li>   <a href="/user/addData">New entity</a> </li> -->
     <#--</ul>-->
         <div id="auth" class="menu-text-style">
-            <a href="#">User</a>
+            <a href="#">${username}</a>
             <a href="#">Log Out</a>
         </div>
 
@@ -42,10 +42,47 @@
 
 </div>
 
-<div class="container" style="margin-top: 30px; width: 100%">
+<div class="container" style="padding: 30px; width: 100%">
+    <#if devices_count == 0>
+        <div class="row">
+            <div class="thumbnail">
+                <p align="center">You don't have any devices.</p>
+                <p align="center"><a href="#" class="btn btn-primary" role="button">Add a device</a></p>
+            </div>
+        </div>
+    <#else>
+        <p align="right" style="margin-top: 10px">You have ${devices_count} devices.</p>
+        <div class="row">
+            <#assign elementCount =0>
+            <#list devices as device>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="/resources/images/lamp_small.png" alt="Living room" border="0">
+                        <div class="caption">
+                            <h3>
+                                <#if device["deviceName"]??>
+                                ${device["deviceName"]}
+                                <#else>
+                                    no data
+                                </#if>
+                            </h3>
+                            <p>
+                            <#if device["co2min"]??>
+                                CO<sub>2</sub> minimum level: ${device["co2min"]} ppm
+                            </#if>
 
-    <p align="center">Hello, ${username}!</p>
-
+                            <#if device["delay"]??>
+                                delay ${device["delay"]} milliseconds
+                            </#if>
+                            </p>
+                            <p><a href="#" class="btn btn-primary" role="button">Chart</a> <a href="#" class="btn btn-default" role="button">Table</a></p>
+                        </div>
+                    </div>
+                </div>
+                <#assign elementCount=elementCount+1>
+            </#list>
+        </div>
+    </#if>
 </div>
 
 </body>
