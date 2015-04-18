@@ -1,9 +1,11 @@
 package com.breathe.controller.user;
 
+import com.breathe.model.UserModel;
 import com.breathe.model.chart.ChartDataSetModel;
 import com.breathe.model.StatisticModel;
 import com.breathe.model.chart.ChartSearchFilterModel;
 import com.breathe.service.StatisticService;
+import com.breathe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,6 +23,8 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private StatisticService statisticService;
+    @Autowired
+    private UserService userService;
 
     private static final String ROOT = "user";
     public final static int PER_PAGE = 30;
@@ -75,10 +79,18 @@ public class UserController {
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public ModelAndView profile(@RequestParam("username") String username) {
-        Map<String, Object> model = new HashMap<>();
-        model.put("username", username);
-        return new ModelAndView(ROOT + "/profile", model);
+    public ModelAndView profile(@RequestParam("user_id") String userId) {
+        UserModel user = userService.getUserById(userId);
+        if (user != null) {
+            Map<String, Object> model = new HashMap<>();
+            model.put("username", user.getUsername());
+            model.put("devices_count", user.getDevices().size());
+            model.put("devices", user.getDevices());
+            return new ModelAndView(ROOT + "/profile", model);
+        }
+        else {
+            return new ModelAndView("redirect:/");
+        }
     }
 
 }
