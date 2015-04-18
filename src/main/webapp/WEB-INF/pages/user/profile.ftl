@@ -68,12 +68,12 @@
                             </h3>
                             <p>
                             <#if device["co2Min"]??>
-                                CO<sub>2</sub> minimum level: ${device["co2Min"]} ppm
+                                CO<sub>2</sub> minimum level: ${device["co2Min"]} ppm.
 
                             </#if>
 
                             <#if device["delay"]??>
-                                delay ${device["delay"]} milliseconds
+                                Delay: ${device["delay"]} milliseconds.
                             </#if>
                             </p>
                             <p><a href="#" class="btn btn-primary" role="button">Chart</a> <a href="#" class="btn btn-default" role="button">Table</a></p>
