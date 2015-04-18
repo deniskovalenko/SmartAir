@@ -1,9 +1,12 @@
 .navbar {
 	height: 50px;
 	width: 100%;
-	background-color: #FFF;
+	background-color: #fff;
 	border: 2px;
 	border-color: #fff;
+}
+.navbar-collapse {
+	padding: 0px;
 }
 .container {
 	width: 100%;
