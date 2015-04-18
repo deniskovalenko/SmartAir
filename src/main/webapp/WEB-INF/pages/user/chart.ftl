@@ -23,7 +23,7 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container" style="width: 100%">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -49,7 +49,7 @@
 
 </div>
 
-<div class="container">
+<div class="container" style="width: 100%">
         <h1 align="center">Statistics</h1>
 
         <div class="row">
