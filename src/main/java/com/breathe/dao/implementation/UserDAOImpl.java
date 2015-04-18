@@ -2,6 +2,7 @@ package com.breathe.dao.implementation;
 
 import com.breathe.dao.UserDAO;
 import com.breathe.model.DeviceModel;
+import com.breathe.model.UserModel;
 import com.breathe.utils.EmailValidator;
 import com.mongodb.*;
 import org.springframework.stereotype.Repository;
@@ -117,4 +118,16 @@ public class UserDAOImpl implements UserDAO {
 //            throw new RuntimeException("UTF-8 unavailable?  Not a chance", e);
 //        }
 //    }
+
+    public DBObject getUserById(String userId) {
+        DBObject user = usersCollection.findOne(new BasicDBObject("_id", userId));
+
+        if (user == null) {
+            System.out.println("User not in database");
+            return null;
+        }
+        else {
+            return user;
+        }
+    }
 }
