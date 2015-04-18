@@ -31,10 +31,14 @@ public class WelcomeController {
 
 
     private static final String REDIRECT = "redirect:/";
+    private static final String LOGIN = "login";
+    private static final String SIGN_UP = "signup";
+    private static final String COMMON = "common/";
+    private static final String INDEX = "index";
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView greetings(ModelMap model) {
-        return new ModelAndView("common/index");
+        return new ModelAndView(COMMON + INDEX);
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -42,7 +46,7 @@ public class WelcomeController {
         Map<String, Object> model = new HashMap<>();
         model.put("username", "");
         model.put("login_error", "");
-        return new ModelAndView("common/login", model);
+        return new ModelAndView(COMMON + LOGIN, model);
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -62,14 +66,15 @@ public class WelcomeController {
         Map<String, Object> model = new HashMap<>();
         model.put("username", "");
         model.put("login_error", "");
-        return new ModelAndView("common/signup", model);
+        return new ModelAndView(COMMON + SIGN_UP, model);
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String register(@ModelAttribute("user") UserModel user) {
        if (user != null) {
            userService.addUser(user);
+           return REDIRECT + LOGIN;
        }
-        return "redirect:/";
+       return REDIRECT;
     }
 }
