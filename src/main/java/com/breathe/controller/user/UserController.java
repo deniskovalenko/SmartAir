@@ -74,4 +74,11 @@ public class UserController {
         return "redirect:/user";
     }
 
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public ModelAndView profile(@RequestParam("username") String username) {
+        Map<String, Object> model = new HashMap<>();
+        model.put("username", username);
+        return new ModelAndView(ROOT + "/profile", model);
+    }
+
 }
