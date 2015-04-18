@@ -52,7 +52,7 @@ public class WelcomeController {
             return new ModelAndView(REDIRECT);
         } else {
             Map<String, Object> model = new HashMap<>();
-            model.put("username", user.getUsername());
+            model.put("user_id", user.getUserId());
             return new ModelAndView(REDIRECT + PROFILE, model);
         }
     }
