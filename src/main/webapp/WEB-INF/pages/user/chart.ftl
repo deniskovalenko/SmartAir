@@ -51,6 +51,7 @@
 
 <div class="container" style="width: 100%">
         <h1 align="center">Statistics</h1>
+        <h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user">table</a></h2>
 
         <div class="row">
              <div class="col-md-4">

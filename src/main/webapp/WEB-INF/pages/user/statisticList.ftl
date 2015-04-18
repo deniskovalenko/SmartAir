@@ -53,6 +53,7 @@
 
     <div class="starter-template">
         <h1 align="center" class="dark-gray-text">Statistics</h1>
+        <h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user/statistic">chart</a></h2>
 
     <#assign  size =  data?size >
     <#if per_page?? >
