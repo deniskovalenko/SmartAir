@@ -12,6 +12,7 @@ import java.net.UnknownHostException;
 @Repository
 public class DeviceDAOImpl implements DeviceDAO {
     DBCollection deviceCollection; //collection of manufactured, but maybe not purchased yet devices
+    DBCollection usersCollection;
     MongoClient mongoClient;
     DB co2Database;
 
@@ -19,6 +20,7 @@ public class DeviceDAOImpl implements DeviceDAO {
         mongoClient= new MongoClient(new MongoClientURI("mongodb://localhost"));
         co2Database = mongoClient.getDB("co2");
         deviceCollection = co2Database.getCollection("data");
+        usersCollection = co2Database.getCollection("users");
     }
 
     public DBObject findByDeviceId(String deviceId) {
@@ -42,10 +44,35 @@ public class DeviceDAOImpl implements DeviceDAO {
         BasicDBObject post = new BasicDBObject("deviceId", deviceId)
             .append("deviceName", deviceName)
             .append("delay", delay)
-            .append("co2MinLevel", co2MinLevel);
+            .append("co2Min", co2MinLevel);
 
         try {
             deviceCollection.insert(post);
+        } catch (Exception e) {
+            System.out.println("Error inserting post");
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean addDevice(String userId, String deviceId, String deviceName, int delay, int co2MinLevel) {
+        if (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0) {
+            System.out.println("Device with this device_id already exists: " + deviceId);
+            return false;
+        }
+        if (usersCollection.find(new BasicDBObject("_id", userId)).count() == 0) {
+            System.out.println("User with this _id doesn't exist: " + userId);
+            return false;
+        }
+
+        DBObject find = new BasicDBObject("_id", userId);
+        DBObject push = new BasicDBObject("devices", new BasicDBObject("deviceId", deviceId)
+                .append("deviceName", deviceName)
+                .append("delay", delay)
+                .append("co2Min", co2MinLevel));
+        try {
+            usersCollection.update(find, new BasicDBObject("$push", push));
         } catch (Exception e) {
             System.out.println("Error inserting post");
             return false;
