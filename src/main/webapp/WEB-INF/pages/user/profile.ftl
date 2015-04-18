@@ -69,6 +69,7 @@
                             <p>
                             <#if device["co2Min"]??>
                                 CO<sub>2</sub> minimum level: ${device["co2Min"]} ppm
+
                             </#if>
 
                             <#if device["delay"]??>
