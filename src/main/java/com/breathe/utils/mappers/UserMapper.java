@@ -19,6 +19,7 @@ public class UserMapper {
             user.setDevices((List<DeviceModel>) UserDbObject.get("devices"));
             user.setEmail((String) UserDbObject.get("email"));
             user.setUsername((String) UserDbObject.get("username"));
+            user.setUserId((String) UserDbObject.get("_id"));
             return  user;
         } catch (Exception e)
         {
