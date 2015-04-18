@@ -32,11 +32,12 @@
 
     <#--<li>   <a href="/user/addData">New entity</a> </li> -->
     <#--</ul>-->
-        <div id="auth" class="menu-text-style">
+        <#--<div id="auth" class="menu-text-style">-->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">${username}</a></li>
+                <li><a href="#">Devices</a></li>
+                <li><a href="#">Statistics</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Имя юзера <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${username}<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#">Profile</a></li>
                         <li class="divider"></li>
@@ -44,7 +45,7 @@
                     </ul>
                 </li>
             </ul>
-        </div>
+        <#--</div>-->
 
     </div><!--/.nav-collapse -->
 
