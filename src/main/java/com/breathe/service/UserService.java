@@ -16,6 +16,8 @@ public interface UserService {
     void addUser(UserModel user);
 
     UserModel validateLogin(String username, String password);
+
+    UserModel getUserById(String userId);
 }
 
 
