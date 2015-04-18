@@ -39,4 +39,14 @@ public class UserServiceImpl implements UserService {
     public UserModel validateLogin(String username, String password) {
         return UserMapper.convertUserDbObject(userDAO.validateLogin(username, password));
     }
+
+    public UserModel getUserById(String userId) {
+        DBObject user = userDAO.getUserById(userId);
+        if (user != null) {
+            return UserMapper.convertUserDbObject(user);
+        }
+        else {
+            return null;
+        }
+    }
 }
