@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css"/>
+    <link rel="icon" href="/resources/images/favicon.ico">
 </head>
 
 <body>
@@ -33,9 +34,26 @@
     <#--<li>   <a href="/user/addData">New entity</a> </li> -->
     <#--</ul>-->
         <#--<div id="auth" class="menu-text-style">-->
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Devices</a></li>
-                <li><a href="#">Statistics</a></li>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+            <ul class="nav navbar-nav navbar-right menu-text-style">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Devices<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">List</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Add</a></li>
+                        <li><a href="#">Buy</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Statistics<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/user/statistic">Chart</a></li>
+                        <li><a href="/user">Table</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${username}<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -45,8 +63,8 @@
                     </ul>
                 </li>
             </ul>
-        <#--</div>-->
-
+        </div>
+</div></nav>
     </div><!--/.nav-collapse -->
 
 
