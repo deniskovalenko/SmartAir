@@ -59,7 +59,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#">Profile</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Log out</a></li>
+                        <li><a href="/">Log out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -97,9 +97,8 @@
                             <p>
                             <#if device["co2Min"]??>
                                 CO<sub>2</sub> minimum level: ${device["co2Min"]} ppm.
-
                             </#if>
-
+                            </p><p>
                             <#if device["delay"]??>
                                 Delay: ${device["delay"]} milliseconds.
                             </#if>
