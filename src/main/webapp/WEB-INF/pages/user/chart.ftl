@@ -9,28 +9,31 @@
         <script src="/resources/js/chart.js"></script>
     </@layout.header>
 <body>
-<div class="container" style="width: 100%">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a href="/"><img src="/resources/images/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/logo.png" height="50px" alt="logo" border="0"></a>
-    </div>
-    <div id="navbar" class="collapse navbar-collapse">
-        <div id="auth" class="menu-text-style">
-            <a href="#">User</a>
-            <a href="#">Log Out</a>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/"><img src="/resources/images/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <div id="auth" class="menu-text-style">
+                <a href="#">User</a>
+                <a href="#">Log Out</a>
+            </div>
 
-    </div><!--/.nav-collapse -->
+        </div><!--/.nav-collapse -->
 
 
-</div>
+    </div>
+</nav>
 
-<div class="container" style="width: 100%">
+
+<div class="container" style="margin-top: 50px; width: 100%">
     <h1 align="center">Statistics</h1>
     <h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user">table</a></h2>
 
@@ -57,9 +60,6 @@
 
          <ul id="pagination" class="pagination">
                 <li> <a id="prevPage" class="navButton" href="#" page=1>&lt prev</a></li>
-            <#--<#if currentPage &gt; 0>-->
-                <#--<li> <a id="nextPage" href="#" page="${currentPage-1}">next &gt</a></li>-->
-            <#--</#if>-->
          </ul>
     </div>
 
@@ -78,6 +78,7 @@
     </script>
 
 </div>
+
 </body>
 
 <@layout.footer/>

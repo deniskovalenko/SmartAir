@@ -59,8 +59,10 @@ function getChartData(page) {
     $.getJSON( "/user/chartData",
         $('#searchFilter input, #searchFilter select').serialize()+"&page="+page ,
         function( result ) {
-        d3.select('#Statistic svg')
-        .datum(result)
+        var svg = d3.select('#Statistic svg');
+        svg.selectAll("*").remove();
+            //TODO remove only lines, not whole graph
+        svg.datum(result)
         .call(chart);
     });
 
