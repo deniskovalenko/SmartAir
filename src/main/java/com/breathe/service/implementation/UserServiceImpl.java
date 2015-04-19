@@ -10,6 +10,8 @@ import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,7 +38,7 @@ public class UserServiceImpl implements UserService {
         userDAO.addUser(userId, username, email, password, devices);
     }
 
-    public UserModel validateLogin(String username, String password) {
+    public UserModel validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
         return UserMapper.convertUserDbObject(userDAO.validateLogin(username, password));
     }
 
