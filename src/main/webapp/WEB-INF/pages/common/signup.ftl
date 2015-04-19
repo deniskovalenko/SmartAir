@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css"/>
-    <link rel="icon" href="/resources/images/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="/resources/css/custom/stylesheetOverBootstrap.css"/>
+    <link rel="icon" href="/resources/images/common/favicon.ico">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SmartAir - Sign Up</title>
@@ -14,7 +14,7 @@
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container extra-padding">
           <div class="navbar-header">
-              <a class="navbar-brand" href="/"><img src="/resources/images/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/logo.png" alt="logo" height="50px" border="0"/></a>
+              <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
           </div>
       </div>
   </nav>

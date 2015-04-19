@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
     <@layout.header "SmartAir - Statistics">
-        <link rel="stylesheet" href="/resources/css/nv.d3.min.css" type="text/css">
-        <script src="/resources/js/d3.v3.min.js" charset="utf-8"></script>
-        <script src="/resources/js/nv.d3.min.js"></script>
+        <link rel="stylesheet" href="/resources/css/chart/nv.d3.min.css" type="text/css">
+        <script src="/resources/js/chart/d3.v3.min.js" charset="utf-8"></script>
+        <script src="/resources/js/chart/nv.d3.min.js"></script>
         <script src="/resources/js/jquery-2.1.3.min.js"></script>
-        <script src="/resources/js/chart.js"></script>
+        <script src="/resources/js/chart/chart.js"></script>
     </@layout.header>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -18,7 +18,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/"><img src="/resources/images/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/logo.png" height="50px" alt="logo" border="0"></a>
+            <a href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <div id="auth" class="menu-text-style">
