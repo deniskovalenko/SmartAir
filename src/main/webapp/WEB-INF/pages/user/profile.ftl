@@ -61,10 +61,10 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="background-color: #bbd095; color: #fff"><b><#if username??>${username}<#else>User</#if></b><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Account settings</a></li>
-                        <li><a href="#">Help</a></li>
+                        <li><a href="#"><img src="ico-cogwheel.png"/>Account settings</a></li>
+                        <li><a href="#"><img src="ico-question-mark.png"/>Help</a></li>
                         <li class="divider"></li>
-                        <li><a href="/">Log out</a></li>
+                        <li><a href="/"><img src="ico-log-out.png"/>Log out</a></li>
                     </ul>
                 </li>
             </ul>

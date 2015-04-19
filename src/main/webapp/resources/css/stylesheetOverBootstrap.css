@@ -114,12 +114,14 @@ body {
 
 .dropdown-menu li a {
 	height: 50px;
-	padding-top: 15px;
+	padding-top: 12px;
 	border-bottom: 1px solid #E5E5E5;
 	font-family: "Oxygen",sans-serif;
 	font-weight: 300;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 24px;
+	text-transform: none;
+	letter-spacing: 0px;
 }
 
 .dropdown-menu .divider {
