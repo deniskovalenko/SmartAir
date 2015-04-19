@@ -12,8 +12,8 @@ public class ChartSearchFilterModel {
     private int count;
     //search period length - hour, day, week (0, 1, 2 respectively)
     private int mode;
-    //how many count*mode time periods to skip. 0 - to get data for latest count*mode period
-    private int skip;
+    //how many count*mode time periods to page. 0 - to get data for latest count*mode period
+    private int page;
 
     /**
      * @return time offset from LastDate point.
@@ -40,18 +40,18 @@ public class ChartSearchFilterModel {
     }
 
     public Date getEndDate(Date date) {
-       //  date - skip*offset;
+       //  date - page*offset;
         DateTime currentDate = new DateTime(date);
         DateTime endDate;
         switch (this.getMode()) {
             case 0 :
-                endDate = currentDate.minusHours(this.getCount() * this.getSkip());
+                endDate = currentDate.minusHours(this.getCount() * this.getPage());
                 break;
             case 1 :
-                endDate = currentDate.minusDays(this.getCount() * this.getSkip());
+                endDate = currentDate.minusDays(this.getCount() * this.getPage());
                 break;
             case 2 :
-                endDate = currentDate.minusWeeks(this.getCount() * this.getSkip());
+                endDate = currentDate.minusWeeks(this.getCount() * this.getPage());
                 break;
             default:
                 endDate = currentDate;
@@ -75,11 +75,11 @@ public class ChartSearchFilterModel {
         this.mode = mode;
     }
 
-    public int getSkip() {
-        return skip;
+    public int getPage() {
+        return page;
     }
 
-    public void setSkip(int skip) {
-        this.skip = skip;
+    public void setPage(int page) {
+        this.page = page;
     }
 }
