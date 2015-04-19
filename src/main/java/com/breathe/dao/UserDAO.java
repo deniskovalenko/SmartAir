@@ -3,6 +3,8 @@ package com.breathe.dao;
 import com.breathe.model.DeviceModel;
 import com.mongodb.DBObject;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 
 /**
@@ -16,7 +18,7 @@ public interface UserDAO {
     void addUser(String userId, String username, String email, String password, List<DeviceModel> devices);
 
     //TODO change to bool
-    DBObject validateLogin(String username, String password);
+    DBObject validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException;
 
     DBObject getUserById(String userId);
 }
