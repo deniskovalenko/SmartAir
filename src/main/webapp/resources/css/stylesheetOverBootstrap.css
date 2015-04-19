@@ -14,7 +14,7 @@
 .container {
 	width: 100%;
 	margin: 0px;
-	padding: 0px;
+	/*padding: 0px;*/
 }
 .navbar-brand {
 	padding: 0px;																																																																																: 0px;
@@ -127,4 +127,10 @@ body {
 .dropdown-menu .divider {
 	height: 1px;
 	margin: 0px;
+}
+
+.dropdown-ico {
+	height: 26px;
+	width: 26px;
+	text-align: center;
 }
