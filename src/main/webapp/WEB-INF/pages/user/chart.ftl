@@ -34,11 +34,6 @@
         <a href="/"><img src="/resources/images/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/logo.png" height="50px" alt="logo" border="0"></a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-    <#--<ul class="nav navbar-nav">-->
-    <#--<li class="active"><a href="#">Home</a></li>-->
-
-    <#--<li>   <a href="/user/addData">New entity</a> </li> -->
-    <#--</ul>-->
         <div id="auth" class="menu-text-style">
             <a href="#">User</a>
             <a href="#">Log Out</a>
@@ -50,20 +45,22 @@
 </div>
 
 <div class="container" style="width: 100%">
-        <h1 align="center">Statistics</h1>
-        <h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user">table</a></h2>
+    <h1 align="center">Statistics</h1>
+    <h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user">table</a></h2>
 
-        <div class="row">
-             <div class="col-md-4">
-                 <label class="form-group-sm">Get your statistic for last:</label>
-             </div>
-        </div>
+    <div class="row">
+         <div class="col-md-4">
+             <label class="form-group-sm">Get your statistic for last:</label>
+         </div>
+    </div>
+
+    <div id="searchFilter">
         <div class="row">
             <div class="col-md-1">
-                <input id="count" name="count"  type="number" class="form-control" max="24" min="1" value="1">
+                <input id="count" name="count"  type="number" class="chartFilter form-control" max="24" min="1" value="1">
             </div>
             <div class="col-md-2">
-                <select name="mode" class="form-control">
+                <select name="mode" class="chartFilter form-control">
                     <option value="0">hour</option>
                     <option value="1">day</option>
                     <option value="2">week</option>
@@ -72,20 +69,26 @@
         </div>
 
          <div id="pagination">
-         <#if currentPage !??>
-             <#assign currentPage = 0>
-         </#if>
+             <#if currentPage !??>
+                 <#assign currentPage = 0>
+             </#if>
 
-         <ul class="pagination">
-                <li> <a href="#" page="${currentPage+1}">&lt prev</a></li>
-            <#if currentPage &gt; 0>
-                <li> <a href="#" page="${currentPage-1}">next &gt</a></li>
-            </#if>
-         </ul>
-
+             <ul class="pagination">
+                    <li> <a href="#" page="${currentPage+1}">&lt prev</a></li>
+                <#if currentPage &gt; 0>
+                    <li> <a href="#" page="${currentPage-1}">next &gt</a></li>
+                </#if>
+             </ul>
          </div>
+    </div>
 
-        <div id="Statistic" style="height: 400px;"></div>
+    <div id="Statistic" style="height: 400px;"></div>
+
+    <script type="text/javascript">
+        $("#searchFilter").on("change", ".chartFilter", function ( event ) {
+           getChartData();
+        });
+    </script>
 
 </div>
 </body>

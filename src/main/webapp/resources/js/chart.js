@@ -23,7 +23,7 @@ nv.addGraph(function() {
         .axisLabel('CO2')
         .tickFormat(d3.format(',.2f'))
     ;
-
+    d3.select('#Statistic').append('svg');
     getChartData();
 //    d3.select('#Statistic').append('svg')
 //        .datum(getChartData())
@@ -38,10 +38,19 @@ nv.addGraph(function() {
  * Simple test data generator
  */
 
-function getChartData() {
+function getSearchFilter() {
+    return $('#searchFilter input, #searchFilter select').serialize()
+}
 
-    $.getJSON( "/user/chartData", "count=1&mode=0&skip=0" , function( result ) {
-        d3.select('#Statistic').append('svg')
+function getChartData() {
+    //TODO - get page from button
+    var page;
+    page = page || 0;
+
+    $.getJSON( "/user/chartData",
+        $('#searchFilter input, #searchFilter select').serialize()+"&page="+page ,
+        function( result ) {
+        d3.select('#Statistic svg')
         .datum(result)
         .call(chart);
     });
