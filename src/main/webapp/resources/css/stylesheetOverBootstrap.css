@@ -136,3 +136,17 @@ body {
 	width: 26px;
 	text-align: center;
 }
+
+.navbar-toggle {
+	border-color: #5A5A5A;
+	border-radius: 1px;
+}
+
+.navbar-toggle:hover {
+	border-color: #E5E5E5;
+}
+
+.navbar-toggle .icon-bar {
+	background-color: #5A5A5A;
+	border-radius: 0px;
+} 
