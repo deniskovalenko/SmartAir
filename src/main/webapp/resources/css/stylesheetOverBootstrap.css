@@ -14,7 +14,7 @@
 .container {
 	width: 100%;
 	margin: 0px;
-	padding: 0px;
+	/*padding: 0px;*/
 }
 .navbar-brand {
 	padding: 0px;																																																																																: 0px;
@@ -102,4 +102,37 @@ body {
 }
 .extra-padding {
 	padding-left: 15px;
+}
+
+.dropdown-menu {
+	padding: 0px 0px;
+	border-radius: 0px;
+	box-shadow: none;
+	border-bottom: 0px;
+	min-width: 200px;
+}
+
+.dropdown-menu li a {
+	height: 50px;
+	padding-top: 12px;
+	border-bottom: 1px solid #E5E5E5;
+	font-family: "Oxygen",sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 24px;
+	text-transform: none;
+	letter-spacing: 0px;
+}
+
+.dropdown-menu .divider {
+	height: 1px;
+	margin: 0px;
+}
+
+.dropdown-ico {
+	display: inline-block;
+	margin-right: 5px;
+	height: 26px;
+	width: 26px;
+	text-align: center;
 }

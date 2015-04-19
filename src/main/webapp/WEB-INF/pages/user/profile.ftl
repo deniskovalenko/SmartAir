@@ -8,7 +8,11 @@
     <meta name="author" content="">
     <meta name="google-site-verification" content="yqEVAdMcIMlxJlEa-IbHZak0JerbA8uLyOVRFUFKLhM" />
 
-    <title>Profile ${username}</title>
+    <#if username??>
+        <title>Profile ${username}</title>
+    <#else>
+        <title>Profile</title>
+    </#if>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
@@ -37,29 +41,36 @@
         <#--<nav class="navbar navbar-default">-->
             <#--<div class="container-fluid">-->
                 <#--<div class="navbar-header">-->
-            <ul class="nav navbar-nav navbar-right menu-text-style">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Devices<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">List</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Add</a></li>
-                        <li><a href="#">Buy</a></li>
-                    </ul>
-                </li>
+
+            <ul class="nav navbar-nav navbar-left menu-text-style">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Statistics<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="/user/statistic">Chart</a></li>
-                        <li><a href="/user">Table</a></li>
+                        <li><a href="/user/statistic"><div class="dropdown-ico"><img src="/resources/images/ico-chart.png"/></div>Chart</a></li>
+                        <li><a href="/user"><div class="dropdown-ico"><img src="/resources/images/ico-table.png"/></div>Table</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="background-color: #bbd095; color: #fff"><b>${username}</b><span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Devices<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-list.png"/></div>List</a></li>
                         <li class="divider"></li>
-                        <li><a href="/">Log out</a></li>
+                        <li><a href="/user/addDevice?user_id=${user_id}"><div class="dropdown-ico"><img src="/resources/images/ico-add.png"/></div>Add</a></li>
+                        <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-buy.png"/></div>Buy</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <ul class="nav navbar-nav navbar-right menu-text-style">
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="background-color: #bbd095; color: #fff"><b><#if username??>${username}<#else>User</#if></b><span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-cogwheel.png"/></div>Account settings</a></li>
+                        <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-question-mark.png"/></div>Help</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/"><div class="dropdown-ico"><img src="/resources/images/ico-log-out.png"/></div>Log out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -71,17 +82,19 @@
 </div>
 
 <div class="container" style="padding: 30px; width: 100%">
-    <#if devices_count == 0>
+    <#if devices_count??>
+        <#if devices_count == 0>
         <div class="row">
             <div class="thumbnail">
                 <p align="center">You don't have any devices.</p>
-                <p align="center"><a href="#" class="btn btn-primary" role="button">Add a device</a></p>
+                <p align="center"><a href="/user/addDevice?user_id=${user_id}" class="btn btn-primary" role="button">Add a device</a></p>
             </div>
         </div>
     <#else>
         <p align="right" style="margin-top: 10px">You have ${devices_count} devices.</p>
         <div class="row">
             <#assign elementCount =0>
+            <#if devices??>
             <#list devices as device>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
@@ -109,7 +122,9 @@
                 </div>
                 <#assign elementCount=elementCount+1>
             </#list>
+            </#if>
         </div>
+    </#if>
     </#if>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
