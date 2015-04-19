@@ -12,6 +12,7 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 /**
  * Created by amira on 02.04.15.
@@ -45,13 +46,13 @@ public class UserDAOImpl implements UserDAO {
 
     // validates that username is unique and insert into db
     public void addUser(String userId, String username, String email, String password, List<DeviceModel> devices) {
-        if (usersCollection.find(new BasicDBObject("username", username)).count() > 0) {
+        if (usersCollection.find(new BasicDBObject("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE))).count() > 0) {
             System.out.println("User with this username already exists: " + username);
             //TODO throw exception
         }
         if (usersCollection.find(new BasicDBObject("email", email)).count() > 0) {
             System.out.println("User with this email already exists: " + email);
-            //TODO throw ecception
+            //TODO throw exception
         }
 
        // String passwordHash = makePasswordHash(password, Integer.toString(random.nextInt()));
@@ -80,7 +81,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public DBObject validateLogin(String username, String password) {
-        DBObject user = usersCollection.findOne(new BasicDBObject("username", username));
+        DBObject user = usersCollection.findOne(new BasicDBObject("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE)));
 
         if (user == null) {
             System.out.println("User not in database");
