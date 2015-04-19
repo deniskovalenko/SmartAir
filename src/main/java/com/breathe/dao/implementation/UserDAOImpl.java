@@ -4,14 +4,18 @@ import com.breathe.dao.UserDAO;
 import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;
 import com.breathe.utils.EmailValidator;
+import com.breathe.utils.PasswordHash;
 import com.mongodb.*;
 import org.springframework.stereotype.Repository;
 
 import java.net.UnknownHostException;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 /**
  * Created by amira on 02.04.15.
@@ -45,13 +49,13 @@ public class UserDAOImpl implements UserDAO {
 
     // validates that username is unique and insert into db
     public void addUser(String userId, String username, String email, String password, List<DeviceModel> devices) {
-        if (usersCollection.find(new BasicDBObject("username", username)).count() > 0) {
+        if (usersCollection.find(new BasicDBObject("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE))).count() > 0) {
             System.out.println("User with this username already exists: " + username);
             //TODO throw exception
         }
         if (usersCollection.find(new BasicDBObject("email", email)).count() > 0) {
             System.out.println("User with this email already exists: " + email);
-            //TODO throw ecception
+            //TODO throw exception
         }
 
        // String passwordHash = makePasswordHash(password, Integer.toString(random.nextInt()));
@@ -80,44 +84,28 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public DBObject validateLogin(String username, String password) {
-        DBObject user = usersCollection.findOne(new BasicDBObject("username", username));
+        DBObject user = usersCollection.findOne(new BasicDBObject("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE)));
 
         if (user == null) {
             System.out.println("User not in database");
             return null;
         }
 
-//        String hashedAndSalted = user.get("password").toString();
-
-//        String salt = hashedAndSalted.split(",")[1];
-
-//        if (!hashedAndSalted.equals(makePasswordHash(password, salt))) {
-//            System.out.println("Submitted password is not a match");
-//            return null;
-//        }
-
-        if (!user.get("password").toString().equals(password)) {
+        Boolean valid = false;
+        try {
+            valid = PasswordHash.validatePassword(password, PasswordHash.createHash(user.get("password").toString()));
+        }
+        catch (Exception e) {
+            System.out.print(e.getMessage());
+            return null;
+        }
+        if (!valid) {
             System.out.println("Wrong password");
             return null;
         }
 
         return user;
     }
-
-//    private String makePasswordHash(String password, String salt) {
-//        try {
-//            String saltedAndHashed = password + "," + salt;
-//            MessageDigest digest = MessageDigest.getInstance("MD5");
-//            digest.update(saltedAndHashed.getBytes());
-//            BASE64Encoder encoder = new BASE64Encoder();
-//            byte hashedBytes[] = (new String(digest.digest(), "UTF-8")).getBytes();
-//            return encoder.encode(hashedBytes) + "," + salt;
-//        } catch (NoSuchAlgorithmException e) {
-//            throw new RuntimeException("MD5 is not available", e);
-//        } catch (UnsupportedEncodingException e) {
-//            throw new RuntimeException("UTF-8 unavailable?  Not a chance", e);
-//        }
-//    }
 
     public DBObject getUserById(String userId) {
         DBObject user = usersCollection.findOne(new BasicDBObject("_id", userId));

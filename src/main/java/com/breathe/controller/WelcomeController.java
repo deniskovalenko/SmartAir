@@ -47,7 +47,13 @@ public class WelcomeController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(@RequestParam("username") String username, @RequestParam("password") String password) {
-        UserModel user = userService.validateLogin(username, password);
+        UserModel user = null;
+        try {
+            user = userService.validateLogin(username, password);
+        }
+        catch (Exception e) {
+            //TODO catch exception
+        }
         if (user == null) {
             return new ModelAndView(REDIRECT);
         } else {
