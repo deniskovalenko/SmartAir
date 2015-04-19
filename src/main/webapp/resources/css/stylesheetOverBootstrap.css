@@ -116,6 +116,10 @@ body {
 	height: 50px;
 	padding-top: 15px;
 	border-bottom: 1px solid #E5E5E5;
+	font-family: "Oxygen",sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
 }
 
 .dropdown-menu .divider {
