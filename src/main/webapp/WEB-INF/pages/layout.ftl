@@ -52,7 +52,7 @@
                     <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-list.png"/></div>List</a></li>
                     <li class="divider"></li>
                     <li><a href="/user/addDevice?user_id=${user_id}"><div class="dropdown-ico"><img src="/resources/images/ico-add.png"/></div>Add</a></li>
-                    <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-buy.png"/></div>Buy</a></li>
+                    <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-buy.png"/></div>Order</a></li>
                 </ul>
             </li>
         </ul>
@@ -86,7 +86,7 @@
         <div id="auth" class="menu-text-style">
             <a href="/user">About</a>
             <a href="/user">Information</a>
-            <a href="/user">Buy</a>
+            <a href="/user">Order</a>
             <a href="/user">Contacts</a>
         </div>
     </div>
