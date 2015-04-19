@@ -44,19 +44,19 @@
 
             <ul class="nav navbar-nav navbar-left menu-text-style">
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Statistics<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/user/statistic"><div class="dropdown-ico"><img src="/resources/images/ico-chart.png"/></div>Chart</a></li>
+                        <li><a href="/user"><div class="dropdown-ico"><img src="/resources/images/ico-table.png"/></div>Table</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Devices<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-list.png"/></div>List</a></li>
                         <li class="divider"></li>
                         <li><a href="/user/addDevice?user_id=${user_id}"><div class="dropdown-ico"><img src="/resources/images/ico-add.png"/></div>Add</a></li>
                         <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-buy.png"/></div>Buy</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Statistics<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="/user/statistic"><div class="dropdown-ico"><img src="/resources/images/ico-chart.png"/></div>Chart</a></li>
-                        <li><a href="/user"><div class="dropdown-ico"><img src="/resources/images/ico-table.png"/></div>Table</a></li>
                     </ul>
                 </li>
             </ul>
@@ -67,8 +67,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="background-color: #bbd095; color: #fff"><b><#if username??>${username}<#else>User</#if></b><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-cogwheel.png"/></div> Account settings</a></li>
-                        <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-question-mark.png"/></div> Help</a></li>
+                        <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-cogwheel.png"/></div>Account settings</a></li>
+                        <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/ico-question-mark.png"/></div>Help</a></li>
                         <li class="divider"></li>
                         <li><a href="/"><div class="dropdown-ico"><img src="/resources/images/ico-log-out.png"/></div>Log out</a></li>
                     </ul>

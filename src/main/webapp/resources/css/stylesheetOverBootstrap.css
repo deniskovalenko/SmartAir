@@ -130,6 +130,8 @@ body {
 }
 
 .dropdown-ico {
+	display: inline-block;
+	margin-right: 5px;
 	height: 26px;
 	width: 26px;
 	text-align: center;
