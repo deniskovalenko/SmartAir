@@ -57,10 +57,16 @@
             </div>
         </div>
 
-
-         <ul id="pagination" class="pagination">
-                <li> <a id="prevPage" class="navButton" href="#" page=1>&lt prev</a></li>
-         </ul>
+        <div class="row">
+             <div class="col-md-6">
+                 <ul id="pagination" class="pagination">
+                        <li> <a id="prevPage" class="navButton" href="#" page=1>&lt prev</a></li>
+                 </ul>
+             </div>
+            <div id="loadingDiv" class="col-md-3">
+                <img src="/resources/images/common/progress.gif"
+            </div>
+         </div>
     </div>
 
     <div id="Statistic" style="height: 400px;"></div>
@@ -75,10 +81,17 @@
                     getChartData(page);
                 }
         );
+        var $loading = $('#loadingDiv').hide();
+        $(document)
+                .ajaxStart(function () {
+                    $loading.show();
+                })
+                .ajaxStop(function () {
+                    $loading.hide();
+                });
     </script>
 
 </div>
-
 </body>
 
 <@layout.footer/>
