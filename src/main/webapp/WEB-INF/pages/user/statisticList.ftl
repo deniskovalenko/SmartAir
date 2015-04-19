@@ -142,7 +142,8 @@
             <tr>
                 <td >
                     <#if entity["date"]??>
-                    ${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}
+                    <#--${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a Z")}-->
+                    ${entity["date"]?datetime}
                     <#else>
                         no data
                     </#if>
