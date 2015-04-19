@@ -21,7 +21,7 @@ nv.addGraph(function() {
 
     chart.yAxis
         .axisLabel('CO2')
-        .tickFormat(d3.format(',.2f'))
+        .tickFormat(d3.format('d'))
     ;
     d3.select('#Statistic').append('svg');
 
