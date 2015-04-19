@@ -19,6 +19,11 @@
 .navbar-brand {
 	padding: 0px;																																																																																: 0px;
 }
+
+.navbar-nav {
+	margin: 0px;
+}
+
 label {
 	font-family: "proxima-nova-n4","proxima-nova",sans-serif;
 	font-style: normal;
