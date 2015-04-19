@@ -103,3 +103,27 @@ body {
 .extra-padding {
 	padding-left: 15px;
 }
+
+/*///////////////Dropdown-menu style*/
+
+.dpordown-menu {
+	padding: 0px 0px;
+	border-radius: 0px;
+	box-shadow: none;
+	border-bottom: 0px;
+	min-width: 200px;
+}
+
+.dpordown-menu li a {
+	height: 50px;
+	padding-top: 15px;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.dpordown-menu .divider {
+	height: 1px;
+	margin: 0px;
+}
+
+
+/*//////////////////////////////////*/
