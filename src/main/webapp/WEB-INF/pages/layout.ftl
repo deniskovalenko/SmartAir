@@ -70,3 +70,31 @@
     </div>
 </div>
 </#macro>
+
+<#macro common_menu>
+<div class="container" style="width: 100%; background-color: #fff">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/"><img src="/resources/images/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/logo.png" height="50px" alt="logo" border="0"></a>
+    </div>
+    <div id="navbar" class="navbar-left">
+        <div id="auth" class="menu-text-style">
+            <a href="/user">About</a>
+            <a href="/user">Information</a>
+            <a href="/user">Buy</a>
+            <a href="/user">Contacts</a>
+        </div>
+    </div>
+    <div id="navbar" class="navbar-right">
+        <div id="auth" class="menu-text-style">
+            <a href="/signup">Sign up</a>
+            <a href="/login">Log in</a>
+        </div>
+    </div>
+</div>
+</#macro>

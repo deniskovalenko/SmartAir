@@ -1,4 +1,4 @@
-<#import "layout.ftl" as layout>
+<#import "../layout.ftl" as layout>
 <!DOCTYPE html>
 <html lang="en">
     <@layout.header "Create a new test entity" />

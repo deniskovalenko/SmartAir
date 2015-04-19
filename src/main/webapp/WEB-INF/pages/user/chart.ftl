@@ -1,4 +1,4 @@
-<#import "layout.ftl" as layout>
+<#import "../layout.ftl" as layout>
 <!DOCTYPE html>
 <html>
     <@layout.header "SmartAir - Statistics">
