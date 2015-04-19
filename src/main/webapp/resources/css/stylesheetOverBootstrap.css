@@ -104,7 +104,7 @@ body {
 	padding-left: 15px;
 }
 
-.dpordown-menu {
+.dropdown-menu {
 	padding: 0px 0px;
 	border-radius: 0px;
 	box-shadow: none;
@@ -112,13 +112,13 @@ body {
 	min-width: 200px;
 }
 
-.dpordown-menu li a {
+.dropdown-menu li a {
 	height: 50px;
 	padding-top: 15px;
 	border-bottom: 1px solid #E5E5E5;
 }
 
-.dpordown-menu .divider {
+.dropdown-menu .divider {
 	height: 1px;
 	margin: 0px;
 }
