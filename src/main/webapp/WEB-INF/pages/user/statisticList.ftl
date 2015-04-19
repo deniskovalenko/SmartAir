@@ -15,11 +15,6 @@
                <a href="/"><img src="/resources/images/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <#--<ul class="nav navbar-nav">-->
-                <#--<li class="active"><a href="#">Home</a></li>-->
-
-                 <#--<li>   <a href="/user/addData">New entity</a> </li> -->
-            <#--</ul>-->
             <div id="auth" class="menu-text-style">
                 <a href="#">User</a>
                 <a href="#">Log Out</a>
@@ -58,61 +53,6 @@
     </ul>
 
     <#assign elementCount =0>
-
-        <#--<table bordercolor="black" border="1">-->
-            <#--<tr style="background: #84e5ba;">-->
-                <#--<th style="padding:10px; text-align:center;">Date/Time</th>-->
-                <#--<th style="padding:10px; text-align:center;">Posted by</th>-->
-                <#--<th style="padding:10px; text-align:center;">Temperature (*C)</th>-->
-                <#--<th style="padding:10px; text-align:center;">CO2 (ppm)</th>-->
-                <#--<th style="padding:10px; text-align:center;">Humidity</th>-->
-            <#--</tr>-->
-        <#--<#list data as entity>-->
-
-            <#--<tr>-->
-                <#--&lt;#&ndash;<td style="padding-left:10px; padding-right:10px;">&ndash;&gt;-->
-                    <#--&lt;#&ndash;${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}&ndash;&gt;-->
-                <#--&lt;#&ndash;</td>&ndash;&gt;-->
-                <#--<td style="padding-left:10px; padding-right:10px;">-->
-                    <#--<#if entity["date"]??>-->
-                    <#--${entity["date"]?datetime?string("dd/MM/yyyy hh:mm:ss a")}-->
-                    <#--<#else>-->
-                        <#--no data-->
-                    <#--</#if>-->
-                <#--</td>-->
-                <#--<td style="padding-left:10px; padding-right:10px;">-->
-                    <#--<#if entity["deviceId"]??>-->
-                         <#--${entity["deviceId"]}-->
-                    <#--<#else>-->
-                        <#--no data-->
-                    <#--</#if>-->
-                <#--</td>-->
-                <#--<td style="text-align:center;">-->
-                    <#--<#if entity["temperature"]??>-->
-                         <#--${entity["temperature"]}-->
-                    <#--<#else>-->
-                        <#--no data-->
-                    <#--</#if>-->
-                <#--</td>-->
-                <#--<td style="text-align:center;">-->
-                    <#--<#if entity["co2"]??>-->
-                         <#--${entity["co2"]}-->
-                    <#--<#else>-->
-                        <#--no data-->
-                    <#--</#if>-->
-                <#--</td>-->
-                <#--<td style="text-align:center;">-->
-                    <#--<#if entity["humidity"]??>-->
-                        <#--${entity["humidity"]}-->
-                    <#--<#else>-->
-                        <#--no data-->
-                    <#--</#if>-->
-                <#--</td>-->
-            <#--</tr>-->
-
-            <#--<#assign elementCount=elementCount+1>-->
-        <#--</#list>-->
-        <#--</table>-->
         <table class="table table-striped" >
             <tr>
                 <th>Date/Time</th>
@@ -182,6 +122,9 @@
     </ul>
         </div>
 </div><!-- /.container -->
+<#--<script src="/resources/js/collapse.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 <@layout.footer/>
 </html>
