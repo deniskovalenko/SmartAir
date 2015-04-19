@@ -87,7 +87,7 @@
             <a href="/user">About</a>
             <a href="/user">Information</a>
             <a href="/user">Order</a>
-            <a href="/user">Contacts</a>
+            <a href="/contacts">Contacts</a>
         </div>
     </div>
     <div id="navbar" class="navbar-right">
