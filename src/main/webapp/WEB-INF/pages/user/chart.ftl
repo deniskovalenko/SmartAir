@@ -68,18 +68,13 @@
             </div>
         </div>
 
-         <div id="pagination">
-             <#if currentPage !??>
-                 <#assign currentPage = 0>
-             </#if>
 
-             <ul class="pagination">
-                    <li> <a href="#" page="${currentPage+1}">&lt prev</a></li>
-                <#if currentPage &gt; 0>
-                    <li> <a href="#" page="${currentPage-1}">next &gt</a></li>
-                </#if>
-             </ul>
-         </div>
+         <ul id="pagination" class="pagination">
+                <li> <a id="prevPage" class="navButton" href="#" page=1>&lt prev</a></li>
+            <#--<#if currentPage &gt; 0>-->
+                <#--<li> <a id="nextPage" href="#" page="${currentPage-1}">next &gt</a></li>-->
+            <#--</#if>-->
+         </ul>
     </div>
 
     <div id="Statistic" style="height: 400px;"></div>
@@ -88,6 +83,12 @@
         $("#searchFilter").on("change", ".chartFilter", function ( event ) {
            getChartData();
         });
+        $("#searchFilter").on("click", ".navButton", function (event) {
+                    event.preventDefault();
+                    var page = this.getAttribute("page");
+                    getChartData(page);
+                }
+        );
     </script>
 
 </div>

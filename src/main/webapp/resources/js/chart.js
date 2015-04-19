@@ -24,27 +24,36 @@ nv.addGraph(function() {
         .tickFormat(d3.format(',.2f'))
     ;
     d3.select('#Statistic').append('svg');
+
     getChartData();
-//    d3.select('#Statistic').append('svg')
-//        .datum(getChartData())
-//        .call(chart);
-    //here making ajax call
 
     nv.utils.windowResize(chart.update);
 
     return chart;
 });
-/**************************************
- * Simple test data generator
- */
 
-function getSearchFilter() {
-    return $('#searchFilter input, #searchFilter select').serialize()
+function refreshButtons(page) {
+ //if page = 0 remove next button.
+    var intPage = parseInt(page);
+    $("#pagination #prevPage").attr("page", intPage + 1);
+
+    if (intPage > 0 ) {
+        //if nextPage button don't exist create one
+        if (!$("#pagination #nextPage").length) {
+            $("#pagination").append("<li> <a id='nextPage' class='navButton' href='#'>next &gt</a></li>");
+        }
+        $("#pagination #nextPage").attr("page", intPage - 1);
+    } else {
+        //if page == 0 remove next button
+        if ($("#pagination #nextPage").length) {
+            $("#nextPage").remove();
+        }
+    }
+
 }
 
-function getChartData() {
+function getChartData(page) {
     //TODO - get page from button
-    var page;
     page = page || 0;
 
     $.getJSON( "/user/chartData",
@@ -54,6 +63,8 @@ function getChartData() {
         .datum(result)
         .call(chart);
     });
+
+    refreshButtons(page);
 }
 
 function sinAndCos() {
