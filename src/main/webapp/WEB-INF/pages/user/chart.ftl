@@ -1,27 +1,13 @@
+<#import "layout.ftl" as layout>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SmartAir - Statistics</title>
-
-    <!-- Bootstrap core CSS -->
-
-    <link rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css" type="text/css"/>
-    <link rel="icon" href="/resources/images/favicon.ico">
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/css/nv.d3.min.css" type="text/css">
-
-    <script src="/resources/js/d3.v3.min.js" charset="utf-8"></script>
-    <script src="/resources/js/nv.d3.min.js"></script>
-    <script src="/resources/js/jquery-2.1.3.min.js"></script>
-    <script src="/resources/js/chart.js"></script>
-</head>
-
+    <@layout.header "SmartAir - Statistics">
+        <link rel="stylesheet" href="/resources/css/nv.d3.min.css" type="text/css">
+        <script src="/resources/js/d3.v3.min.js" charset="utf-8"></script>
+        <script src="/resources/js/nv.d3.min.js"></script>
+        <script src="/resources/js/jquery-2.1.3.min.js"></script>
+        <script src="/resources/js/chart.js"></script>
+    </@layout.header>
 <body>
 <div class="container" style="width: 100%">
     <div class="navbar-header">
@@ -94,10 +80,5 @@
 </div>
 </body>
 
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted" style="text-align: center">PZ-12-1 2015</p>
-        <p class="text-muted" style="text-align: center">Tatarchenko, Sheremet, Kovalenko, Pleshkanovskiy, Sych, Sovgyr</p>
-    </div>
-</footer>
+<@layout.footer/>
 </html>

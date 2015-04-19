@@ -1,24 +1,8 @@
+<#import "layout.ftl" as layout>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="google-site-verification" content="yqEVAdMcIMlxJlEa-IbHZak0JerbA8uLyOVRFUFKLhM" />
-
-    <title>SmartAir - Statistics</title>
-	
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css"/>
-    <link rel="icon" href="/resources/images/favicon.ico">
-</head>
-
+    <@layout.header "SmartAir - Statistics"/>
 <body>
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -196,18 +180,8 @@
             </#if>
         </#if>
     </ul>
-
-
         </div>
-
 </div><!-- /.container -->
-
 </body>
-
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted" style="text-align: center">PZ-12-1 2015</p>
-        <p class="text-muted" style="text-align: center">Tatarchenko, Sheremet, Kovalenko, Pleshkanovskiy, Sych, Sovgyr</p>
-    </div>
-</footer>
+<@layout.footer/>
 </html>
