@@ -1,19 +1,8 @@
+<#import "../layout.ftl" as layout>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link rel="icon" href="/resources/images/favicon.ico">
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <title>Create a new test entity</title>
-</head>
-
+    <@layout.header "Create a new test entity" />
 <body>
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -33,15 +22,10 @@
                  <li>  <a href="/login">Login</a> </u> </li>
                 </#if>
             </ul>
-            <#--<form action="/search" method="POST" class="navbar-form navbar-right">-->
-                <#--<input name="tag" type="text" class="form-control" placeholder="Search...">-->
-            <#--</form>-->
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
-
 <div class="container" style="margin-top: 50px">
-
     <div class="starter-template">
         <form name="statistic" action="/user/addData" method="POST">
         ${errors!""}
@@ -57,15 +41,7 @@
                 <input type="submit" class="btn btn-primary" value="Submit">
 		</form>
     </div>
-
-</div><!-- /.container -->
-
-
+</div>
 </body>
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted" style="text-align: center">PZ-12-1 2015</p>
-        <p class="text-muted" style="text-align: center">Tatarchenko, Sheremet, Kovalenko, Pleshkanovskiy, Sych, Sovgyr</p>
-    </div>
-</footer>
+<@layout.footer/>
 </html>

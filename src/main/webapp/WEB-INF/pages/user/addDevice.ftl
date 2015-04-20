@@ -1,32 +1,18 @@
+<#import "../layout.ftl" as layout>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <link rel="icon" href="/resources/images/favicon.ico">
-
-    <title>SmartAir - Add a new device</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css"/>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-
+    <@layout.header "SmartAir - Add a new device">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </@layout.header>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container extra-padding">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="/resources/images/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/logo.png" alt="logo" height="50px" border="0"/></a>
+            <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
         </div>
     </div>
 </nav>
@@ -72,7 +58,7 @@
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
 </body>
-
+<@layout.footer/>
 </html>
 
 

@@ -7,13 +7,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="/resources/images/favicon.ico">
+    <link rel="icon" href="/resources/images/common/favicon.ico">
 
     <title>SmartAir - Login</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/stylesheetOverBootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="/resources/css/custom/stylesheetOverBootstrap.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,7 +26,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container extra-padding">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="/resources/images/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/logo.png" alt="logo" height="50px" border="0"/></a>
+            <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
         </div>
     </div>
 </nav>

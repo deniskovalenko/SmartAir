@@ -79,4 +79,9 @@ public class WelcomeController {
        }
        return REDIRECT;
     }
+
+    @RequestMapping(value = "/contacts", method = RequestMethod.GET)
+    public ModelAndView contacts() {
+        return new ModelAndView(COMMON + "contacts");
+    }
 }
