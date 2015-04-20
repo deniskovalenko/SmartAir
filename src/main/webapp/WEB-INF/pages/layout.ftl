@@ -11,7 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/custom/stylesheetOverBootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="/resources/css/custom/stylesheetOverBootstrap.css"/
     <link rel="icon" href="/resources/images/common/favicon.ico">
     <#nested/>
 </head>
@@ -27,6 +27,7 @@
 </#macro>
 
 <#macro user_menu user_id username>
+<nav class="navbar">
 <div class="container" style="width: 100%; background-color: #fff">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -35,8 +36,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
+        <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
     </div>
+
     <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-left menu-text-style">
             <li class="dropdown">
@@ -69,32 +71,35 @@
         </ul>
     </div>
 </div>
+</nav>
 </#macro>
 
 <#macro common_menu>
-<div class="container" style="width: 100%; background-color: #fff">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
-    </div>
-    <div id="navbar" class="navbar-left">
-        <div id="auth" class="menu-text-style">
-            <a href="/user">About</a>
-            <a href="/user">Information</a>
-            <a href="/user">Order</a>
-            <a href="/contacts">Contacts</a>
+<nav class="navbar" role="navigation">
+    <div class="container" style="width: 100%;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
+        </div>
+        <div id="navbar" class="navbar-left">
+            <div id="auth" class="menu-text-style">
+                <a href="/user">About</a>
+                <a href="/user">Information</a>
+                <a href="/user">Order</a>
+                <a href="/contacts">Contacts</a>
+            </div>
+        </div>
+        <div id="navbar" class="navbar-right">
+            <div id="auth" class="menu-text-style">
+                <a href="/signup">Sign up</a>
+                <a href="/login">Log in</a>
+            </div>
         </div>
     </div>
-    <div id="navbar" class="navbar-right">
-        <div id="auth" class="menu-text-style">
-            <a href="/signup">Sign up</a>
-            <a href="/login">Log in</a>
-        </div>
-    </div>
-</div>
+</nav>
 </#macro>
