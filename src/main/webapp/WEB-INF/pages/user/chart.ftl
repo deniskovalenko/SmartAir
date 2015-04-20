@@ -36,7 +36,9 @@
 <div class="container" style="margin-top: 50px; width: 100%">
     <h1 align="center">Statistics</h1>
     <h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user">table</a></h2>
-
+    <div id="loadingDiv" align="center">
+        <img src="/resources/images/common/progress.gif">
+    </div>
     <div class="row">
          <div class="col-md-4">
              <label class="form-group-sm">Get your statistic for last:</label>
@@ -63,9 +65,6 @@
                         <li> <a id="prevPage" class="navButton" href="#" page=1>&lt prev</a></li>
                  </ul>
              </div>
-            <div id="loadingDiv" class="col-md-3">
-                <img src="/resources/images/common/progress.gif"
-            </div>
          </div>
     </div>
 
