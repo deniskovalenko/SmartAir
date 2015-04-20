@@ -1,3 +1,4 @@
+<#import "../layout.ftl" as layout/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +12,8 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container extra-padding">
+  <nav class="navbar" role="navigation">
+      <div class="container menu-container">
           <div class="navbar-header">
               <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
           </div>
@@ -65,6 +66,7 @@
  </form>
         </div>
 
+  <@layout.scripts/>
 
   </body>
 

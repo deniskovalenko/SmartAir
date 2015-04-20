@@ -4,11 +4,16 @@
 	background-color: #fff;
 	border: 2px;
 	border-color: #fff;
+	border-radius: 0px;
 	margin-bottom: 0px;
+}
+.navbar-nav {
+	margin: 0px;
 }
 .navbar-collapse {
 	padding: 0px;
 	margin: 0px;
+	background-color: #fff;
 }
 .thumbnail {
 	padding-top: 20px;
@@ -57,6 +62,9 @@ body {
 
 	background-color: #96b556;
 }
+.btn-submit:focus {
+	background-color: #96b556;
+}
 .btn-submit:hover {
 	background-color: #88b52a;
 }
@@ -80,7 +88,7 @@ body {
 	font-style: normal;
 	font-weight: 400 !important;
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	color: #5a5a5a;
 	/*font-family:"proxima_novalight",Arial,Helvetica,sans-serif;*/
 	/*font-family: "Myriad","Trebuchet MS",Arial,Tahoma;*/
@@ -236,4 +244,14 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
     color: #FFF;
 }
+.device-panel {
+	position: inherit;
+}
 
+sub {
+	position: static;
+}
+
+.footer {
+	margin-top: 20px;
+}

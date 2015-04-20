@@ -27,7 +27,7 @@
             <#assign elementCount =0>
             <#if devices??>
             <#list devices as device>
-                <div class="col-sm-6 col-md-4">
+                <div class="col-sm-6 col-md-4 device-panel">
                     <div class="thumbnail">
                         <img src="/resources/images/lamp_small.png" alt="Living room" border="0">
                         <div class="caption">
@@ -58,10 +58,9 @@
     </#if>
     </#if>
 </div>
-    <#--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
-    <script src="/resources/js/jquery-2.1.3.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <#--<srcipt src="/resources/js/"-->
+
+<@layout.scripts/>
+
 </body>
 <@layout.footer />
 </html>

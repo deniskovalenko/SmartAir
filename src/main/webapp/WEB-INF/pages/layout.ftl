@@ -11,7 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/custom/stylesheetOverBootstrap.css"/
+    <link type="text/css" rel="stylesheet" href="/resources/css/custom/stylesheetOverBootstrap.css"/>
     <link rel="icon" href="/resources/images/common/favicon.ico">
     <#nested/>
 </head>
@@ -84,22 +84,28 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
+            <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
-        <div id="navbar" class="navbar-left">
-            <div id="auth" class="menu-text-style">
-                <a href="/user">About</a>
-                <a href="/user">Information</a>
-                <a href="/user">Order</a>
-                <a href="/contacts">Contacts</a>
-            </div>
-        </div>
-        <div id="navbar" class="navbar-right">
-            <div id="auth" class="menu-text-style">
-                <a href="/signup">Sign up</a>
-                <a href="/login">Log in</a>
-            </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left menu-text-style">
+            <#--<div id="auth" class="menu-text-style">-->
+                <li><a href="/user">About</a></li>
+                <li><a href="/user">Information</a></li>
+                <li><a href="/user">Order</a></li>
+                <li><a href="/contacts">Contacts</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right menu-text-style">
+                <li><a href="/signup">Sign up</a></li>
+                <li><a href="/login">Log in</a></li>
+                <li></li>
+            </ul>
         </div>
     </div>
 </nav>
+</#macro>
+
+<#macro scripts>
+    <script src="/resources/js/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </#macro>
