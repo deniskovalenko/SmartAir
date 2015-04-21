@@ -72,7 +72,7 @@ public class DeviceDAOImpl implements DeviceDAO {
                 .append("delay", device.getDelay())
                 .append("co2Min", device.getCo2MinLevel()));
         try {
-            usersCollection.update(find, new BasicDBObject("$push", push));
+            usersCollection.update(find, new BasicDBObject("$addToSet", push));
         } catch (Exception e) {
             System.out.println("Error inserting post");
             return false;
