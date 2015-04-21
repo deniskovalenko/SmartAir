@@ -54,7 +54,7 @@
                     <a class="page-scroll" href="#order">Order</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#contacts">Contacts</a>
+                    <a class="page-scroll" href="#contact">Contacts</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -136,7 +136,7 @@
     </div>
 </section>
 
-<section class="no-padding" id="portfolio">
+<section class="no-padding" id="order">
     <div class="container-fluid">
         <div class="row no-gutter">
             <div class="col-lg-4 col-sm-6">
