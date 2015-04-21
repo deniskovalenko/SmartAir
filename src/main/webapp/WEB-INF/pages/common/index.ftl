@@ -10,6 +10,7 @@
 <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
+
 <!-- Plugin CSS -->
 <link rel="stylesheet" href="/resources/index/css/animate.min.css" type="text/css">
 

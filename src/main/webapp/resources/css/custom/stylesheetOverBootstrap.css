@@ -202,54 +202,54 @@ body {
     margin-right:200px;
 }
 
-.btn-index {
-    width: 230px;
-    display: inline-block;
-    position: relative;
-    padding: 10px 20px;
-    font-size: 36px;
-    text-align: center;
-    color: #FFF;
+/*.btn-index {*/
+    /*width: 230px;*/
+    /*display: inline-block;*/
+    /*position: relative;*/
+    /*padding: 10px 20px;*/
+    /*font-size: 36px;*/
+    /*text-align: center;*/
+    /*color: #FFF;*/
 
-    cursor: pointer;
-    vertical-align: middle;
-    /*line-height: 1.5em;*/
-    border-radius: 5px;
-    transition: background-color 0.3s ease 0s;
-    /*font: inherit;*/
-    font-family: Arial,Verdana,sans-serif;
-    text-decoration: none;
-    margin-top: 20px;
-}
+    /*cursor: pointer;*/
+    /*vertical-align: middle;*/
+    /*/!*line-height: 1.5em;*!/*/
+    /*border-radius: 5px;*/
+    /*transition: background-color 0.3s ease 0s;*/
+    /*/!*font: inherit;*!/*/
+    /*font-family: Arial,Verdana,sans-serif;*/
+    /*text-decoration: none;*/
+    /*margin-top: 20px;*/
+/*}*/
 
-.green-btn {
-    background-color: #96b556;
-    padding: 12px 22px 12px 22px;
-    /*border: 2px solid #96b556;*/
-}
+/*.green-btn {*/
+    /*background-color: #96b556;*/
+    /*padding: 12px 22px 12px 22px;*/
+    /*/!*border: 2px solid #96b556;*!/*/
+/*}*/
 
-.green-btn:hover{
-    background-color: #88b52a;
-    color: #FFF;
-    padding: 12px 22px 12px 22px;
-    /*border: 2px solid #2bbb68;*/
-}
+/*.green-btn:hover{*/
+    /*background-color: #88b52a;*/
+    /*color: #FFF;*/
+    /*padding: 12px 22px 12px 22px;*/
+    /*/!*border: 2px solid #2bbb68;*!/*/
+/*}*/
 
-.white-btn {
-    border: 2px solid #FFF;
-    background: none repeat scroll 0% 0% transparent;
-}
+/*.white-btn {*/
+    /*border: 2px solid #FFF;*/
+    /*background: none repeat scroll 0% 0% transparent;*/
+/*}*/
 
-.white-btn:hover{
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #FFF;
-}
+/*.white-btn:hover{*/
+    /*background-color: rgba(255, 255, 255, 0.2);*/
+    /*color: #FFF;*/
+/*}*/
 .device-panel {
 	position: inherit;
 }
 
 sub {
-	position: static;
+	/*position: static;*/
 }
 
 .footer {
