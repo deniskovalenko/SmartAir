@@ -12,7 +12,7 @@ import java.net.UnknownHostException;
  */
 @Repository
 public class DeviceDAOImpl implements DeviceDAO {
-    DBCollection deviceCollection; //collection of manufactured, but maybe not purchased yet devices
+    DBCollection dataCollection;
     DBCollection usersCollection;
     MongoClient mongoClient;
     DB co2Database;
@@ -20,20 +20,17 @@ public class DeviceDAOImpl implements DeviceDAO {
     public DeviceDAOImpl() throws UnknownHostException{
         mongoClient= new MongoClient(new MongoClientURI("mongodb://localhost"));
         co2Database = mongoClient.getDB("co2");
-        deviceCollection = co2Database.getCollection("data");
+        dataCollection = co2Database.getCollection("data");
         usersCollection = co2Database.getCollection("users");
     }
 
     public DBObject findByDeviceId(String deviceId) {
-        DBObject result = deviceCollection.findOne(new BasicDBObject("deviceId", deviceId));
+        DBObject result = usersCollection.findOne(new BasicDBObject("devises", new BasicDBObject("deviceId", deviceId)));
         return  result;
     }
 
     public boolean ifDeviceExists(String deviceId) {
-        //T this method search, if there is any record in statistic collection with deviceID
-        // would return null, if you've just bought and added device to your account
-        //TODO - change to search in device collection, or even in device array of particular user..
-        return (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0);
+        return (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", deviceId))).count() > 0);
     }
 
     public boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel) {
@@ -48,13 +45,14 @@ public class DeviceDAOImpl implements DeviceDAO {
             .append("co2Min", co2MinLevel);
 
         try {
-            //TODO : ????? why data ?????
+            //TODO : ????? why data ???
+            //TODO : add to special user
             dataCollection.insert(post);
         } catch (Exception e) {
             System.out.println("Error inserting post");
             return false;
         }
-
+                                                                
         return true;
     }
 
