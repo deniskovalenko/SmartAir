@@ -60,10 +60,12 @@ public class DeviceDAOImpl implements DeviceDAO {
     }
 
     public boolean addDevice(String userId, DeviceModel device) {
-        if (deviceCollection.find(new BasicDBObject("deviceId", device.getDeviceId())).count() > 0) {
-            System.out.println("Device with this device_id already exists: " + device.getDeviceId());
-            return false;
-        }
+//        if (deviceCollection.find(new BasicDBObject("deviceId", device.getDeviceId())).count() > 0) {
+//            System.out.println("Device with this device_id already exists: " + device.getDeviceId());
+//            return false;
+//        }
+        /* we have no device collection!!! it searchs in data. so,
+        if we have any record from deviceId=classroom46 we can't add this device to anybody!*/
         if (usersCollection.find(new BasicDBObject("_id", userId)).count() == 0) {
             System.out.println("User with this _id doesn't exist: " + userId);
             return false;
