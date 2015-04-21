@@ -37,10 +37,12 @@ public class DeviceDAOImpl implements DeviceDAO {
     }
 
     public boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel) {
-        if (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0) {
-            System.out.println("Device with this device_id already exists: " + deviceId);
-            return false;
-        }
+//        if (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0) {
+//            System.out.println("Device with this device_id already exists: " + deviceId);
+//            return false;
+//        }
+        /* we have no device collection!!! it searchs in data. so,
+        if we have any record from deviceId=classroom46 we can't add this device to anybody!*/
 
         BasicDBObject post = new BasicDBObject("deviceId", deviceId)
             .append("deviceName", deviceName)
@@ -68,12 +70,12 @@ public class DeviceDAOImpl implements DeviceDAO {
         }
 
         DBObject find = new BasicDBObject("_id", userId);
-        DBObject push = new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId())
+        DBObject addToSet = new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId())
                 .append("deviceName", device.getDeviceName())
                 .append("delay", device.getDelay())
                 .append("co2Min", device.getCo2MinLevel()));
         try {
-            usersCollection.update(find, new BasicDBObject("$push", push));
+            usersCollection.update(find, new BasicDBObject("$addToSet", addToSet));
         } catch (Exception e) {
             System.out.println("Error inserting post");
             return false;
