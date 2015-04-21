@@ -1,3 +1,4 @@
+<#import "../layout.ftl" as layout/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +12,14 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container extra-padding">
+  <nav class="navbar" role="navigation">
+      <div class="container menu-container">
           <div class="navbar-header">
               <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
           </div>
       </div>
   </nav>
-
+<#--test-->
 <div align="center" style="margin-top: 100px; margin-bottom: 30px">
     <h3 class="form-signin-heading dark-gray-text">Welcome to our community.</h3>
     <h4 class="gray-text">Already a user? <a href="/login">Login</a></h4>
@@ -65,6 +66,7 @@
  </form>
         </div>
 
+  <@layout.scripts/>
 
   </body>
 

@@ -19,6 +19,7 @@
 </@layout.header>
 <body>
 <@layout.common_menu />
+
 <div class="container">
     <div class="row">
         <div id="map-outer" class="col-md-12">
@@ -39,14 +40,16 @@
         </div><!-- /map-outer -->
     </div> <!-- /row -->
 </div>
+
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<#--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<#--<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>-->
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script>
     function init_map() {
-        var myLocation = new google.maps.LatLng(48.27,35.1);
+        var myLocation = new google.maps.LatLng(48.458144,35.055871);
         var mapOptions = {
             center: myLocation,
             zoom: 14
@@ -60,6 +63,9 @@
     }
     google.maps.event.addDomListener(window, 'load', init_map);
 </script>
+
+<@layout.scripts />
+
 </body>
 <@layout.footer />
 </html>

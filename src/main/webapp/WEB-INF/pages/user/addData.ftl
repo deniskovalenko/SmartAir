@@ -42,6 +42,7 @@
 		</form>
     </div>
 </div>
+<@layout.scripts/>
 </body>
 <@layout.footer/>
 </html>

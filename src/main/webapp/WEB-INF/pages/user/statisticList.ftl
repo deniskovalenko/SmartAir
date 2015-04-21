@@ -3,8 +3,8 @@
 <html lang="en">
     <@layout.header "SmartAir - Statistics"/>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar" role="navigation">
+    <div class="container menu-container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -12,16 +12,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-               <a href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
+            <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <div id="auth" class="menu-text-style">
-                <a href="#">User</a>
-                <a href="#">Log Out</a>
-            </div>
-
-        </div><!--/.nav-collapse -->
-
+            <ul class="nav navbar-nav navbar-right menu-text-style">
+                <li><a href="#">User</a></li>
+                <li><a href="#">Log Out</a></li>
+            </ul><!--/.nav-collapse -->
+        </div>
 
     </div>
 </nav>
@@ -122,9 +120,9 @@
     </ul>
         </div>
 </div><!-- /.container -->
-<#--<script src="/resources/js/collapse.js"></script>-->
-<#--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
-<#--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
+
+<@layout.scripts/>
+
 </body>
 <@layout.footer/>
 </html>

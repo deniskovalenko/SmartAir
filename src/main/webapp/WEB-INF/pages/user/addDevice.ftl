@@ -56,6 +56,7 @@
 </div>
 
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<@layout.scripts/>
 
 </body>
 <@layout.footer/>

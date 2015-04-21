@@ -9,8 +9,8 @@
         <script src="/resources/js/chart/chart.js"></script>
     </@layout.header>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar" role="navigation">
+    <div class="container menu-container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -18,14 +18,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
+            <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <div id="auth" class="menu-text-style">
-                <a href="#">User</a>
-                <a href="#">Log Out</a>
-            </div>
-
+            <ul class="nav navbar-nav navbar-right menu-text-style">
+                <li><a href="#">User</a></li>
+                <li><a href="#">Log Out</a></li>
+            </ul>
         </div><!--/.nav-collapse -->
 
 
@@ -36,7 +35,9 @@
 <div class="container" style="margin-top: 50px; width: 100%">
     <h1 align="center">Statistics</h1>
     <h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user">table</a></h2>
-
+    <div id="loadingDiv" align="center">
+        <img src="/resources/images/common/progress.gif">
+    </div>
     <div class="row">
          <div class="col-md-4">
              <label class="form-group-sm">Get your statistic for last:</label>
@@ -63,9 +64,6 @@
                         <li> <a id="prevPage" class="navButton" href="#" page=1>&lt prev</a></li>
                  </ul>
              </div>
-            <div id="loadingDiv" class="col-md-3">
-                <img src="/resources/images/common/progress.gif"
-            </div>
          </div>
     </div>
 
@@ -92,6 +90,9 @@
     </script>
 
 </div>
+
+<@layout.scripts/>
+
 </body>
 
 <@layout.footer/>

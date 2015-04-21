@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by amira on 03.04.15.
  */
+
 @Service
 public class DeviceServiceImpl implements DeviceService {
     @Autowired
