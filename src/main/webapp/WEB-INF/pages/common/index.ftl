@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
 <@layout.header "SmartAir - Keep your area co2 free">
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-	<meta name="google-site-verification" content="-2u6NzbFCW-LpLIE6tLmyjfpPfWbOmCe9nP-wS2hHj0" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="google-site-verification" content="-2u6NzbFCW-LpLIE6tLmyjfpPfWbOmCe9nP-wS2hHj0" />
 
 <!-- Custom Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -16,6 +16,9 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="/resources/index/css/creative.css" type="text/css">
 
+<!-- My CSS -->
+<link rel="stylesheet" href="/resources/index/css/stylesheetOverBootstrap.css" type="text/css">
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -27,60 +30,59 @@
 <body id="page-top">
 <#--<@layout.common_menu/>-->
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-<#--<div class="container container-fluid"/>-->
-<div class="container" style="width: 100%; background-color: #fff">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand page-scroll" href="#page-top"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
-    </div>
-    <div id="navbar" class="navbar-left collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-        <#--<div id="auth" class="menu-text-style">-->
-            <li>
-                <a class="page-scroll" href="#about">About</a>
-			</li>
-			<li>
-                <a class="page-scroll" href="#info">Information</a>
-			</li>
-			<li>
-                <a class="page-scroll" href="#order">Order</a>
-			</li>
-			<li>
-                <a class="page-scroll" href="#contact">Contacts</a>
-			</li>
-        </ul>
-        <ul id="auth" class="nav navbar-nav navbar-right">
-			<li>
-                <a href="/signup">Sign up</a>
-			</li>
-			<li>
-				<a href="/login">Log in</a>
-			</li>
-        <#--</div>-->
-		</ul>
-    </div>
+    <div class="container container-fluid" style="width: 100%; background-color: #fff">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+            <#--<div id="auth" class="menu-text-style">-->
+                <li>
+                    <a class="page-scroll" href="#about">About</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#info">Information</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#order">Order</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#contacts">Contacts</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/signup">Sign up</a>
+                </li>
+                <li>
+                    <a href="/login">Log in</a>
+                </li>
+            <#--</div>-->
+            </ul>
+        </div>
     <#--<div id="navbar" class="navbar-right">-->
-        <#--<div id="auth" class="menu-text-style">-->
-            <#--<a href="/signup">Sign up</a>-->
-            <#--<a href="/login">Log in</a>-->
-        <#--</div>-->
+    <#--<div id="auth" class="menu-text-style">-->
+    <#--<a href="/signup">Sign up</a>-->
+    <#--<a href="/login">Log in</a>-->
     <#--</div>-->
-</div>
+    <#--</div>-->
+    </div>
 </nav>
 
 <header>
     <div class="header-content">
         <div class="header-content-inner">
             <h1>Keep you area CO<sub>2</sub> free</h1>
-            <hr>
+
             <p>Service that helps you to keep track of air quality</p>
-            <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
-            <a href="#order" class="btn btn-primary btn-xl page-scroll">Order</a>
+            <a href="#about" class="page-scroll header-btn white-btn">Find Out More</a>
+            <a href="#order" class="page-scroll header-btn order-button green-btn">Order</a>
         </div>
     </div>
 </header>
