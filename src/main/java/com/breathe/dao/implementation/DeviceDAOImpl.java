@@ -12,7 +12,7 @@ import java.net.UnknownHostException;
  */
 @Repository
 public class DeviceDAOImpl implements DeviceDAO {
-    DBCollection deviceCollection; //collection of manufactured, but maybe not purchased yet devices
+    DBCollection dataCollection; //collection of manufactured, but maybe not purchased yet devices
     DBCollection usersCollection;
     MongoClient mongoClient;
     DB co2Database;
@@ -20,12 +20,12 @@ public class DeviceDAOImpl implements DeviceDAO {
     public DeviceDAOImpl() throws UnknownHostException{
         mongoClient= new MongoClient(new MongoClientURI("mongodb://localhost"));
         co2Database = mongoClient.getDB("co2");
-        deviceCollection = co2Database.getCollection("data");
+        dataCollection = co2Database.getCollection("data");
         usersCollection = co2Database.getCollection("users");
     }
 
     public DBObject findByDeviceId(String deviceId) {
-        DBObject result = deviceCollection.findOne(new BasicDBObject("deviceId", deviceId));
+        DBObject result = usersCollection.findOne(new BasicDBObject("devises", new BasicDBObject("deviceId", deviceId)));
         return  result;
     }
 
@@ -33,11 +33,11 @@ public class DeviceDAOImpl implements DeviceDAO {
         //T this method search, if there is any record in statistic collection with deviceID
         // would return null, if you've just bought and added device to your account
         //TODO - change to search in device collection, or even in device array of particular user..
-        return (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0);
+        return (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", deviceId))).count() > 0);
     }
 
     public boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel) {
-        if (deviceCollection.find(new BasicDBObject("deviceId", deviceId)).count() > 0) {
+        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", deviceId))).count() > 0) {
             System.out.println("Device with this device_id already exists: " + deviceId);
             return false;
         }
@@ -48,17 +48,18 @@ public class DeviceDAOImpl implements DeviceDAO {
             .append("co2Min", co2MinLevel);
 
         try {
-            deviceCollection.insert(post);
+            //TODO : ????? why data ?????
+            dataCollection.insert(post);
         } catch (Exception e) {
             System.out.println("Error inserting post");
             return false;
         }
-
+                                                                
         return true;
     }
 
     public boolean addDevice(String userId, DeviceModel device) {
-        if (deviceCollection.find(new BasicDBObject("deviceId", device.getDeviceId())).count() > 0) {
+        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId()))).count() > 0) {
             System.out.println("Device with this device_id already exists: " + device.getDeviceId());
             return false;
         }
