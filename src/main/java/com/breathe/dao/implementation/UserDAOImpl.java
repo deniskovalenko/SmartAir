@@ -81,6 +81,27 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
+    public void addDevice(String userId, DeviceModel device) {
+        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId()))).count() > 0) {
+            System.out.println("Device with this device_id already exists: " + device.getDeviceId());
+        }
+        if (usersCollection.find(new BasicDBObject("_id", userId)).count() == 0) {
+            System.out.println("User with this _id doesn't exist: " + userId);
+        //TODO remove all of this to service level
+        }
+
+        DBObject find = new BasicDBObject("_id", userId);
+        DBObject push = new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId())
+                .append("deviceName", device.getDeviceName())
+                .append("delay", device.getDelay())
+                .append("co2Min", device.getCo2MinLevel()));
+        try {
+            usersCollection.update(find, new BasicDBObject("$addToSet", push));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public UserModel validateLogin(String username, String password) {
         DBObject user = usersCollection.findOne(new BasicDBObject("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE)));
 

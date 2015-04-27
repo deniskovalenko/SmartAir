@@ -12,6 +12,4 @@ public interface DeviceDAO {
     boolean ifDeviceExists(String deviceId);
 
     boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel);
-
-    boolean addDevice(String userId, DeviceModel device);
 }

@@ -16,6 +16,8 @@ public interface UserService {
 
     void addUser(UserModel user);
 
+    void addDevice(String userId, DeviceModel device);
+
     UserModel validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException;
 
     UserModel getUserById(String userId);

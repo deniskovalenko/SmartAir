@@ -15,7 +15,7 @@ public class DeviceServiceImpl implements DeviceService {
     @Autowired
     private DeviceDAO deviceDAO;
 
-    public DeviceModel findDevicesById(String deviceId) {
+    public DeviceModel findDevice(String deviceId) {
         return deviceDAO.findByDeviceId(deviceId);
     }
 
@@ -28,12 +28,5 @@ public class DeviceServiceImpl implements DeviceService {
         //TODO and generate unique device ID
         if (ifDeviceExists(deviceId)) return false;
         return deviceDAO.addDevice(deviceId, deviceName, delay, co2MinLevel);
-    }
-
-    public boolean addDevice(String userId, DeviceModel device) {
-        //TODO - change to addDevice(DeviceModel)
-        //TODO and generate unique device ID
-        if (ifDeviceExists(device.getDeviceId())) return false;
-        return deviceDAO.addDevice(userId, device);
     }
 }

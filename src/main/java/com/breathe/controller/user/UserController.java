@@ -106,7 +106,7 @@ public class UserController {
 
     @RequestMapping(value = "/addDevice", method = RequestMethod.POST)
     public ModelAndView addDevice (@ModelAttribute("device") DeviceModel device, @RequestParam("user_id") String userId) {
-        deviceService.addDevice(userId, device);
+        userService.addDevice(userId, device);
         Map<String, Object> model = new HashMap<>();
         model.put("user_id", userId);
         return new ModelAndView("redirect:/" + ROOT + "/profile", model);

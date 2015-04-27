@@ -30,6 +30,13 @@ public class UserServiceImpl implements UserService {
         userDAO.addUser(user);
     }
 
+    public void addDevice(String userId, DeviceModel device) {
+        //TODO - change to addDevice(DeviceModel)
+        //TODO and generate unique device ID
+       // if (ifDeviceExists(device.getDeviceId())) return false;
+        userDAO.addDevice(userId, device);
+    }
+
     public UserModel validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
         return userDAO.validateLogin(username, password);
     }

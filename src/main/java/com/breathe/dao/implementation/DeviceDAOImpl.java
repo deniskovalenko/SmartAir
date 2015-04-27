@@ -56,31 +56,6 @@ public class DeviceDAOImpl implements DeviceDAO {
         return true;
     }
 
-    public boolean addDevice(String userId, DeviceModel device) {
-        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId()))).count() > 0) {
-            System.out.println("Device with this device_id already exists: " + device.getDeviceId());
-            return false;
-        }
-        if (usersCollection.find(new BasicDBObject("_id", userId)).count() == 0) {
-            System.out.println("User with this _id doesn't exist: " + userId);
-            return false;
-        }
-
-        DBObject find = new BasicDBObject("_id", userId);
-        DBObject push = new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId())
-                .append("deviceName", device.getDeviceName())
-                .append("delay", device.getDelay())
-                .append("co2Min", device.getCo2MinLevel()));
-        try {
-            usersCollection.update(find, new BasicDBObject("$addToSet", push));
-        } catch (Exception e) {
-            System.out.println("Error inserting post");
-            return false;
-        }
-
-        return true;
-    }
-
     private DeviceModel convertDeviceDbObject(DBObject deviceDbObject) {
         try {
             DeviceModel device = new DeviceModel();
