@@ -24,60 +24,45 @@ public class DeviceDAOImpl implements DeviceDAO {
         usersCollection = co2Database.getCollection("users");
     }
 
-    public DBObject findByDeviceId(String deviceId) {
-        DBObject result = usersCollection.findOne(new BasicDBObject("devises", new BasicDBObject("deviceId", deviceId)));
-        return  result;
+    public DeviceModel findByDeviceId(String deviceId) {
+        DBObject device = usersCollection.findOne(new BasicDBObject("devises", new BasicDBObject("deviceId", deviceId)));
+        return  convertDeviceDbObject(device);
     }
 
     public boolean ifDeviceExists(String deviceId) {
         return (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", deviceId))).count() > 0);
     }
 
-    public boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel) {
-        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", deviceId))).count() > 0) {
-            System.out.println("Device with this device_id already exists: " + deviceId);
-            return false;
+    public void addDevice(DeviceModel device) {
+        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId()))).count() > 0) {
+            System.out.println("Device with this device_id already exists: " + device.getDeviceId());
+        //TODO move check to service level
         }
 
-        BasicDBObject post = new BasicDBObject("deviceId", deviceId)
-            .append("deviceName", deviceName)
-            .append("delay", delay)
-            .append("co2Min", co2MinLevel);
+        BasicDBObject post = new BasicDBObject("deviceId", device.getDeviceId())
+            .append("deviceName", device.getDeviceName())
+            .append("delay", device.getDelay())
+            .append("co2Min", device.getCo2MinLevel());
 
         try {
             //TODO : ????? why data ???
             //TODO : add to special user
             dataCollection.insert(post);
         } catch (Exception e) {
-            System.out.println("Error inserting post");
-            return false;
+            e.printStackTrace();
         }
-                                                                
-        return true;
     }
 
-    public boolean addDevice(String userId, DeviceModel device) {
-        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId()))).count() > 0) {
-            System.out.println("Device with this device_id already exists: " + device.getDeviceId());
-            return false;
-        }
-        if (usersCollection.find(new BasicDBObject("_id", userId)).count() == 0) {
-            System.out.println("User with this _id doesn't exist: " + userId);
-            return false;
-        }
-
-        DBObject find = new BasicDBObject("_id", userId);
-        DBObject push = new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId())
-                .append("deviceName", device.getDeviceName())
-                .append("delay", device.getDelay())
-                .append("co2Min", device.getCo2MinLevel()));
+    private DeviceModel convertDeviceDbObject(DBObject deviceDbObject) {
         try {
-            usersCollection.update(find, new BasicDBObject("$addToSet", push));
-        } catch (Exception e) {
-            System.out.println("Error inserting post");
-            return false;
+            DeviceModel device = new DeviceModel();
+            device.setDeviceId((String) deviceDbObject.get("deviceId"));
+            device.setDeviceName((String) deviceDbObject.get("deviceName"));
+            return  device;
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
         }
-
-        return true;
     }
 }

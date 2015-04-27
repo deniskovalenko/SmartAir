@@ -2,7 +2,6 @@ package com.breathe.service;
 
 import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;
-import org.springframework.stereotype.Component;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -16,6 +15,8 @@ public interface UserService {
     List<DeviceModel> findDevicesByUser(String userId);
 
     void addUser(UserModel user);
+
+    void addDevice(String userId, DeviceModel device);
 
     UserModel validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException;
 

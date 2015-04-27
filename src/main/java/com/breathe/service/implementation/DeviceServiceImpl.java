@@ -1,10 +1,8 @@
 package com.breathe.service.implementation;
 
 import com.breathe.dao.DeviceDAO;
-import com.breathe.utils.mappers.StatisticMapper;
 import com.breathe.model.DeviceModel;
 import com.breathe.service.DeviceService;
-import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,26 +15,19 @@ public class DeviceServiceImpl implements DeviceService {
     @Autowired
     private DeviceDAO deviceDAO;
 
-    public DeviceModel findDevicesById(String deviceId) {
-        DBObject device = deviceDAO.findByDeviceId(deviceId);
-        return  StatisticMapper.convertDeviceDbObject(device);
+    public DeviceModel findDevice(String deviceId) {
+        return deviceDAO.findByDeviceId(deviceId);
     }
 
     public boolean ifDeviceExists(String deviceId) {
         return deviceDAO.ifDeviceExists(deviceId);
     }
 
-    public boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel) {
+    public void addDevice(DeviceModel device) {
         //TODO - change to addDevice(DeviceModel)
         //TODO and generate unique device ID
-        if (ifDeviceExists(deviceId)) return false;
-        return deviceDAO.addDevice(deviceId, deviceName, delay, co2MinLevel);
-    }
-
-    public boolean addDevice(String userId, DeviceModel device) {
-        //TODO - change to addDevice(DeviceModel)
-        //TODO and generate unique device ID
-        if (ifDeviceExists(device.getDeviceId())) return false;
-        return deviceDAO.addDevice(userId, device);
+        if (!ifDeviceExists(device.getDeviceId())) {
+            deviceDAO.addDevice(device);
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.breathe.dao;
 
-import com.mongodb.DBObject;
+import com.breathe.model.StatisticModel;
 
 import java.util.Date;
 import java.util.List;
@@ -9,11 +9,11 @@ import java.util.List;
  * Created by denis on 14.04.15.
  */
 public interface StatisticDAO {
-    List<DBObject> findByDateDescending(int page, int limit);
+    List<StatisticModel> findByDateDescending(int page, int limit);
 
-    List<DBObject> findByDevice(String deviceId, int skip, int limit, boolean dateSortDescending);
+    List<StatisticModel> findByDevice(String deviceId, int skip, int limit, boolean dateSortDescending);
 
-    List<DBObject> findByDevice(String deviceId, Date startDate, Date endDate, boolean dateSortDescending);
+    List<StatisticModel> findByDevice(String deviceId, Date startDate, Date endDate, boolean dateSortDescending);
 
-    boolean addEntity(String deviceId, double temperature, int co2, double humidity);
+    void addStatistic(String deviceId, double temperature, int co2, double humidity);
 }

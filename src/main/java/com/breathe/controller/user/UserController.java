@@ -1,9 +1,9 @@
 package com.breathe.controller.user;
 
 import com.breathe.model.DeviceModel;
+import com.breathe.model.StatisticModel;
 import com.breathe.model.UserModel;
 import com.breathe.model.chart.ChartDataSetModel;
-import com.breathe.model.StatisticModel;
 import com.breathe.model.chart.ChartSearchFilterModel;
 import com.breathe.service.DeviceService;
 import com.breathe.service.StatisticService;
@@ -14,7 +14,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 
 import java.util.HashMap;
 import java.util.List;
@@ -78,7 +77,7 @@ public class UserController {
 
     @RequestMapping(value = "/addData", method = RequestMethod.POST)
     public String saveData (@ModelAttribute("statistic") StatisticModel stat) {
-        statisticService.addEntity(stat);
+        statisticService.addStatistic(stat);
         return "redirect:/user";
     }
 
@@ -107,7 +106,7 @@ public class UserController {
 
     @RequestMapping(value = "/addDevice", method = RequestMethod.POST)
     public ModelAndView addDevice (@ModelAttribute("device") DeviceModel device, @RequestParam("user_id") String userId) {
-        deviceService.addDevice(userId, device);
+        userService.addDevice(userId, device);
         Map<String, Object> model = new HashMap<>();
         model.put("user_id", userId);
         return new ModelAndView("redirect:/" + ROOT + "/profile", model);

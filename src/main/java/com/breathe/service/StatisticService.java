@@ -1,7 +1,7 @@
 package com.breathe.service;
 
-import com.breathe.model.chart.ChartDataSetModel;
 import com.breathe.model.StatisticModel;
+import com.breathe.model.chart.ChartDataSetModel;
 import com.breathe.model.chart.ChartSearchFilterModel;
 
 import java.util.Date;
@@ -22,5 +22,5 @@ public interface StatisticService {
 
     public List<ChartDataSetModel> getChartData(String userId, ChartSearchFilterModel filter);
 
-    boolean addEntity(StatisticModel stat);
+    void addStatistic(StatisticModel stat);
 }

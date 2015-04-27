@@ -1,7 +1,6 @@
 package com.breathe.utils;
 
 import java.awt.*;
-import java.util.Random;
 
 /**
  * Created by denis on 17.04.15.

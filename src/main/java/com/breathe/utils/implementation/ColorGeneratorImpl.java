@@ -1,7 +1,6 @@
 package com.breathe.utils.implementation;
 
 import com.breathe.utils.ColorGenerator;
-import org.springframework.stereotype.*;
 
 import java.awt.*;
 import java.util.Random;
