@@ -2,12 +2,10 @@ package com.breathe.service.implementation;
 
 import com.breathe.dao.StatisticDAO;
 import com.breathe.dao.UserDAO;
-import com.breathe.model.api.ApiDeviceModel;
+import com.breathe.model.DeviceModel;
 import com.breathe.model.StatisticModel;
+import com.breathe.model.api.ApiDeviceModel;
 import com.breathe.service.ApiService;
-import com.breathe.utils.mappers.DeviceMapper;
-import com.breathe.utils.mappers.StatisticMapper;
-import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,12 +31,12 @@ public class ApiServiceImpl implements ApiService {
         List<ApiDeviceModel> apiDevices = new ArrayList<>();
 
         //get user's devices
-        List<DBObject> devices = userDAO.findDevices(userId);
-        for(DBObject device : devices) {
-           apiDevices.add(DeviceMapper.convertDeviceDbObject(device));
+        List<DeviceModel> devices = userDAO.findDevices(userId);
+        for(DeviceModel device : devices) {
+           apiDevices.add(this.convertApiDeviceObject(device));
          }
          //add current co2,humidity and temperature data and their deltas
-        List<DBObject> lastData;
+        List<StatisticModel> lastData;
         for(ApiDeviceModel apiDevice : apiDevices) {
             //get two latest records for this device
             lastData = statisticDAO.findByDevice(apiDevice.getDeviceId(), 0, 2, true);
@@ -50,7 +48,7 @@ public class ApiServiceImpl implements ApiService {
                 apiDevice.setDeltaTemperature(0);
                 apiDevice.setDeltaHumidity(0);
             } else if (lastData.size() == 1) {
-                StatisticModel current = StatisticMapper.convertStatisticDbObject(lastData.get(0));
+                StatisticModel current = lastData.get(0);
                 apiDevice.setCurrentCO2(current.getCo2());
                 apiDevice.setCurrentHumidity(current.getHumidity());
                 apiDevice.setCurrentTemperature(current.getTemperature());
@@ -58,8 +56,8 @@ public class ApiServiceImpl implements ApiService {
                 apiDevice.setDeltaTemperature(0);
                 apiDevice.setDeltaHumidity(0);
             } else {
-                StatisticModel current = StatisticMapper.convertStatisticDbObject(lastData.get(0));
-                StatisticModel previous = StatisticMapper.convertStatisticDbObject(lastData.get(1));
+                StatisticModel current = lastData.get(0);
+                StatisticModel previous = lastData.get(1);
                 //set currents to data from latest record
                 apiDevice.setCurrentCO2(current.getCo2());
                 apiDevice.setCurrentHumidity(current.getHumidity());
@@ -74,7 +72,16 @@ public class ApiServiceImpl implements ApiService {
     }
 
     public List<StatisticModel> findStatisticByDevice(String deviceId, Date startDate, Date endDate, boolean sortDescending) {
-        List<DBObject> data = statisticDAO.findByDevice(deviceId, startDate, endDate, sortDescending);
-        return StatisticMapper.convertStatisticList(data);
+       return statisticDAO.findByDevice(deviceId, startDate, endDate, sortDescending);
+    }
+
+    private ApiDeviceModel convertApiDeviceObject(DeviceModel device) {
+            ApiDeviceModel apiDevice = new ApiDeviceModel();
+            apiDevice.setDeviceId(device.getDeviceId());
+            apiDevice.setDeviceName(device.getDeviceName());
+            apiDevice.setCo2MinLevel(device.getCo2MinLevel());
+            apiDevice.setDelay(device.getDelay());
+            return apiDevice;
     }
 }
+

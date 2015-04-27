@@ -1,7 +1,7 @@
 package com.breathe.service;
 
-import com.breathe.model.chart.ChartDataSetModel;
 import com.breathe.model.StatisticModel;
+import com.breathe.model.chart.ChartDataSetModel;
 import com.breathe.model.chart.ChartSearchFilterModel;
 
 import java.util.Date;

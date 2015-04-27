@@ -1,10 +1,8 @@
 package com.breathe.service.implementation;
 
 import com.breathe.dao.DeviceDAO;
-import com.breathe.utils.mappers.StatisticMapper;
 import com.breathe.model.DeviceModel;
 import com.breathe.service.DeviceService;
-import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +16,7 @@ public class DeviceServiceImpl implements DeviceService {
     private DeviceDAO deviceDAO;
 
     public DeviceModel findDevicesById(String deviceId) {
-        DBObject device = deviceDAO.findByDeviceId(deviceId);
-        return  StatisticMapper.convertDeviceDbObject(device);
+        return deviceDAO.findByDeviceId(deviceId);
     }
 
     public boolean ifDeviceExists(String deviceId) {

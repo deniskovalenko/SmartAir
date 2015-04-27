@@ -1,9 +1,9 @@
 package com.breathe.controller.user;
 
 import com.breathe.model.DeviceModel;
+import com.breathe.model.StatisticModel;
 import com.breathe.model.UserModel;
 import com.breathe.model.chart.ChartDataSetModel;
-import com.breathe.model.StatisticModel;
 import com.breathe.model.chart.ChartSearchFilterModel;
 import com.breathe.service.DeviceService;
 import com.breathe.service.StatisticService;
@@ -14,7 +14,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 
 import java.util.HashMap;
 import java.util.List;

@@ -24,9 +24,9 @@ public class DeviceDAOImpl implements DeviceDAO {
         usersCollection = co2Database.getCollection("users");
     }
 
-    public DBObject findByDeviceId(String deviceId) {
-        DBObject result = usersCollection.findOne(new BasicDBObject("devises", new BasicDBObject("deviceId", deviceId)));
-        return  result;
+    public DeviceModel findByDeviceId(String deviceId) {
+        DBObject device = usersCollection.findOne(new BasicDBObject("devises", new BasicDBObject("deviceId", deviceId)));
+        return  convertDeviceDbObject(device);
     }
 
     public boolean ifDeviceExists(String deviceId) {
@@ -79,5 +79,18 @@ public class DeviceDAOImpl implements DeviceDAO {
         }
 
         return true;
+    }
+
+    private DeviceModel convertDeviceDbObject(DBObject deviceDbObject) {
+        try {
+            DeviceModel device = new DeviceModel();
+            device.setDeviceId((String) deviceDbObject.get("deviceId"));
+            device.setDeviceName((String) deviceDbObject.get("deviceName"));
+            return  device;
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

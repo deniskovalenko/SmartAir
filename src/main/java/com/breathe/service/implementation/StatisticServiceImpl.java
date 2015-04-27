@@ -1,22 +1,18 @@
 package com.breathe.service.implementation;
 
 import com.breathe.dao.StatisticDAO;
-import com.breathe.model.UserModel;
+import com.breathe.model.DeviceModel;
+import com.breathe.model.StatisticModel;
 import com.breathe.model.chart.ChartDataSetModel;
 import com.breathe.model.chart.ChartPoint;
-import com.breathe.model.DeviceModel;
 import com.breathe.model.chart.ChartSearchFilterModel;
+import com.breathe.service.StatisticService;
 import com.breathe.service.UserService;
 import com.breathe.utils.ColorGenerator;
-import com.breathe.utils.mappers.StatisticMapper;
-import com.breathe.model.StatisticModel;
-import com.breathe.service.StatisticService;
-import com.mongodb.DBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -33,18 +29,18 @@ public class StatisticServiceImpl implements StatisticService {
     private ColorGenerator colorGenerator;
 
     public List<StatisticModel> findByDateDescending(int page, int limit) {
-        List<DBObject> data = statisticDAO.findByDateDescending(page, limit);
-        return StatisticMapper.convertStatisticList(data);
+        List<StatisticModel> data = statisticDAO.findByDateDescending(page, limit);
+        return data;
     }
 
     public List<StatisticModel> findByDevice(String deviceId, Date startDate, Date endDate, boolean sortDescending) {
-        List<DBObject> data = statisticDAO.findByDevice(deviceId, startDate, endDate, sortDescending);
-        return StatisticMapper.convertStatisticList(data);
+        List<StatisticModel> data = statisticDAO.findByDevice(deviceId, startDate, endDate, sortDescending);
+        return data;
     }
 
     public List<StatisticModel> findByDevice(String deviceId, int skip, int limit, boolean dateSortDescending) {
-        List<DBObject> data = statisticDAO.findByDevice(deviceId, skip, limit, dateSortDescending);
-        return StatisticMapper.convertStatisticList(data);
+        List<StatisticModel> data = statisticDAO.findByDevice(deviceId, skip, limit, dateSortDescending);
+        return data;
     }
 
     public boolean addEntity(StatisticModel stat) {

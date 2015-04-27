@@ -2,7 +2,6 @@ package com.breathe.service;
 
 import com.breathe.model.DeviceModel;
 import com.breathe.model.UserModel;
-import org.springframework.stereotype.Component;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
