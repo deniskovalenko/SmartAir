@@ -33,27 +33,24 @@ public class DeviceDAOImpl implements DeviceDAO {
         return (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", deviceId))).count() > 0);
     }
 
-    public boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel) {
-        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", deviceId))).count() > 0) {
-            System.out.println("Device with this device_id already exists: " + deviceId);
-            return false;
+    public void addDevice(DeviceModel device) {
+        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId()))).count() > 0) {
+            System.out.println("Device with this device_id already exists: " + device.getDeviceId());
+        //TODO move check to service level
         }
 
-        BasicDBObject post = new BasicDBObject("deviceId", deviceId)
-            .append("deviceName", deviceName)
-            .append("delay", delay)
-            .append("co2Min", co2MinLevel);
+        BasicDBObject post = new BasicDBObject("deviceId", device.getDeviceId())
+            .append("deviceName", device.getDeviceName())
+            .append("delay", device.getDelay())
+            .append("co2Min", device.getCo2MinLevel());
 
         try {
             //TODO : ????? why data ???
             //TODO : add to special user
             dataCollection.insert(post);
         } catch (Exception e) {
-            System.out.println("Error inserting post");
-            return false;
+            e.printStackTrace();
         }
-                                                                
-        return true;
     }
 
     private DeviceModel convertDeviceDbObject(DBObject deviceDbObject) {

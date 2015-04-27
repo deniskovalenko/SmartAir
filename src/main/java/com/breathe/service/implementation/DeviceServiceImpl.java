@@ -23,10 +23,11 @@ public class DeviceServiceImpl implements DeviceService {
         return deviceDAO.ifDeviceExists(deviceId);
     }
 
-    public boolean addDevice(String deviceId, String deviceName, int delay, int co2MinLevel) {
+    public void addDevice(DeviceModel device) {
         //TODO - change to addDevice(DeviceModel)
         //TODO and generate unique device ID
-        if (ifDeviceExists(deviceId)) return false;
-        return deviceDAO.addDevice(deviceId, deviceName, delay, co2MinLevel);
+        if (!ifDeviceExists(device.getDeviceId())) {
+            deviceDAO.addDevice(device);
+        }
     }
 }

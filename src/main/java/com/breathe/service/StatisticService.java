@@ -22,5 +22,5 @@ public interface StatisticService {
 
     public List<ChartDataSetModel> getChartData(String userId, ChartSearchFilterModel filter);
 
-    boolean addEntity(StatisticModel stat);
+    void addStatistic(StatisticModel stat);
 }

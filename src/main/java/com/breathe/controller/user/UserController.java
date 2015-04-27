@@ -77,7 +77,7 @@ public class UserController {
 
     @RequestMapping(value = "/addData", method = RequestMethod.POST)
     public String saveData (@ModelAttribute("statistic") StatisticModel stat) {
-        statisticService.addEntity(stat);
+        statisticService.addStatistic(stat);
         return "redirect:/user";
     }
 

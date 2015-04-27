@@ -68,7 +68,7 @@ public class StatisticDAOImpl implements StatisticDAO {
         return   StatisticMapper.convertStatisticList(statistics);
     }
 
-    public boolean addEntity(String deviceId, double temperature, int co2, double humidity) {
+    public void addStatistic(String deviceId, double temperature, int co2, double humidity) {
         BasicDBObject post = new BasicDBObject("deviceId", deviceId);
         post.append("temperature", temperature);
         post.append("humidity", humidity);
@@ -78,11 +78,8 @@ public class StatisticDAOImpl implements StatisticDAO {
         try {
             dataCollection.insert(post);
         } catch (Exception e) {
-            System.out.println("Error inserting post");
-            return false;
+            e.printStackTrace();
         }
-
-        return true;
     }
 
     /**

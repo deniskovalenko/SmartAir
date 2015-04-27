@@ -15,5 +15,5 @@ public interface StatisticDAO {
 
     List<StatisticModel> findByDevice(String deviceId, Date startDate, Date endDate, boolean dateSortDescending);
 
-    boolean addEntity(String deviceId, double temperature, int co2, double humidity);
+    void addStatistic(String deviceId, double temperature, int co2, double humidity);
 }

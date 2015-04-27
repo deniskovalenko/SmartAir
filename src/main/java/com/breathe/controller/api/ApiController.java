@@ -45,7 +45,7 @@ public class ApiController {
     @RequestMapping(value = "/addData", method = RequestMethod.POST)
     public @ResponseBody
     ApiResponseModel saveData (@ModelAttribute("statistic") StatisticModel stat) {
-        statisticService.addEntity(stat);
+        statisticService.addStatistic(stat);
         ApiResponseModel response = new ApiResponseModel();
         //find changes,
         response.setChanged((byte)0);
