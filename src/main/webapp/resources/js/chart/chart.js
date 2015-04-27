@@ -21,7 +21,7 @@ nv.addGraph(function() {
         .axisLabel('CO2')
         .tickFormat(d3.format('d'))
     ;
-    d3.select('#Statistic').append('svg');
+//    d3.select('#Statistic').append('svg');
 
     getChartData();
 

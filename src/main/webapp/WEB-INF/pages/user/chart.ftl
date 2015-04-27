@@ -67,7 +67,9 @@
          </div>
     </div>
 
-    <div id="Statistic" style="height: 400px;"></div>
+    <div id="Statistic" style="height: 400px;">
+        <svg></svg>
+    </div>
 
     <script type="text/javascript">
         $("#searchFilter").on("change", ".chartFilter", function ( event ) {
