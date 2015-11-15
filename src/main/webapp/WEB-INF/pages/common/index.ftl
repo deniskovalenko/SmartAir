@@ -12,13 +12,13 @@
 
 
 <!-- Plugin CSS -->
-<link rel="stylesheet" href="/resources/index/css/animate.min.css" type="text/css">
+<link rel="stylesheet" href="resources/index/css/animate.min.css" type="text/css">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" href="/resources/index/css/creative.css" type="text/css">
+<link rel="stylesheet" href="resources/index/css/creative.css" type="text/css">
 
 <!-- My CSS -->
-<link rel="stylesheet" href="/resources/index/css/stylesheetOverBootstrap.css" type="text/css">
+<link rel="stylesheet" href="resources/index/css/stylesheetOverBootstrap.css" type="text/css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,18 +59,18 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/signup">Sign up</a>
+                    <a href="signup">Sign up</a>
                 </li>
                 <li>
-                    <a href="/login">Log in</a>
+                    <a href="login">Log in</a>
                 </li>
             <#--</div>-->
             </ul>
         </div>
     <#--<div id="navbar" class="navbar-right">-->
     <#--<div id="auth" class="menu-text-style">-->
-    <#--<a href="/signup">Sign up</a>-->
-    <#--<a href="/login">Log in</a>-->
+    <#--<a href="signup">Sign up</a>-->
+    <#--<a href="login">Log in</a>-->
     <#--</div>-->
     <#--</div>-->
     </div>
