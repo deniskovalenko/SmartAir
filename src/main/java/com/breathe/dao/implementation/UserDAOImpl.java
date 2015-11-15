@@ -30,9 +30,10 @@ public class UserDAOImpl implements UserDAO {
     private EmailValidator emailValidator = new EmailValidator();
 
     public UserDAOImpl() throws UnknownHostException {
-         mongoClient= new MongoClient(new MongoClientURI("mongodb://heroku_d7mwqs1k:hse5kjrdsjft51ubkguqhv2t4v@ds053794.mongolab.com:53794/heroku_d7mwqs1k"));
-         co2Database = mongoClient.getDB("co2");
-         usersCollection = co2Database.getCollection("users");
+        MongoClientURI uri = new MongoClientURI("mongodb://smartair:xnndxdfkoavg@ds053894.mongolab.com:53894/co2"); 
+        mongoClient = new MongoClient(uri);
+        co2Database = mongoClient.getDB(uri.getDatabase());
+        usersCollection = co2Database.getCollection("users");
     }
 
     public List<DeviceModel> findDevices(String userId) {
@@ -76,7 +77,7 @@ public class UserDAOImpl implements UserDAO {
 
         try {
             usersCollection.insert(userObject);
-        } catch (MongoException.DuplicateKey e) {
+        } catch (DuplicateKeyException e) {
             System.out.println("Username already in use: " + user.getUsername());
         }
     }
