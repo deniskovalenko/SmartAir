@@ -113,6 +113,11 @@
                     <path>/</path>
                 </configuration>
             </plugin>
+	    <plugin>
+        	<groupId>com.heroku.sdk</groupId>
+        	<artifactId>heroku-maven-plugin</artifactId>
+        	<version>0.5.6</version>
+      	    </plugin>
             <!--<plugin>-->
                 <!--<artifactId>maven-surefire-plugin</artifactId>-->
                 <!--<configuration>-->
