@@ -8,13 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="/resources/images/common/favicon.ico">
+    <link rel="icon" href="resources/images/common/favicon.ico">
 
     <title>SmartAir - Login</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/custom/stylesheetOverBootstrap.css"/>
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="resources/css/custom/stylesheetOverBootstrap.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,13 +27,13 @@
 <nav class="navbar" role="navigation">
     <div class="container menu-container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
+            <a class="navbar-brand" href="/"><img src="resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
         </div>
     </div>
 </nav>
 <div align="center" style="margin-top: 100px; margin-bottom: 30px">
     <h3 class="form-signin-heading dark-gray-text">Log in.</h3>
-    <h4 class="gray-text">Need to create an account? <a href="/signup">Sign Up</a></h4>
+    <h4 class="gray-text">Need to create an account? <a href="signup">Sign Up</a></h4>
 </div>
 <div align="center">
     <form class="form" method="post">

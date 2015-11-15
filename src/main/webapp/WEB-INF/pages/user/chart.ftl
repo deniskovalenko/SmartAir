@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
     <@layout.header "SmartAir - Statistics">
-        <link rel="stylesheet" href="/resources/css/chart/nv.d3.min.css" type="text/css">
-        <script src="/resources/js/chart/d3.v3.min.js" charset="utf-8"></script>
-        <script src="/resources/js/chart/nv.d3.min.js"></script>
-        <script src="/resources/js/jquery-2.1.3.min.js"></script>
-        <script src="/resources/js/chart/chart.js"></script>
+        <link rel="stylesheet" href="resources/css/chart/nv.d3.min.css" type="text/css">
+        <script src="resources/js/chart/d3.v3.min.js" charset="utf-8"></script>
+        <script src="resources/js/chart/nv.d3.min.js"></script>
+        <script src="resources/js/jquery-2.1.3.min.js"></script>
+        <script src="resources/js/chart/chart.js"></script>
     </@layout.header>
 <body>
 <nav class="navbar" role="navigation">
@@ -18,7 +18,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
+            <a class="navbar-brand" href="/"><img src="resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right menu-text-style">
@@ -36,7 +36,7 @@
     <h1 align="center">Statistics</h1>
     <h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user">table</a></h2>
     <div id="loadingDiv" align="center">
-        <img src="/resources/images/common/progress.gif">
+        <img src="resources/images/common/progress.gif">
     </div>
     <div class="row">
          <div class="col-md-4">

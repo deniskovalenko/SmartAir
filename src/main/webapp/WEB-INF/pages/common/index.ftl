@@ -39,7 +39,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top"><img src="/resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="/resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
+            <a class="navbar-brand page-scroll" href="#page-top"><img src="resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
@@ -220,18 +220,18 @@
 
 
 <!-- jQuery -->
-<script src="/resources/index/js/jquery.js"></script>
+<script src="resources/index/js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/resources/index/js/bootstrap.min.js"></script>
+<script src="resources/index/js/bootstrap.min.js"></script>
 
 <!-- Plugin JavaScript -->
-<script src="/resources/index/js/jquery.easing.min.js"></script>
-<script src="/resources/index/js/jquery.fittext.js"></script>
-<script src="/resources/index/js/wow.min.js"></script>
+<script src="resources/index/js/jquery.easing.min.js"></script>
+<script src="resources/index/js/jquery.fittext.js"></script>
+<script src="resources/index/js/wow.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/resources/index/js/creative.js"></script>
+<script src="resources/index/js/creative.js"></script>
 </body>
 <@layout.footer />
 </html>
