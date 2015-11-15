@@ -22,7 +22,7 @@ public class StatisticDAOImpl implements StatisticDAO {
 
 
     public StatisticDAOImpl() throws UnknownHostException{
-        mongoClient= new MongoClient(new MongoClientURI("mongodb://localhost"));
+        mongoClient= new MongoClient(new MongoClientURI("mongodb://heroku_d7mwqs1k:hse5kjrdsjft51ubkguqhv2t4v@ds053794.mongolab.com:53794/heroku_d7mwqs1k"));
         co2Database = mongoClient.getDB("co2");
         dataCollection = co2Database.getCollection("data");
     }
