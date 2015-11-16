@@ -12,7 +12,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container extra-padding">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
+            <a class="navbar-brand" href="/"><img src="/resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="/resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
         </div>
     </div>
 </nav>
@@ -61,5 +61,3 @@
 </body>
 <@layout.footer/>
 </html>
-
-

@@ -53,7 +53,7 @@
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-list.png"/></div>List</a></li>
                     <li class="divider"></li>
-                    <li><a href="user/addDevice?user_id=${user_id}"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-add.png"/></div>Add</a></li>
+                    <li><a href="/user/addDevice?user_id=${user_id}"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-add.png"/></div>Add</a></li>
                     <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-buy.png"/></div>Order</a></li>
                 </ul>
             </li>
@@ -90,14 +90,14 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left menu-text-style">
             <#--<div id="auth" class="menu-text-style">-->
-                <li><a href="user">About</a></li>
-                <li><a href="user">Information</a></li>
-                <li><a href="user">Order</a></li>
-                <li><a href="contacts">Contacts</a></li>
+                <li><a href="/user">About</a></li>
+                <li><a href="/user">Information</a></li>
+                <li><a href="/user">Order</a></li>
+                <li><a href="/contacts">Contacts</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right menu-text-style">
-                <li><a href="signup">Sign up</a></li>
-                <li><a href="login">Log in</a></li>
+                <li><a href="/signup">Sign up</a></li>
+                <li><a href="/login">Log in</a></li>
                 <li></li>
             </ul>
         </div>
