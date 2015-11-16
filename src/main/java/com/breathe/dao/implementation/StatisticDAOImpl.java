@@ -4,6 +4,9 @@ import com.breathe.dao.StatisticDAO;
 import com.breathe.model.DeviceModel;
 import com.breathe.model.StatisticModel;
 import com.mongodb.*;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.MongoDatabase;
 import org.springframework.stereotype.Repository;
 
 import java.net.UnknownHostException;
@@ -16,23 +19,25 @@ import java.util.List;
  */
 @Repository
 public class StatisticDAOImpl implements StatisticDAO {
-    DBCollection dataCollection;
+    MongoCollection dataCollection;
     MongoClient mongoClient;
-    DB co2Database;
+    MongoDatabase co2Database;
 
 
     public StatisticDAOImpl() throws UnknownHostException{
-        mongoClient= new MongoClient(new MongoClientURI("mongodb://smartair:xnndxdfkoavg@ds053894.mongolab.com:53894"));
-        co2Database = mongoClient.getDB("co2");
+        MongoClientURI uri = new MongoClientURI("mongodb://smartair:xnndxdfkoavg@ds053894.mongolab.com:53894/co2");
+        mongoClient = new MongoClient(uri);
+        co2Database = mongoClient.getDatabase("co2");
         dataCollection = co2Database.getCollection("data");
     }
 
 
     public List<StatisticModel> findByDateDescending(int page, int limit) {
-        List<DBObject> statistics;
-        DBCursor cursor = dataCollection.find().sort(new BasicDBObject().append("date", -1)).skip(limit*page).limit(limit);
+        List<DBObject> statistics = new ArrayList<>();
+        MongoCursor<DBObject> cursor = dataCollection.find().sort(new BasicDBObject().append("date", -1)).skip(limit*page).limit(limit).iterator();
         try {
-            statistics = cursor.toArray();
+            while (cursor.hasNext())
+            statistics.add(cursor.next());
         } finally {
             cursor.close();
         }
@@ -40,13 +45,14 @@ public class StatisticDAOImpl implements StatisticDAO {
     }
 
     public List<StatisticModel> findByDevice(String deviceId, Date startDate, Date endDate, boolean dateSortDescending) {
-        List<DBObject> statistics;
+        List<DBObject> statistics = new ArrayList<>();
         int sortParam = (dateSortDescending) ? -1 : 1; // if sortDescending then sort : -1, if ascending 1
-        DBCursor cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId).
+        MongoCursor<DBObject> cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId).
                 //TODO - from $lt to $lte, because last record was not included to chart request.
-                append("date", new BasicDBObject("$gte", startDate).append("$lt", endDate))).sort(new BasicDBObject("date", sortParam));
+                append("date", new BasicDBObject("$gte", startDate).append("$lt", endDate))).sort(new BasicDBObject("date", sortParam)).iterator();
         try {
-            statistics = cursor.toArray();
+            while (cursor.hasNext())
+            statistics.add(cursor.next());
         } finally {
             cursor.close();
         }
@@ -54,14 +60,15 @@ public class StatisticDAOImpl implements StatisticDAO {
     }
 
     public List<StatisticModel> findByDevice(String deviceId, int skip, int limit, boolean dateSortDescending) {
-        List<DBObject> statistics;
+        List<DBObject> statistics = new ArrayList<>();
         int sortParam = (dateSortDescending) ? -1 : 1; // if sortDescending then sort : -1, if ascending 1
-        DBCursor cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId)).
+        MongoCursor<DBObject> cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId)).
                 sort(new BasicDBObject("date", sortParam)).
                 skip(skip).
-                limit(limit);
+                limit(limit).iterator();
         try {
-            statistics = cursor.toArray();
+            while (cursor.hasNext())
+                statistics.add(cursor.next());
         } finally {
             cursor.close();
         }
@@ -76,7 +83,7 @@ public class StatisticDAOImpl implements StatisticDAO {
         post.append("date", new Date());
 
         try {
-            dataCollection.insert(post);
+            dataCollection.insertOne(post);
         } catch (Exception e) {
             e.printStackTrace();
         }

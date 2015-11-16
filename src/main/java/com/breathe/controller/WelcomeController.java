@@ -52,6 +52,7 @@ public class WelcomeController {
             user = userService.validateLogin(username, password);
         }
         catch (Exception e) {
+            e.printStackTrace();
             //TODO catch exception
         }
         if (user == null) {

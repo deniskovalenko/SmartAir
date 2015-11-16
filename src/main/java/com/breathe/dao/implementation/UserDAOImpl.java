@@ -6,8 +6,12 @@ import com.breathe.model.UserModel;
 import com.breathe.utils.EmailValidator;
 import com.breathe.utils.PasswordHash;
 import com.mongodb.*;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 import org.springframework.stereotype.Repository;
 
+import javax.print.Doc;
 import java.net.UnknownHostException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -21,9 +25,9 @@ import java.util.regex.Pattern;
 
 @Repository
 public class UserDAOImpl implements UserDAO {
-    private DBCollection usersCollection;
+    private MongoCollection usersCollection;
     private MongoClient mongoClient;
-    private DB co2Database;
+    private MongoDatabase co2Database;
 
 
     private Random random = new SecureRandom();
@@ -32,13 +36,13 @@ public class UserDAOImpl implements UserDAO {
     public UserDAOImpl() throws UnknownHostException {
         MongoClientURI uri = new MongoClientURI("mongodb://smartair:xnndxdfkoavg@ds053894.mongolab.com:53894/co2"); 
         mongoClient = new MongoClient(uri);
-        co2Database = mongoClient.getDB(uri.getDatabase());
+        co2Database = mongoClient.getDatabase("co2");
         usersCollection = co2Database.getCollection("users");
     }
 
     public List<DeviceModel> findDevices(String userId) {
         List<DBObject> result = new ArrayList<>();
-        DBObject user = usersCollection.findOne(new BasicDBObject("_id", userId));
+        DBObject user = (DBObject) usersCollection.find(new BasicDBObject("_id", userId)).limit(1);
         BasicDBList devices = (BasicDBList) user.get("devices");
         for (Object device : devices ) {
             result.add((DBObject) device);
@@ -48,18 +52,18 @@ public class UserDAOImpl implements UserDAO {
 
     // validates that username is unique and insert into db
     public void addUser(UserModel user) {
-        if (usersCollection.find(new BasicDBObject("username", Pattern.compile(user.getUsername(), Pattern.CASE_INSENSITIVE))).count() > 0) {
+        if (usersCollection.count(new BasicDBObject("username", Pattern.compile(user.getUsername(), Pattern.CASE_INSENSITIVE))) > 0) {
             System.out.println("User with this username already exists: " + user.getUsername());
             //TODO move to service level
         }
-        if (usersCollection.find(new BasicDBObject("email", user.getEmail())).count() > 0) {
+        if (usersCollection.count(new BasicDBObject("email", user.getEmail())) > 0) {
             System.out.println("User with this email already exists: " + user.getEmail());
             //TODO move to service level
         }
         //TODO hash also to service level
        // String passwordHash = makePasswordHash(password, Integer.toString(random.nextInt()));
 
-        BasicDBObject userObject = new BasicDBObject();
+        Document userObject = new Document();
         userObject.append("username", user.getUsername()).append("password", user.getPassword());
            // .append("password", passwordHash)
         userObject.append("_id", user.getUserId());
@@ -76,39 +80,40 @@ public class UserDAOImpl implements UserDAO {
         userObject.append("devices", devicesArray);
 
         try {
-            usersCollection.insert(userObject);
+            usersCollection.insertOne(userObject);
         } catch (DuplicateKeyException e) {
             System.out.println("Username already in use: " + user.getUsername());
         }
     }
 
     public void addDevice(String userId, DeviceModel device) {
-        if (usersCollection.find(new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId()))).count() > 0) {
+        if (usersCollection.count(new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId()))) > 0) {
             System.out.println("Device with this device_id already exists: " + device.getDeviceId());
         }
-        if (usersCollection.find(new BasicDBObject("_id", userId)).count() == 0) {
+        if (usersCollection.count(new BasicDBObject("_id", userId)) == 0) {
             System.out.println("User with this _id doesn't exist: " + userId);
         //TODO remove all of this to service level
         }
 
-        DBObject find = new BasicDBObject("_id", userId);
+        BasicDBObject find = new BasicDBObject("_id", userId);
         DBObject push = new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId())
                 .append("deviceName", device.getDeviceName())
                 .append("delay", device.getDelay())
                 .append("co2Min", device.getCo2MinLevel()));
         try {
-            usersCollection.update(find, new BasicDBObject("$addToSet", push));
+            usersCollection.updateOne(find, new BasicDBObject("$addToSet", push));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public UserModel validateLogin(String username, String password) {
-        DBObject user = usersCollection.findOne(new BasicDBObject("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE)));
+        Document user = (Document) usersCollection.find(new BasicDBObject("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE))).first();
 
         if (user == null) {
             System.out.println("User not in database");
             return null;
+
         }
 
         Boolean valid = false;
@@ -128,7 +133,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public UserModel getUserById(String userId) {
-        DBObject user = usersCollection.findOne(new BasicDBObject("_id", userId));
+        Document user = ((Document) usersCollection.find(new BasicDBObject("_id", userId)).first());
 
         if (user == null) {
             System.out.println("User not in database");
@@ -165,6 +170,21 @@ public class UserDAOImpl implements UserDAO {
      */
     private static class UserMapper {
         static public UserModel convertUserDbObject(DBObject UserDbObject) {
+            try {
+                UserModel user = new UserModel();
+                user.setPassword((String) UserDbObject.get("password"));
+                user.setDevices((List<DeviceModel>) UserDbObject.get("devices"));
+                user.setEmail((String) UserDbObject.get("email"));
+                user.setUsername((String) UserDbObject.get("username"));
+                user.setUserId((String) UserDbObject.get("_id"));
+                return  user;
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        static public UserModel convertUserDbObject(Document UserDbObject) {
             try {
                 UserModel user = new UserModel();
                 user.setPassword((String) UserDbObject.get("password"));
