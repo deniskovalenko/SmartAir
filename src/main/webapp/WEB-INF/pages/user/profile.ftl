@@ -29,7 +29,7 @@
             <#list devices as device>
                 <div class="col-sm-6 col-md-4 device-panel">
                     <div class="thumbnail">
-                        <img src="resources/images/lamp_small.png" alt="Living room" border="0">
+                        <img src="/resources/images/smartcube.jpg" alt="Living room" border="0">
                         <div class="caption">
                             <h3>
                                 <#if device["deviceName"]??>

@@ -5,6 +5,7 @@ import com.breathe.model.DeviceModel;
 import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 import org.springframework.stereotype.Repository;
 
 import java.net.UnknownHostException;
@@ -28,7 +29,7 @@ public class DeviceDAOImpl implements DeviceDAO {
     }
 
     public DeviceModel findByDeviceId(String deviceId) {
-        DBObject device = ((DBObject) usersCollection.find(new BasicDBObject("devises", new BasicDBObject("deviceId", deviceId))).first());
+        Document device = ((Document) usersCollection.find(new BasicDBObject("devises", new BasicDBObject("deviceId", deviceId))).first());
         return  convertDeviceDbObject(device);
     }
 
@@ -56,7 +57,7 @@ public class DeviceDAOImpl implements DeviceDAO {
         }
     }
 
-    private DeviceModel convertDeviceDbObject(DBObject deviceDbObject) {
+    private DeviceModel convertDeviceDbObject(Document deviceDbObject) {
         try {
             DeviceModel device = new DeviceModel();
             device.setDeviceId((String) deviceDbObject.get("deviceId"));

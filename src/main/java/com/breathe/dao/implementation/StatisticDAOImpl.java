@@ -7,8 +7,10 @@ import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 import org.springframework.stereotype.Repository;
 
+import javax.print.Doc;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,8 +35,8 @@ public class StatisticDAOImpl implements StatisticDAO {
 
 
     public List<StatisticModel> findByDateDescending(int page, int limit) {
-        List<DBObject> statistics = new ArrayList<>();
-        MongoCursor<DBObject> cursor = dataCollection.find().sort(new BasicDBObject().append("date", -1)).skip(limit*page).limit(limit).iterator();
+        List<Document> statistics = new ArrayList<>();
+        MongoCursor<Document> cursor = dataCollection.find().sort(new BasicDBObject().append("date", -1)).skip(limit*page).limit(limit).iterator();
         try {
             while (cursor.hasNext())
             statistics.add(cursor.next());
@@ -45,9 +47,9 @@ public class StatisticDAOImpl implements StatisticDAO {
     }
 
     public List<StatisticModel> findByDevice(String deviceId, Date startDate, Date endDate, boolean dateSortDescending) {
-        List<DBObject> statistics = new ArrayList<>();
+        List<Document> statistics = new ArrayList<>();
         int sortParam = (dateSortDescending) ? -1 : 1; // if sortDescending then sort : -1, if ascending 1
-        MongoCursor<DBObject> cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId).
+        MongoCursor<Document> cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId).
                 //TODO - from $lt to $lte, because last record was not included to chart request.
                 append("date", new BasicDBObject("$gte", startDate).append("$lt", endDate))).sort(new BasicDBObject("date", sortParam)).iterator();
         try {
@@ -60,9 +62,9 @@ public class StatisticDAOImpl implements StatisticDAO {
     }
 
     public List<StatisticModel> findByDevice(String deviceId, int skip, int limit, boolean dateSortDescending) {
-        List<DBObject> statistics = new ArrayList<>();
+        List<Document> statistics = new ArrayList<>();
         int sortParam = (dateSortDescending) ? -1 : 1; // if sortDescending then sort : -1, if ascending 1
-        MongoCursor<DBObject> cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId)).
+        MongoCursor<Document> cursor = dataCollection.find(new BasicDBObject("deviceId", deviceId)).
                 sort(new BasicDBObject("date", sortParam)).
                 skip(skip).
                 limit(limit).iterator();
@@ -76,14 +78,14 @@ public class StatisticDAOImpl implements StatisticDAO {
     }
 
     public void addStatistic(String deviceId, double temperature, int co2, double humidity) {
-        BasicDBObject post = new BasicDBObject("deviceId", deviceId);
+        Document post = new Document("deviceId", deviceId);
         post.append("temperature", temperature);
         post.append("humidity", humidity);
         post.append("co2", co2);
         post.append("date", new Date());
 
         try {
-            dataCollection.insertOne(post);
+                dataCollection.insertOne(post);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -93,7 +95,7 @@ public class StatisticDAOImpl implements StatisticDAO {
      * Created by denis on 14.03.15.
      */
     private static class StatisticMapper {
-        static public StatisticModel convertStatisticDbObject(DBObject statisticDbObject) {
+        static public StatisticModel convertStatisticDbObject(Document statisticDbObject) {
             try {
                 StatisticModel stat = new StatisticModel();
                 stat.setCo2((Integer) statisticDbObject.get("co2"));
@@ -108,17 +110,17 @@ public class StatisticDAOImpl implements StatisticDAO {
                 return null;
             }
         }
-        static public List<StatisticModel> convertStatisticList(List<DBObject> statisticList) {
-            List<StatisticModel> result = new ArrayList<StatisticModel>();
+        static public List<StatisticModel> convertStatisticList(List<Document> statisticList) {
+            List<StatisticModel> result = new ArrayList<>();
             if (!statisticList.isEmpty()) {
-               for (DBObject row : statisticList) {
+               for (Document row : statisticList) {
                    result.add(StatisticMapper.convertStatisticDbObject(row));
                }
             }
             return result;
         }
 
-        static public DeviceModel convertDeviceDbObject(DBObject deviceDbObject) {
+        static public DeviceModel convertDeviceDbObject(Document deviceDbObject) {
             try {
                 DeviceModel device = new DeviceModel();
                 device.setDeviceId((String) deviceDbObject.get("deviceId"));
@@ -130,10 +132,10 @@ public class StatisticDAOImpl implements StatisticDAO {
                 return null;
             }
         }
-        static public List<DeviceModel> convertDevicesList(List<DBObject> devicesList) {
+        static public List<DeviceModel> convertDevicesList(List<Document> devicesList) {
             List<DeviceModel> result = new ArrayList<>();
             if (!devicesList.isEmpty()) {
-                for (DBObject device : devicesList) {
+                for (Document device : devicesList) {
                     result.add(StatisticMapper.convertDeviceDbObject(device));
                 }
             }

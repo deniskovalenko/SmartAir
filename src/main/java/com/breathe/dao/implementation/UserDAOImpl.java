@@ -41,13 +41,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public List<DeviceModel> findDevices(String userId) {
-        List<DBObject> result = new ArrayList<>();
-        DBObject user = (DBObject) usersCollection.find(new BasicDBObject("_id", userId)).limit(1);
-        BasicDBList devices = (BasicDBList) user.get("devices");
-        for (Object device : devices ) {
-            result.add((DBObject) device);
-        }
-        return  convertDevicesList(result);
+        List<DeviceModel> result = new ArrayList<>();
+        Document user = (Document) usersCollection.find(new BasicDBObject("_id", userId)).first();
+        ArrayList<Document> devices =  (ArrayList) user.get("devices");
+        return convertDevicesList(devices);
     }
 
     // validates that username is unique and insert into db
@@ -143,7 +140,7 @@ public class UserDAOImpl implements UserDAO {
             return UserMapper.convertUserDbObject(user);
         }
     }
-    private DeviceModel convertDeviceDbObject(DBObject deviceDbObject) {
+    private DeviceModel convertDeviceDbObject(Document deviceDbObject) {
         try {
             DeviceModel device = new DeviceModel();
             device.setDeviceId((String) deviceDbObject.get("deviceId"));
@@ -155,10 +152,10 @@ public class UserDAOImpl implements UserDAO {
             return null;
         }
     }
-    private List<DeviceModel> convertDevicesList(List<DBObject> devicesList) {
+    private List<DeviceModel> convertDevicesList(List<Document> devicesList) {
         List<DeviceModel> result = new ArrayList<>();
         if (!devicesList.isEmpty()) {
-            for (DBObject device : devicesList) {
+            for (Document device : devicesList) {
                 result.add(convertDeviceDbObject(device));
             }
         }
