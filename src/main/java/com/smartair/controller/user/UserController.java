@@ -68,7 +68,7 @@ public class UserController {
     @RequestMapping(value = "/chartData", method = RequestMethod.GET)
     public @ResponseBody List<ChartDataSetModel> getStatisticData(@Validated @ModelAttribute ChartSearchFilterModel filter) {
         //hardcoded userId
-        return statisticService.getChartData("f03ad31e-d3cc-4635-9809-7185864f6398", filter);
+        return statisticService.getChartData("2ef0c354-9c6c-426b-9401-abb710c04375", filter);
     }
 
     @RequestMapping(value = "/addData", method = RequestMethod.GET)

@@ -62,6 +62,9 @@ public class UserServiceImpl implements UserService {
     public void setGcmToken(String userId, String token) {
         //TODO implement setting token for user
         UserModel user = userRepository.findOne(userId);
+        if (user == null) {
+            return;
+        }
         user.setGcmToken(token);
         userRepository.save(user);
     }

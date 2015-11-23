@@ -1,6 +1,7 @@
 package com.smartair;
 
 import com.mongodb.Mongo;
+import com.mongodb.MongoClientURI;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
@@ -20,7 +21,7 @@ public String getDatabaseName() {
     @Override
     @Bean
     public Mongo mongo() throws Exception {
-      //  return new MongoClient( new MongoClientURI("mongodb://smartair:xnndxdfkoavg@ds053894.mongolab.com:53894"));
-        return new MongoClient();
+        return new MongoClient( new MongoClientURI("mongodb://smartair:xnndxdfkoavg@ds053894.mongolab.com:53894/co2"));
+//        return new MongoClient();
     }
 }
