@@ -44,7 +44,7 @@
                             </#if>
                             </p><p>
                             <#if device["delay"]??>
-                                Delay: ${device["delay"]} milliseconds.
+                                Delay: ${device["delay"]} seconds.
                             </#if>
                             </p>
                             <p><a href="/user/statistic" class="btn btn-primary" role="button">Chart</a> <a href="/user" class="btn btn-default" role="button">Table</a></p>

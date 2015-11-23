@@ -45,10 +45,10 @@
     </#if>
 
         <label for="inputco2MinLevel" class="">CO<sub>2</sub> minimum level</label>
-    <#if co2MinLevel??>
-        <input name="co2MinLevel" value="${co2MinLevel}" type="text" id="inputco2MinLevel" class="form-control"  style="width:250px;height:35px" placeholder="co2" required autofocus>
+    <#if co2MaxLevel??>
+        <input name="co2MaxLevel" value="${co2MaxLevel}" type="text" id="inputco2MinLevel" class="form-control"  style="width:250px;height:35px" placeholder="co2" required autofocus>
     <#else>
-        <input name="co2MinLevel" value="" type="text" id="inputco2MinLevel" class="form-control"  style="width:250px;height:35px" placeholder="co2" required autofocus>
+        <input name="co2MaxLevel" value="" type="text" id="inputco2MinLevel" class="form-control"  style="width:250px;height:35px" placeholder="co2" required autofocus>
     </#if>
 
         <input class="btn btn-primary btn-submit" style="margin-top: 10px" type="submit" value="Add">

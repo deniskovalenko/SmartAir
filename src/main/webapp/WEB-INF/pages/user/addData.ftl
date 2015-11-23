@@ -29,7 +29,7 @@
     <div class="starter-template">
         <form name="statistic" action="/user/addData" method="POST">
         ${errors!""}
-            <h2>Device_name</h2>
+            <h2>Device ID</h2>
             <input class="form-control" type="text" name="deviceId" width="120"><br>
 
             <h2>Temperature</h2>
@@ -37,6 +37,9 @@
 
             <h2>Co2 ppm</h2>
             <input class="form-control" type="text" name="co2" width="120" ><br>
+
+            <h2>Humidity %</h2>
+            <input class="form-control" type="text" name="humidity" width="120" ><br>
             <p>
                 <input type="submit" class="btn btn-primary" value="Submit">
 		</form>
