@@ -22,8 +22,4 @@ public interface CustomUserRepository {
     //TODO change to bool
     User validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException;
 
-   // User findByUsername(String userName);
-
-    // User find(String userId);
-
 }

@@ -24,9 +24,6 @@ public class ApiServiceImpl implements ApiService {
     @Autowired
     private StatisticRepository statisticRepository;
 
-//    public UserServiceImpl() {
-//    }
-
     public List<ApiDeviceModel> getDevices(String userId) {
         List<ApiDeviceModel> apiDevices = new ArrayList<>();
 

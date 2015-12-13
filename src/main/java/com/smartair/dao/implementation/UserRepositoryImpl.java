@@ -94,14 +94,12 @@ public class UserRepositoryImpl implements CustomUserRepository {
 
     public User validateLogin(String username, String password) {
         User user = mongoOperations.findOne(Query.query(Criteria.where("username").is(Pattern.compile(username, Pattern.CASE_INSENSITIVE))), User.class);
-       // User user = usersCollection.find(new Document("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE))).first();
 
         if (user == null) {
             System.out.println("User not in database");
             return null;
 
         }
-
         Boolean valid = false;
         try {
             valid = PasswordHash.validatePassword(password, PasswordHash.createHash(user.getPassword()));
