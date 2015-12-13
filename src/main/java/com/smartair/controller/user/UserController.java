@@ -1,6 +1,7 @@
 package com.smartair.controller.user;
 
 import com.smartair.model.DeviceCreateModel;
+import com.smartair.model.entity.DeviceModel;
 import com.smartair.model.entity.StatisticModel;
 import com.smartair.model.entity.user.User;
 import com.smartair.model.chart.ChartDataSetModel;
@@ -54,17 +55,6 @@ public class UserController {
         return new ModelAndView(ROOT + "/chart", model);
     }
 
-//    @RequestMapping(value = "/chart", method = RequestMethod.GET)
-//    public @ResponseBody List<ChartDataSetModel> getDefaultChartData() {
-//        return getChartData(0);
-//    }
-//
-//    @RequestMapping(value = "/chart/{page}", method = RequestMethod.GET)
-//    public @ResponseBody List<ChartDataSetModel> getChartData(@PathVariable("page") int page) {
-//        //hardcoded userId
-//        return statisticService.getChartData("700caba5-9d40-4d34-9d6c-b15e40c5425f", page, 5);
-//    }
-
     @RequestMapping(value = "/chartData", method = RequestMethod.GET)
     public @ResponseBody List<ChartDataSetModel> getStatisticData(@Validated @ModelAttribute ChartSearchFilterModel filter) {
         final User user = AuthorizedUserProvider.getAuthorizedUser();
@@ -92,7 +82,8 @@ public class UserController {
             } else {
                 model.put("devices_count", 0);
             }
-            model.put("devices", user.getDevices());
+            List<DeviceModel> devices = deviceService.findDevicesByUser(user);
+            model.put("devices", devices);
             return new ModelAndView(ROOT + "/profile", model);
     }
 
