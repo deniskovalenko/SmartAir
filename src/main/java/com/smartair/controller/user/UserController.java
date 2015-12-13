@@ -1,9 +1,8 @@
 package com.smartair.controller.user;
 
 import com.smartair.model.DeviceCreateModel;
-import com.smartair.model.entity.DeviceModel;
 import com.smartair.model.entity.StatisticModel;
-import com.smartair.model.entity.UserModel;
+import com.smartair.model.entity.user.User;
 import com.smartair.model.chart.ChartDataSetModel;
 import com.smartair.model.chart.ChartSearchFilterModel;
 import com.smartair.service.DeviceService;
@@ -84,7 +83,7 @@ public class UserController {
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ModelAndView profile(@RequestParam("user_id") String userId) {
-            UserModel user = userService.getUserById(userId);
+            User user = userService.getUserById(userId);
         if (user != null) {
             Map<String, Object> model = new HashMap<>();
             model.put("username", user.getUsername());

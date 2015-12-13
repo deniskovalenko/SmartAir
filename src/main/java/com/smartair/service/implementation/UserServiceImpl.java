@@ -3,12 +3,13 @@ package com.smartair.service.implementation;
 import com.smartair.dao.UserRepository;
 import com.smartair.model.DeviceCreateModel;
 import com.smartair.model.entity.DeviceModel;
-import com.smartair.model.entity.UserModel;
+import com.smartair.model.entity.user.User;
 import com.smartair.service.DeviceService;
 import com.smartair.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Nonnull;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
@@ -24,16 +25,30 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private DeviceService deviceService;
 
+    @Override
     public List<DeviceModel> findDevicesByUser(String userId) {
         return userRepository.findDevices(userId);
     }
 
-    public void addUser(UserModel user) {
+    @Override
+    public void addUser(User user) {
         user.setUserId(UUID.randomUUID().toString());
 
         userRepository.create(user);
     }
 
+    @Override
+    public User getUserById(String userId) {
+        return userRepository.findOne(userId);
+    }
+
+    @Nonnull
+    @Override
+    public User getUserByUsername(String userName) {
+        return userRepository.findByUsername(userName);
+    }
+
+    @Override
     public void addDevice(String userId, DeviceModel device) {
         //TODO - change to addDevice(DeviceModel)
         //TODO and generate unique device ID
@@ -60,8 +75,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void setGcmToken(String userId, String token) {
-        //TODO implement setting token for user
-        UserModel user = userRepository.findOne(userId);
+        User user = userRepository.findOne(userId);
         if (user == null) {
             return;
         }
@@ -69,18 +83,8 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-    public UserModel validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    @Override
+    public User validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
         return userRepository.validateLogin(username, password);
-    }
-
-    public UserModel getUserById(String userId) {
-        UserModel user = userRepository.findOne(userId);
-
-        if (user != null) {
-            return user;
-        }
-        else {
-            return null;
-        }
     }
 }

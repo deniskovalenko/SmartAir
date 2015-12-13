@@ -1,6 +1,6 @@
 package com.smartair.controller;
 
-import com.smartair.model.entity.UserModel;
+import com.smartair.model.entity.user.User;
 import com.smartair.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,7 +47,7 @@ public class WelcomeController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(@RequestParam("username") String username, @RequestParam("password") String password) {
-        UserModel user = null;
+        User user = null;
         try {
             user = userService.validateLogin(username, password);
         }
@@ -73,7 +73,7 @@ public class WelcomeController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String register(@ModelAttribute("user") UserModel user) {
+    public String register(@ModelAttribute("user") User user) {
        if (user != null) {
            userService.addUser(user);
            return REDIRECT + LOGIN;

@@ -58,7 +58,7 @@ public class StatisticRepositoryImpl implements CustomStatisticRepository {
     public List<StatisticModel> findByDevice(String deviceId, Date startDate, Date endDate, boolean dateSortDescending) {
         Query query = new Query();
         query.addCriteria(Criteria.where("deviceId").is(deviceId));
-        query.addCriteria(Criteria.where("date").gte(startDate).and("date").lt(endDate));
+        query.addCriteria(Criteria.where("date").gte(startDate).lt(endDate));
         if (dateSortDescending) {
             query.with(new Sort(Sort.Direction.DESC, "date"));
         } else {

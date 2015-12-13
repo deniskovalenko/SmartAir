@@ -1,12 +1,11 @@
 package com.smartair.service.implementation;
 
-import com.smartair.model.entity.UserModel;
+import com.smartair.model.entity.user.User;
 import com.smartair.service.NotificationService;
 import com.smartair.service.UserService;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -26,7 +25,7 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public void notifyUser(String userId, String message) {
-        UserModel user = userService.getUserById(userId);
+        User user = userService.getUserById(userId);
         if (user != null) {
             String token = user.getGcmToken();
             if (token != null && !token.equals("")) {

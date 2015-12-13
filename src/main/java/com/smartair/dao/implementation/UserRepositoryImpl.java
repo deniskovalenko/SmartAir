@@ -2,7 +2,7 @@ package com.smartair.dao.implementation;
 
 import com.smartair.dao.CustomUserRepository;
 import com.smartair.model.entity.DeviceModel;
-import com.smartair.model.entity.UserModel;
+import com.smartair.model.entity.user.User;
 import com.smartair.utils.EmailValidator;
 import com.smartair.utils.PasswordHash;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,44 +25,34 @@ public class UserRepositoryImpl implements CustomUserRepository {
     @Autowired
     private MongoOperations mongoOperations;
 
-
-//    private MongoCollection<UserModel> usersCollection;
-//    private MongoClient mongoClient;
-//    private MongoDatabase co2Database;
-
-
     private Random random = new SecureRandom();
     private EmailValidator emailValidator = new EmailValidator();
 
     public UserRepositoryImpl() {
-//        MongoClientURI uri = new MongoClientURI("mongodb://smartair:xnndxdfkoavg@ds053894.mongolab.com:53894/co2");
-//        mongoClient = new MongoClient(uri);
-//        co2Database = mongoClient.getDatabase("co2");
-//        usersCollection = co2Database.getCollection("new_users", UserModel.class);
     }
 
     public List<DeviceModel> findDevices(String userId) {
-       UserModel user =  mongoOperations.findOne(Query.query(Criteria.where("_id").is(userId)), UserModel.class);
+       User user =  mongoOperations.findOne(Query.query(Criteria.where("_id").is(userId)), User.class);
         if (user != null) {
             return user.getDevices();
         } else {
             return null;
         }
-//        List<DeviceModel> result = new ArrayList<>();
-//        UserModel user =  usersCollection.find(new BasicDBObject("_id", userId)).first();
-//        return user.getDevices();
     }
 
-
+//    @Override
+//    public User findByUsername(String username) {
+//        return mongoOperations.findOne(Query.query(Criteria.where("username").is(username)), User.class);
+//    }
 
     // validates that username is unique and insert into db
-    public void create(UserModel user) {
+    public void create(User user) {
 //        if (usersCollection.count(new Document("username", Pattern.compile(user.getUsername(), Pattern.CASE_INSENSITIVE))) > 0) {
 //            System.out.println("User with this username already exists: " + user.getUsername());
 //            //TODO move to service level
 //        }
         if (mongoOperations.count(Query.query(Criteria.where("username").
-                is(Pattern.compile(user.getUsername(), Pattern.CASE_INSENSITIVE))), UserModel.class) > 0) {
+                is(Pattern.compile(user.getUsername(), Pattern.CASE_INSENSITIVE))), User.class) > 0) {
             System.out.println("User with this username already exists: " + user.getUsername());
             //TODO return some error
         }
@@ -71,7 +61,7 @@ public class UserRepositoryImpl implements CustomUserRepository {
 //            //TODO move to service level
 //        }
         if (mongoOperations.count(Query.query(Criteria.where("email").
-                is(user.getEmail())), UserModel.class) > 0) {
+                is(user.getEmail())), User.class) > 0) {
             System.out.println("User with this emauk already exists: " + user.getEmail());
             //TODO return some error
         }
@@ -95,51 +85,16 @@ public class UserRepositoryImpl implements CustomUserRepository {
 //        userObject.append("devices", devicesArray);
 
 
-            mongoOperations.insert(user);
-
-
-//        try {
-//            usersCollection.insertOne(user);
-//        } catch (DuplicateKeyException e) {
-//            System.out.println("Username already in use: " + user.getUsername());
-//        }
+        mongoOperations.insert(user);
     }
-
-//    public UserModel find(String userId) {
-//        return mongoOperations.findOne(Query.query(Criteria.where("_id").is(userId)), UserModel.class);
-//      //  return usersCollection.find(new Document("_id", userId)).first();
-//    }
-
 
     public void addDevice(String userId, DeviceModel device) {
-//        if (usersCollection.count(new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId()))) > 0) {
-//            System.out.println("Device with this device_id already exists: " + device.getDeviceId());
-//        }
-//        Query query = new Query();
-//        query.addCriteria(Criteria.where("devices").)
-//        mongoOperations.count()
-//        if (usersCollection.count(new BasicDBObject("_id", userId)) == 0) {
-//            System.out.println("User with this _id doesn't exist: " + userId);
-//        //TODO remove all of this to service level
-//        }
-//
-//        BasicDBObject find = new BasicDBObject("_id", userId);
-//        DBObject push = new BasicDBObject("devices", new BasicDBObject("deviceId", device.getDeviceId())
-//                .append("deviceName", device.getDeviceName())
-//                .append("delay", device.getDelay())
-//                .append("co2Min", device.getCo2MaxLevel()));
-//        try {
-//            usersCollection.updateOne(find, new BasicDBObject("$addToSet", push));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
-        mongoOperations.updateFirst(Query.query(Criteria.where("_id").is(userId)), new Update().addToSet("devices", device), UserModel.class);
+        mongoOperations.updateFirst(Query.query(Criteria.where("_id").is(userId)), new Update().addToSet("devices", device), User.class);
     }
 
-    public UserModel validateLogin(String username, String password) {
-        UserModel user = mongoOperations.findOne(Query.query(Criteria.where("username").is(Pattern.compile(username, Pattern.CASE_INSENSITIVE))), UserModel.class);
-       // UserModel user = usersCollection.find(new Document("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE))).first();
+    public User validateLogin(String username, String password) {
+        User user = mongoOperations.findOne(Query.query(Criteria.where("username").is(Pattern.compile(username, Pattern.CASE_INSENSITIVE))), User.class);
+       // User user = usersCollection.find(new Document("username", Pattern.compile(username, Pattern.CASE_INSENSITIVE))).first();
 
         if (user == null) {
             System.out.println("User not in database");
@@ -162,19 +117,4 @@ public class UserRepositoryImpl implements CustomUserRepository {
 
         return user;
     }
-
-
-//    private DeviceModel convertDeviceDbObject(Document deviceDbObject) {
-//        try {
-//            DeviceModel device = new DeviceModel();
-//            device.setDeviceId((String) deviceDbObject.get("deviceId"));
-//            device.setDeviceName((String) deviceDbObject.get("deviceName"));
-//            return  device;
-//        } catch (Exception e)
-//        {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
-
 }
