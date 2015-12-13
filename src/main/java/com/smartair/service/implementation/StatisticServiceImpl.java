@@ -6,6 +6,7 @@ import com.smartair.model.entity.StatisticModel;
 import com.smartair.model.chart.ChartDataSetModel;
 import com.smartair.model.chart.ChartPoint;
 import com.smartair.model.chart.ChartSearchFilterModel;
+import com.smartair.model.entity.user.User;
 import com.smartair.service.DeviceService;
 import com.smartair.service.NotificationService;
 import com.smartair.service.StatisticService;
@@ -94,8 +95,8 @@ public class StatisticServiceImpl implements StatisticService {
         return dataSets;
     }
 
-    public List<ChartDataSetModel> getChartData(String userId, ChartSearchFilterModel filter) {
-        List<DeviceModel> devices = userService.findDevicesByUser(userId);
+    public List<ChartDataSetModel> getChartData(User user, ChartSearchFilterModel filter) {
+        List<DeviceModel> devices = deviceService.findDevicesByUser(user);
         List<ChartDataSetModel> dataSets = new ArrayList<>();
 
         if (devices == null || devices.size() == 0) {

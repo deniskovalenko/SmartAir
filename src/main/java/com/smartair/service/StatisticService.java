@@ -3,6 +3,7 @@ package com.smartair.service;
 import com.smartair.model.entity.StatisticModel;
 import com.smartair.model.chart.ChartDataSetModel;
 import com.smartair.model.chart.ChartSearchFilterModel;
+import com.smartair.model.entity.user.User;
 
 import java.util.Date;
 import java.util.List;
@@ -20,7 +21,7 @@ public interface StatisticService {
 
     List<ChartDataSetModel> getChartData(String userId, int page, int limit);
 
-    public List<ChartDataSetModel> getChartData(String userId, ChartSearchFilterModel filter);
+    public List<ChartDataSetModel> getChartData(User userId, ChartSearchFilterModel filter);
 
     void addStatistic(StatisticModel stat);
 }
