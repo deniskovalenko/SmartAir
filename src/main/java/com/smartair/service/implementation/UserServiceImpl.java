@@ -3,15 +3,21 @@ package com.smartair.service.implementation;
 import com.smartair.dao.UserRepository;
 import com.smartair.model.DeviceCreateModel;
 import com.smartair.model.entity.DeviceModel;
+import com.smartair.model.entity.user.Role;
+import com.smartair.model.entity.user.RoleType;
 import com.smartair.model.entity.user.User;
 import com.smartair.service.DeviceService;
 import com.smartair.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Nonnull;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,7 +39,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUser(User user) {
         user.setUserId(UUID.randomUUID().toString());
-
+        List<Role> roles = new ArrayList<>();
+        roles.add(new Role(RoleType.ROLE_USER));
+        user.setAuthorities(roles);
         userRepository.create(user);
     }
 
@@ -42,10 +50,15 @@ public class UserServiceImpl implements UserService {
         return userRepository.findOne(userId);
     }
 
-    @Nonnull
     @Override
-    public User getUserByUsername(String userName) {
-        return userRepository.findByUsername(userName);
+    public User loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("user not found");
+        }
+
+        return user;
     }
 
     @Override

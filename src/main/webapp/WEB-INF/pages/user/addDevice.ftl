@@ -18,7 +18,7 @@
 </nav>
 <div align="center" style="margin-top: 100px; margin-bottom: 30px">
     <h3 class="form-signin-heading dark-gray-text">Add a device.</h3>
-    <h4 class="gray-text">Back to <a href="/user/profile?user_id=${user_id}">devices' list</a></h4>
+    <h4 class="gray-text">Back to <a href="/user/profile">devices' list</a></h4>
 </div>
 <div align="center">
     <form class="form" method="post">

@@ -28,6 +28,5 @@
         <authentication-provider ref="userAuthenticationProvider"/>
     </authentication-manager>
 
-
     <beans:bean id="simpleAuthenticationSuccessHandler" class="com.smartair.service.security.SimpleAuthenticationSuccessHandler"/>
 </beans:beans>

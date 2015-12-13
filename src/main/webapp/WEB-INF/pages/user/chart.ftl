@@ -22,8 +22,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right menu-text-style">
-                <li><a href="#">User</a></li>
-                <li><a href="#">Log Out</a></li>
+                <li><a href="/user/profile">User</a></li>
+                <li><a href="/logout">Log Out</a></li>
             </ul>
         </div><!--/.nav-collapse -->
 

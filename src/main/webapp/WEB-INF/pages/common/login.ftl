@@ -9,7 +9,7 @@
     <meta name="author" content="">
 
     <link rel="icon" href="resources/images/common/favicon.ico">
-
+    <link type="text/css" rel="stylesheet" href="resources/css/wink.css"/>
     <title>SmartAir - Login</title>
 
     <!-- Bootstrap core CSS -->
@@ -36,18 +36,39 @@
     <h4 class="gray-text">Need to create an account? <a href="signup">Sign Up</a></h4>
 </div>
 <div align="center">
-    <form class="form" method="post">
+
+    <form class="form" action="/j_spring_security_check" name="loginForm" method="post">
 
         <label for="inputEmail" class="">Username</label>
         <#if username??>
-            <input name="username" value="${username}" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
+            <input name="j_username" value="${username}" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
         <#else>
-            <input name="username" value="" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
+            <input name="j_username" value="" type="text" id="inputEmail" class="form-control"  style="width:250px;height:35px" placeholder="Username" required autofocus>
         </#if>
 
+        <div class="row">
+            <div style="width :35%"></div>
+            <label for="inputPassword">Password</label>
+            <div style="width :30%">
+                <input class="form-control" id="inputPassword" name="j_password"
+                       placeholder="Password" type="password"
+                       style="width:250px;height:35px" padding-right: 44px;">
 
-        <label for="inputPassword" class="">Password</label>
-        <input type="password" name="password" value="" id="inputPassword" class="form-control"  style="width:250px;height:35px" placeholder="Password" required>
+
+                <button id="hideShowPassword" aria-pressed="false"
+                        style="position: absolute; right: 15px; top: 0px;"
+                        class="hideShowPassword-toggle" tabindex="0"
+                        aria-label="Show Password" role="button" type="button" onclick="showPasswordLogin()">Show
+                </button>
+            </div>
+        </div>
+            <div class="row" align="center">
+                <div style="width :35%"></div>
+                <div style="width :30%">
+                     <input type="checkbox" name="_spring_security_remember_me">
+                     Remember me
+                </div>
+            </div>
 
         <input class="btn btn-primary btn-submit" style="margin-top: 10px" type="submit" value="Sign In">
         <#--<button class="btn btn-lg btn-primary btn-block" type="submit"  style="width:250px;height:35px">Sign in</button>-->
@@ -58,12 +79,42 @@
         </div>
     </form>
 </div>
+<script>
+
+
+    function showPasswordLogin() {
+        var showClass = "hideShowPassword-toggle-hide"
+        var wink = document.getElementById("hideShowPassword");
+        var passwordField = $('#inputPassword').get(0);
+
+        if (passwordField.type == 'password') {
+            passwordField.type = 'text';
+            addClass(wink, showClass);
+
+        } else {
+            passwordField.type = 'password';
+            removeClass(wink, showClass);
+
+        }
+    }
+
+    function addClass(o, c) {
+        var re = new RegExp("(^|\\s)" + c + "(\\s|$)", "g")
+        if (re.test(o.className)) return
+        o.className = (o.className + " " + c).replace(/\s+/g, " ").replace(/(^ | $)/g, "")
+    }
+
+    function removeClass(o, c) {
+        var re = new RegExp("(^|\\s)" + c + "(\\s|$)", "g")
+        o.className = o.className.replace(re, "$1").replace(/\s+/g, " ").replace(/(^ | $)/g, "")
+    }
+</script>
 
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 <@layout.scripts/>
 
 </body>
-
 </html>
 
 

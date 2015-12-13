@@ -38,7 +38,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
             throw new BadCredentialsException("Password cannot be empty");
         }
 
-        final User user = userService.getUserByUsername(username);
+        final User user = userService.loadUserByUsername(username);
 
         if (user == null) {
             throw new BadCredentialsException("Username not found.");

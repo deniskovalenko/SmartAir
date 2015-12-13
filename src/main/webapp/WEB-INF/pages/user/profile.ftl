@@ -8,9 +8,9 @@
     </#if>
 <body>
     <#if username??>
-        <@layout.user_menu "${user_id}" "${username}"/>
+        <@layout.user_menu "${username}"/>
     <#else>
-        <@layout.user_menu "${user_id}" "User" />
+        <@layout.user_menu "User" />
     </#if>
 <div class="container" style="padding: 30px; width: 100%">
     <#if devices_count??>
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="thumbnail">
                 <p align="center">You don't have any devices.</p>
-                <p align="center"><a href="/user/addDevice?user_id=${user_id}" class="btn btn-primary" role="button">Add a device</a></p>
+                <p align="center"><a href="/user/addDevice" class="btn btn-primary" role="button">Add a device</a></p>
             </div>
         </div>
     <#else>

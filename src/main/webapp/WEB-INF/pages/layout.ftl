@@ -26,7 +26,7 @@
 </footer>
 </#macro>
 
-<#macro user_menu user_id username>
+<#macro user_menu username>
 <nav class="navbar">
 <div class="container" style="width: 100%; background-color: #fff">
     <div class="navbar-header">
@@ -53,7 +53,7 @@
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-list.png"/></div>List</a></li>
                     <li class="divider"></li>
-                    <li><a href="/user/addDevice?user_id=${user_id}"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-add.png"/></div>Add</a></li>
+                    <li><a href="/user/addDevice"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-add.png"/></div>Add</a></li>
                     <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-buy.png"/></div>Order</a></li>
                 </ul>
             </li>
@@ -65,7 +65,7 @@
                     <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-cogwheel.png"/></div>Account settings</a></li>
                     <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-question-mark.png"/></div>Help</a></li>
                     <li class="divider"></li>
-                    <li><a href="/"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-log-out.png"/></div>Log out</a></li>
+                    <li><a href="/logout"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-log-out.png"/></div>Log out</a></li>
                 </ul>
             </li>
         </ul>

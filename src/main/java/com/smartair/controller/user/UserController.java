@@ -8,6 +8,7 @@ import com.smartair.model.chart.ChartSearchFilterModel;
 import com.smartair.service.DeviceService;
 import com.smartair.service.StatisticService;
 import com.smartair.service.UserService;
+import com.smartair.service.security.AuthorizedUserProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -66,8 +67,8 @@ public class UserController {
 
     @RequestMapping(value = "/chartData", method = RequestMethod.GET)
     public @ResponseBody List<ChartDataSetModel> getStatisticData(@Validated @ModelAttribute ChartSearchFilterModel filter) {
-        //hardcoded userId
-        return statisticService.getChartData("2ef0c354-9c6c-426b-9401-abb710c04375", filter);
+        final User user = AuthorizedUserProvider.getAuthorizedUser();
+        return statisticService.getChartData(user.getUserId(), filter);
     }
 
     @RequestMapping(value = "/addData", method = RequestMethod.GET)
@@ -82,10 +83,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public ModelAndView profile(@RequestParam("user_id") String userId) {
-            User user = userService.getUserById(userId);
-        if (user != null) {
-            Map<String, Object> model = new HashMap<>();
+    public ModelAndView profile() {
+        final User user = AuthorizedUserProvider.getAuthorizedUser();
+        Map<String, Object> model = new HashMap<>();
             model.put("username", user.getUsername());
             if (user.getDevices() != null) {
                 model.put("devices_count", user.getDevices().size());
@@ -93,27 +93,20 @@ public class UserController {
                 model.put("devices_count", 0);
             }
             model.put("devices", user.getDevices());
-            model.put("user_id", userId);
             return new ModelAndView(ROOT + "/profile", model);
-        }
-        else {
-            return new ModelAndView("redirect:/");
-        }
     }
 
     @RequestMapping(value = "/addDevice", method = RequestMethod.GET)
-    public ModelAndView addDevice(@RequestParam("user_id") String userId) {
+    public ModelAndView addDevice() {
         Map<String, Object> model = new HashMap<>();
-        model.put("user_id", userId);
         return new ModelAndView(ROOT + "/addDevice", model);
     }
 
     @RequestMapping(value = "/addDevice", method = RequestMethod.POST)
-    public ModelAndView addDevice (@ModelAttribute("device") DeviceCreateModel device, @RequestParam("user_id") String userId) {
-        userService.addDevice(userId, device);
+    public ModelAndView addDevice (@ModelAttribute("device") DeviceCreateModel device) {
+        final User user = AuthorizedUserProvider.getAuthorizedUser();
+        userService.addDevice(user.getUserId(), device);
         Map<String, Object> model = new HashMap<>();
-        model.put("user_id", userId);
         return new ModelAndView("redirect:/" + ROOT + "/profile", model);
     }
-
 }

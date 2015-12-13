@@ -45,24 +45,24 @@ public class WelcomeController {
         return new ModelAndView(COMMON + LOGIN, model);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login(@RequestParam("username") String username, @RequestParam("password") String password) {
-        User user = null;
-        try {
-            user = userService.validateLogin(username, password);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            //TODO catch exception
-        }
-        if (user == null) {
-            return new ModelAndView(REDIRECT);
-        } else {
-            Map<String, Object> model = new HashMap<>();
-            model.put("user_id", user.getUserId());
-            return new ModelAndView(REDIRECT + PROFILE, model);
-        }
-    }
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public ModelAndView login(@RequestParam("username") String username, @RequestParam("password") String password) {
+//        User user = null;
+//        try {
+//            user = userService.validateLogin(username, password);
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//            //TODO catch exception
+//        }
+//        if (user == null) {
+//            return new ModelAndView(REDIRECT);
+//        } else {
+//            Map<String, Object> model = new HashMap<>();
+//            model.put("user_id", user.getUserId());
+//            return new ModelAndView(REDIRECT + PROFILE, model);
+//        }
+//    }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public ModelAndView registerPage() {
