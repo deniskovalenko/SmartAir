@@ -25,7 +25,7 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public void notifyUser(String userId, String message) {
-        User user = userService.getUserById(userId);
+        User user = userService.find(userId);
         if (user != null) {
             String token = user.getGcmToken();
             if (token != null && !token.equals("")) {

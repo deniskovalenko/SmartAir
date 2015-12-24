@@ -2,24 +2,21 @@ package com.smartair.service.implementation;
 
 import com.smartair.dao.UserRepository;
 import com.smartair.model.DeviceCreateModel;
+import com.smartair.model.UserException;
 import com.smartair.model.entity.DeviceModel;
 import com.smartair.model.entity.user.Role;
 import com.smartair.model.entity.user.RoleType;
 import com.smartair.model.entity.user.User;
 import com.smartair.service.DeviceService;
 import com.smartair.service.UserService;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Nonnull;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by amira on 02.04.15.
@@ -31,22 +28,30 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private DeviceService deviceService;
 
+    private final static int timePasswordChangeAllowed = 1;
+
     @Override
     public List<DeviceModel> findDevicesByUser(String userId) {
         return userRepository.findDevices(userId);
     }
 
     @Override
-    public void addUser(User user) {
+    public void add(User user) throws UserException {
         user.setUserId(UUID.randomUUID().toString());
         List<Role> roles = new ArrayList<>();
         roles.add(new Role(RoleType.ROLE_USER));
         user.setAuthorities(roles);
+        user.setPasswordSetTime(new Date());
         userRepository.create(user);
     }
 
     @Override
-    public User getUserById(String userId) {
+    public void update(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public User find(String userId) {
         return userRepository.findOne(userId);
     }
 
@@ -99,5 +104,36 @@ public class UserServiceImpl implements UserService {
     @Override
     public User validateLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
         return userRepository.validateLogin(username, password);
+    }
+
+    @Override
+    public void setNewPassword(String userId, String password) throws UserException {
+        User oldUser = userRepository.findOne(userId);
+
+        //checking, whether password change is allowed
+        if (!oldUser.getPassword().equals(password)) {
+            DateTime currenTime = new DateTime();
+
+            //if enough time spent after previous password change
+            if (new DateTime(oldUser.getPasswordSetTime()).plusMinutes(timePasswordChangeAllowed).isBefore(currenTime)) {
+                oldUser.setPassword(password);
+                oldUser.setPasswordSetTime(currenTime.toDate());
+                update(oldUser);
+            } else {
+                throw  new UserException("Password has been changed less than " + timePasswordChangeAllowed + " minutes ago" );
+            }
+        }
+    }
+
+    @Override
+    public void setLastFailureLoginTime(String userId, Date date) {
+        User oldUser = userRepository.findOne(userId);
+        oldUser.setLastFailureLoginTime(date);
+    }
+
+    @Override
+    public void setFailedLoginCount(User user, int count) {
+        user.setFailedLoginAttempt(count);
+        userRepository.save(user);
     }
 }

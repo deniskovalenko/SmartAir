@@ -1,13 +1,18 @@
 package com.smartair.model.entity.user;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import com.smartair.model.entity.DeviceModel;
+import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by amira on 02.04.15.
@@ -22,10 +27,15 @@ public class User implements UserDetails {
     private String name;
     private String surname;
     private String email;
+    @NotNull
+    @Size(min = 6, max = 32)
     private String password;
     private List<DeviceModel> devices;
     private String gcmToken;
     private List<Role> authorities;
+    private Date passwordSetTime;
+    private Date lastFailureLoginTime;
+    private int failedLoginAttempt;
 
     private boolean accountNonExpired = true;
     private boolean accountNonLocked = true;
@@ -162,5 +172,29 @@ public class User implements UserDetails {
 
     public void setAuthorities(final List<Role> authorities) {
         this.authorities = authorities;
+    }
+
+    public Date getPasswordSetTime() {
+        return passwordSetTime;
+    }
+
+    public void setPasswordSetTime(Date passwordSetTime) {
+        this.passwordSetTime = passwordSetTime;
+    }
+
+    public Date getLastFailureLoginTime() {
+        return lastFailureLoginTime;
+    }
+
+    public void setLastFailureLoginTime(Date lastFailureLoginTime) {
+        this.lastFailureLoginTime = lastFailureLoginTime;
+    }
+
+    public int getFailedLoginAttempt() {
+        return failedLoginAttempt;
+    }
+
+    public void setFailedLoginAttempt(int failedLoginAttempt) {
+        this.failedLoginAttempt = failedLoginAttempt;
     }
 }

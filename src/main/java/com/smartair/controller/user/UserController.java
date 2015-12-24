@@ -1,6 +1,7 @@
 package com.smartair.controller.user;
 
 import com.smartair.model.DeviceCreateModel;
+import com.smartair.model.UserException;
 import com.smartair.model.entity.DeviceModel;
 import com.smartair.model.entity.StatisticModel;
 import com.smartair.model.entity.user.User;
@@ -99,5 +100,24 @@ public class UserController {
         userService.addDevice(user.getUserId(), device);
         Map<String, Object> model = new HashMap<>();
         return new ModelAndView("redirect:/" + ROOT + "/profile", model);
+    }
+
+    @RequestMapping(value = "/settings", method = RequestMethod.GET)
+    public ModelAndView profileSettings() {
+        Map<String, Object> model = new HashMap<>();
+        return new ModelAndView(ROOT + "/settings", model);
+    }
+
+    @RequestMapping(value = "/settings", method = RequestMethod.POST)
+    public ModelAndView profileSettings (@ModelAttribute("user") User user) {
+        final User loggedInUser = AuthorizedUserProvider.getAuthorizedUser();
+        Map<String, Object> model = new HashMap<>();
+        try {
+            userService.setNewPassword(loggedInUser.getUserId(), user.getPassword());
+            return new ModelAndView("redirect:/" + ROOT + "/profile", model);
+        } catch (UserException e) {
+            model.put("error", e.getMessage());
+            return new ModelAndView(ROOT + "/settings", model);
+        }
     }
 }

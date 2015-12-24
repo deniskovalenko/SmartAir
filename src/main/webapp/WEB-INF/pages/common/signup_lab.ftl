@@ -37,32 +37,18 @@
         <div class="error">
             <h4 style="color:red;"> ${username_error!""}</h4>
         </div>
+<#if password??>
+    <label for="inputPassword" class="">Your password</label>
+    <input name="password" value=${password} id="inputPassword" class="form-control"  style="width:250px;height:35px" placeholder="Password" required>
 
-        <label for="inputPassword" class="">Password</label>
-        <input type="password"name="password" value="" id="inputPassword" class="form-control"  style="width:250px;height:35px" placeholder="Password" required>
+    <div class="error">
+        <h4 style="color:red;"> ${password_error!""}</h4>
+    </div>
+<#else>
+    <input class="btn btn-primary btn-submit" style="margin-top: 10px" type="submit" value="Sign Up">
+</#if>
 
-        <div class="error">
-            <h4 style="color:red;"> ${password_error!""}</h4>
-        </div>
 
-        <label for="inputPassword" class="">Verify password</label>
-        <input type="password"name="verify" value="" id="inputPassword" class="form-control"  style="width:250px;height:35px" placeholder="Password" required>
-
-        <div class="error">
-            <h4 style="color:red;"> ${verify_error!""}</h4>
-        </div>
-
-        <label class="">Email (optional)</label>
-        <#if email??>
-            <input type="text" name="email" value="${email}" class="form-control" placeholder="Email" style="width:250px;height:35px">
-        <#else>
-            <input type="text" name="email" class="form-control" placeholder="Email" style="width:250px;height:35px">
-        </#if>
-
-        <div class="error">
-            <h4 style="color:red;"> ${email_error!""}</h4>
-        </div>
-      <input class="btn btn-primary btn-submit" style="margin-top: 10px" type="submit" value="Sign Up">
  </form>
         </div>
 

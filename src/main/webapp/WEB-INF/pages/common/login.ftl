@@ -50,11 +50,15 @@
             <div style="width :35%"></div>
             <label for="inputPassword">Password</label>
             <div style="width :30%">
-                <input class="form-control" id="inputPassword" name="j_password"
+                <input required class="form-control" id="inputPassword" name="j_password"
                        placeholder="Password" type="password"
-                       style="width:250px;height:35px" padding-right: 44px;">
+                       style="width:250px;height:35px" padding-right: 44px;" >
 
-
+                <div class="error">
+                <#if login_error??>
+                    <h4 style="color:red;"> ${login_error}</h4>
+                </#if>
+                </div>
                 <button id="hideShowPassword" aria-pressed="false"
                         style="position: absolute; right: 15px; top: 0px;"
                         class="hideShowPassword-toggle" tabindex="0"
@@ -72,11 +76,6 @@
 
         <input class="btn btn-primary btn-submit" style="margin-top: 10px" type="submit" value="Sign In">
         <#--<button class="btn btn-lg btn-primary btn-block" type="submit"  style="width:250px;height:35px">Sign in</button>-->
-        <div class="error">
-            <#if login_error??>
-                ${login_error}
-            </#if>
-        </div>
     </form>
 </div>
 <script>
