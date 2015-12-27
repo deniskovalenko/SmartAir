@@ -90,6 +90,7 @@ public class WelcomeController {
     public ModelAndView generatePasswordPage() {
         Map<String, Object> model = new HashMap<>();
         model.put("username", "");
+        userService.makeTestData();
         return new ModelAndView(COMMON + SIGN_UP + "_lab", model);
     }
 

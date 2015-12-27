@@ -45,6 +45,8 @@ public interface UserService extends UserDetailsService {
     void setLastFailureLoginTime(String userId,Date date);
 
     void setFailedLoginCount(User user, int count);
+
+    void makeTestData();
 }
 
 
