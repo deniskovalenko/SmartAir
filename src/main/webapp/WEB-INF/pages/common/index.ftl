@@ -48,7 +48,7 @@
                     <a class="page-scroll" href="#about">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#info">Information</a>
+                    <a class="page-scroll" href="/article">Information</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#order">Order</a>

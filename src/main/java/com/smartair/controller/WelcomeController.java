@@ -68,6 +68,12 @@ public class WelcomeController {
         return new ModelAndView(COMMON + SIGN_UP, model);
     }
 
+    @RequestMapping(value = "/article", method = RequestMethod.GET)
+    public ModelAndView readArticle() {
+        return new ModelAndView(COMMON + "article", null);
+    }
+
+
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public ModelAndView register(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
        if (!bindingResult.hasErrors()) {
@@ -90,7 +96,7 @@ public class WelcomeController {
     public ModelAndView generatePasswordPage() {
         Map<String, Object> model = new HashMap<>();
         model.put("username", "");
-        userService.makeTestData();
+        //userService.makeTestData();
         return new ModelAndView(COMMON + SIGN_UP + "_lab", model);
     }
 
