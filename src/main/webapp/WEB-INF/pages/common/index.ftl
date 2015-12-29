@@ -95,6 +95,8 @@
                 <h2 class="section-heading">What we do</h2>
                 <hr class="light">
                 <p class="text-faded">Be aware of you are breathing in! SmartAir is sensors that tracks down the quality of your air condition.</p>
+                <script height="352px" width="540px" src="http://player.ooyala.com/iframe.js#ec=05NHZycTqiSuUIE3KIded0oHhfByfvQA&pbid=59b4de92e6b44145b5b692f41dd00d0a"></script>
+                <br>
                 <a href="#" class="btn btn-default btn-xl">Get Started!</a>
             </div>
         </div>
