@@ -31,7 +31,7 @@ public class MailMessageBuilder {
      */
     @Nonnull
     public SimpleMailMessage build(User user) {
-        return build(user.getName(), user.getEmail());
+        return build(user.getUsername(), user.getEmail());
     }
 
     /**

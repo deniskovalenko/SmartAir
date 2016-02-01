@@ -206,6 +206,14 @@
             <version>2.2</version>
         </dependency>
 
+        <!--mail-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+        <!--mail-->
+
         <!--testing-->
         <dependency>
             <groupId>junit</groupId>

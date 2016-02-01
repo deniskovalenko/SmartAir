@@ -46,7 +46,6 @@ public interface UserService extends UserDetailsService {
 
     void setFailedLoginCount(User user, int count);
 
-    void makeTestData();
 }
 
 
