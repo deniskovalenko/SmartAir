@@ -12,11 +12,13 @@ import com.smartair.service.NotificationService;
 import com.smartair.service.StatisticService;
 import com.smartair.service.UserService;
 import com.smartair.utils.ColorGenerator;
+//import com.smartair.utils.TimeSeriesPrediction;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -115,7 +117,12 @@ public class StatisticServiceImpl implements StatisticService {
             dataSet.setColor(colorGenerator.getRandomColorString());
             //then search from "DATE" - mode*count*page -> "DATE - page"
             List<StatisticModel> stats = this.findByDevice(device.getDeviceId(),searchStartDate, searchEndDate, true );
-
+            //TODO add predictions here
+//            try {
+//                TimeSeriesPrediction.predict(stats);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
             List<ChartPoint> values = new ArrayList<>();
             for(StatisticModel stat : stats) {
                 try {

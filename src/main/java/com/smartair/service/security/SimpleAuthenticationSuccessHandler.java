@@ -56,7 +56,6 @@ public class SimpleAuthenticationSuccessHandler implements
      */
     @Nonnull
     protected String determineTargetUrl(final Authentication authentication) {
-        //TODO user or springframework user
         final User authorizedUser = (User) authentication.getPrincipal();
 
         if (authorizedUser.hasRole(RoleType.ROLE_ADMIN.name())) {
