@@ -9,8 +9,11 @@ import com.smartair.model.entity.user.RoleType;
 import com.smartair.model.entity.user.User;
 import com.smartair.service.DeviceService;
 import com.smartair.service.UserService;
+import com.smartair.service.mail.MailService;
+import com.smartair.utils.MailMessageBuilder;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import java.security.NoSuchAlgorithmException;
@@ -26,6 +29,10 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @Autowired
     private DeviceService deviceService;
+    @Autowired
+    private MailService mailService;
+    @Autowired
+    private MailMessageBuilder mailMessageBuilder;
 
     private final static int timePasswordChangeAllowed = 10;
 
@@ -42,6 +49,9 @@ public class UserServiceImpl implements UserService {
         user.setAuthorities(roles);
         user.setPasswordSetTime(new Date());
         userRepository.create(user);
+
+        final SimpleMailMessage msg = mailMessageBuilder.build(user);
+        mailService.sendMail(msg);
     }
 
     @Override
@@ -136,8 +146,4 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-    @Override
-    public void makeTestData() {
-
-    }
 }
