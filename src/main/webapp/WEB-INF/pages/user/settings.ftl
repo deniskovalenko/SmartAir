@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/custom/stylesheetOverBootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="/resources/index/styles/css/stylesheetOverBootstrap2.css"/>
     <link rel="icon" href="/resources/images/common/favicon.ico">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

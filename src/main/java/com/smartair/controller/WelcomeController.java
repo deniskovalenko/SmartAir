@@ -121,6 +121,11 @@ public class WelcomeController {
         return new ModelAndView(COMMON + "contacts");
     }
 
+    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    public ModelAndView order() {
+        return new ModelAndView(COMMON + "order");
+    }
+
     //customize the error message
     private String getErrorMessage(HttpServletRequest request, String key){
 

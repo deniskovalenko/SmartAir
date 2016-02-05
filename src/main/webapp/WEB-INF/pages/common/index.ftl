@@ -8,17 +8,22 @@
 <!-- Custom Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+<#--
+<link rel="stylesheet" href="font-awesome/styles/css/font-awesome.min.css" type="text/css">
 
 
-<!-- Plugin CSS -->
-<link rel="stylesheet" href="resources/index/css/animate.min.css" type="text/css">
+<!-- Plugin CSS &ndash;&gt;
+<link rel="stylesheet" href="resources/index/styles/css/animate.min.css" type="text/css">
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="resources/index/css/creative.css" type="text/css">
+<!-- Custom CSS &ndash;&gt;
+<link rel="stylesheet" href="resources/index/styles/css/creative.css" type="text/css">
 
-<!-- My CSS -->
-<link rel="stylesheet" href="resources/index/css/stylesheetOverBootstrap.css" type="text/css">
+<!-- My CSS &ndash;&gt;
+<link rel="stylesheet" href="resources/index/styles/css/stylesheetOverBootstrap2.css" type="text/css">
+-->
+
+<link rel="stylesheet" href="resources/index/styles/styles.css" type="text/css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top"><img src="resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
+            <a class="page-scroll" href="#page-top"><img src="resources/images/common/leave.png" height="50px" alt="logo" border="0"><img src="resources/images/common/logo.png" height="50px" alt="logo" border="0"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
@@ -48,7 +53,7 @@
                     <a class="page-scroll" href="#about">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="/article">Information</a>
+                    <a class="page-scroll" href="#info">Information</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#order">Order</a>
@@ -82,8 +87,7 @@
             <h1>Keep you area CO<sub>2</sub> free</h1>
 
             <p>Service that helps you to keep track of air quality</p>
-            <a href="#about" class="page-scroll header-btn white-btn">Find Out More</a>
-            <a href="#order" class="page-scroll header-btn order-button green-btn">Order</a>
+            <a href="#about" class="page-scroll header-btn white-btn">Find Out More</a><a href="#order" class="page-scroll header-btn order-button green-btn">Order</a>
         </div>
     </div>
 </header>
@@ -94,8 +98,11 @@
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">What we do</h2>
                 <hr class="light">
-                <p class="text-faded">Be aware of you are breathing in! SmartAir is sensors that tracks down the quality of your air condition.</p>
-                <script height="352px" width="540px" src="http://player.ooyala.com/iframe.js#ec=05NHZycTqiSuUIE3KIded0oHhfByfvQA&pbid=59b4de92e6b44145b5b692f41dd00d0a"></script>
+                <p class="text-faded">SmartAir is sensors that tracks down the quality of your air condition.</p>
+                <#--<script height="352px" width="540px" src="http://player.ooyala.com/iframe.js#ec=05NHZycTqiSuUIE3KIded0oHhfByfvQA&pbid=59b4de92e6b44145b5b692f41dd00d0a"></script>-->
+                <img src="/resources/index/img/movie_icon_small.png">
+                <br>
+                <p class="text-faded">Movie coming soon...</p>
                 <br>
                 <a href="#" class="btn btn-default btn-xl">Get Started!</a>
             </div>
@@ -114,21 +121,27 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-8 text-center">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p class="text-muted">Be aware of you are breathing in!</p>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-4 col-md-8 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
                     <h3>Health</h3>
                     <p class="text-muted">CO<sub>2</sub> can cause a headache.</p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-8 text-center">
+            <div class="col-lg-4 col-md-8 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
                     <h3>Work</h3>
                     <p class="text-muted">It decreases your productivity.</p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-8 text-center">
+            <div class="col-lg-4 col-md-8 text-center">
                 <div class="service-box">
                     <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
                     <h3>Mood</h3>

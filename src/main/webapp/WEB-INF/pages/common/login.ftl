@@ -9,12 +9,20 @@
     <meta name="author" content="">
 
     <link rel="icon" href="resources/images/common/favicon.ico">
-    <link type="text/css" rel="stylesheet" href="resources/css/wink.css"/>
+
     <title>SmartAir - Login</title>
 
-    <!-- Bootstrap core CSS -->
+<#--
+    &lt;#&ndash;wink css&ndash;&gt;
+    <link type="text/css" rel="stylesheet" href="resources/css/wink.css"/>
+
+    <!-- Bootstrap core CSS &ndash;&gt;
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="resources/css/custom/stylesheetOverBootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="resources/css/custom/stylesheetOverBootstrap2.css"/>
+-->
+
+    <link rel="stylesheet" href="resources/index/styles/styles-login.css" type="text/css">
+    <#--<link type="text/css" rel="stylesheet" href="resources/css/custom/stylesheetOverBootstrap2.css"/>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,7 +35,7 @@
 <nav class="navbar" role="navigation">
     <div class="container menu-container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src="resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
+            <a class="" href="/"><img src="resources/images/common/leave.png" alt="logo" height="50px" border="0"/><img src="resources/images/common/logo.png" alt="logo" height="50px" border="0"/></a>
         </div>
     </div>
 </nav>

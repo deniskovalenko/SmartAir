@@ -21,7 +21,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/custom/stylesheetOverBootstrap.css"/>
+    <link type="text/css" rel="stylesheet" href="/resources/index/styles/css/stylesheetOverBootstrap2.css"/>
     <link rel="icon" href="/resources/images/common/favicon.ico">
     <#nested/>
 </head>
@@ -30,8 +30,8 @@
 <#macro footer>
 <footer class="footer">
     <div class="container">
-        <p class="text-muted" style="text-align: center">PZ-12-1 2015</p>
-        <p class="text-muted" style="text-align: center">Tatarchenko, Sheremet, Kovalenko, Pleshkanovskiy, Sych, Sovgyr</p>
+        <#--<p class="text-muted" style="text-align: center">PZ-12-1 2015</p>-->
+        <p class="text-muted" style="text-align: center"><span class="faded-people">Tatarchenko</span>, <span class="faded-people">Sheremet</span>, Kovalenko, Pleshkanovskiy, Sych, <span class="faded-people">Sovgyr</span></p>
     </div>
 </footer>
 </#macro>
