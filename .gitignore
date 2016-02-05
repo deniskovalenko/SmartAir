@@ -13,3 +13,4 @@
 .settings/
 **/.settings/
 /target/
+node_modules/
