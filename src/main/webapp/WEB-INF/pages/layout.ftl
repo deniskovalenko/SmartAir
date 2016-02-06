@@ -28,8 +28,24 @@
 </#macro>
 
 <#macro footer>
-<footer class="footer">
+<footer class="footer bg-dark">
     <div class="container">
+        <div class="share ">
+            <ul>
+                <li>
+                    <a class="fb" href="http://www.facebook.com/share.php?u=http://smartair.tech"></a>
+                </li>
+                <li>
+                    <a class="g_plus" href="https://plus.google.com/share?url=http://smartair.tech"></a>
+                </li>
+                <li>
+                    <a class="tw" href="https://twitter.com/share" data-dnt="true"></a>
+                </li>
+                <li>
+                    <a class="vk" href="http://vkontakte.ru/share.php?url=http://smartair.tech"></a>
+                </li>
+            </ul>
+        </div>
         <#--<p class="text-muted" style="text-align: center">PZ-12-1 2015</p>-->
         <#--<p class="text-muted" style="text-align: center"><span class="faded-people">Tatarchenko</span>, <span class="faded-people">Sheremet</span>, Kovalenko, Pleshkanovskiy, Sych, <span class="faded-people">Sovgyr</span></p>-->
         <div class="copyright">SmartAir © 2016 Rights Reserved</div>
