@@ -1,0 +1,61 @@
+.share {
+
+}
+
+.share ul {
+  list-style: none;
+  display: block;
+  margin-top: 36px;
+}
+
+.share li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.share li > a {
+  height: 66px;
+  width: 66px;
+  //background-size: 294px;
+  display: block;
+  border-radius: 50%;
+}
+
+.share a {
+/*  border-width: 2px;
+  border-color: #fff;
+  border-radius: 50%;*/
+  transition: none;
+}
+
+.fb {
+  background: url("/resources/index/img/soc_sprite.png") no-repeat 0 0;
+}
+
+.fb:hover {
+  background: url("/resources/index/img/soc_sprite.png") no-repeat 0 -79px;
+}
+
+.g_plus {
+  background: url("/resources/index/img/soc_sprite.png") no-repeat -94px 0px;
+}
+
+.g_plus:hover {
+  background: url("/resources/index/img/soc_sprite.png") no-repeat -94px -79px;
+}
+
+.tw {
+  background: url("/resources/index/img/soc_sprite.png") no-repeat -186px 0;
+}
+
+.tw:hover {
+  background: url("/resources/index/img/soc_sprite.png") no-repeat -186px -79px;
+}
+
+.vk {
+  background: url("/resources/index/img/soc_sprite.png") no-repeat -282px 0;
+}
+
+.vk:hover {
+  background: url("/resources/index/img/soc_sprite.png") no-repeat -282px -79px;
+}

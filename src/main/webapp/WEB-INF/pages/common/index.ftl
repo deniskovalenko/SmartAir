@@ -92,6 +92,22 @@
 
             <p>Service that helps you to keep track of air quality</p>
             <a href="#about" class="page-scroll header-btn white-btn">Find Out More</a><a href="#order" class="page-scroll header-btn order-button green-btn">Order</a>
+            <div class="share">
+                <ul>
+                    <li>
+                        <a class="fb" href="http://www.facebook.com/share.php?u=http://smartair.tech"></a>
+                    </li>
+                    <li>
+                        <a class="g_plus" href="https://plus.google.com/share?url=http://smartair.tech"></a>
+                    </li>
+                    <li>
+                        <a class="tw" href="https://twitter.com/share" data-dnt="true"></a>
+                    </li>
+                    <li>
+                        <a class="vk" href="http://vkontakte.ru/share.php?url=http://smartair.tech"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </header>
@@ -160,7 +176,7 @@
         <div class="row no-gutter">
             <div class="col-lg-4 col-sm-6">
                 <a href="/user/statistic" class="portfolio-box">
-                    <img src="https://unsplash.it/650/350?image=535" class="img-responsive" alt="">
+                    <img src="resources/images/smartcube.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
@@ -175,7 +191,7 @@
             </div>
             <div class="col-lg-4 col-sm-6">
                 <a href="/user" class="portfolio-box">
-                    <img src="https://unsplash.it/650/350?image=534" class="img-responsive" alt="">
+                    <img src="resources/images/smartcube.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
@@ -190,7 +206,7 @@
             </div>
             <div class="col-lg-4 col-sm-6">
                 <a href="/login" class="portfolio-box">
-                    <img src="https://unsplash.it/650/350?image=532" class="img-responsive" alt="">
+                    <img src="resources/images/smartcube.jpg" class="img-responsive" alt="">
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
@@ -207,7 +223,7 @@
     </div>
 </section>
 
-<aside class="bg-dark">
+<aside class="bg-primary">
     <div class="container text-center">
         <div class="call-to-action">
             <h2>Start to use SmartAir device right now!</h2>
@@ -226,7 +242,9 @@
             </div>
             <div class="col-lg-4 col-lg-offset-2 text-center">
                 <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                <p>(097)58862??</p>
+                <p>(098) 821-20-78</p>
+                <p>(097) 588-62-77</p>
+                <p>(093) 745-97-99</p>
             </div>
             <div class="col-lg-4 text-center">
                 <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>

@@ -1,5 +1,9 @@
-//@faded-color:
+$faded-color: #aaa;
+
+.copyright {
+  text-align: center;
+}
 
 .faded-people {
-  color: #aaa;
+  color: $faded-color;
 }
