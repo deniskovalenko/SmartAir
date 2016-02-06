@@ -21,7 +21,11 @@
     <link type="text/css" rel="stylesheet" href="resources/css/custom/stylesheetOverBootstrap2.css"/>
 -->
 
-    <link rel="stylesheet" href="resources/index/styles/styles-login.css" type="text/css">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../../resources/index/styles/styles-login.css">
+    <!-- endinject -->
+
+    <#--<link rel="stylesheet" href="resources/index/styles/styles-login.css" type="text/css">-->
     <#--<link type="text/css" rel="stylesheet" href="resources/css/custom/stylesheetOverBootstrap2.css"/>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

@@ -18,7 +18,7 @@
     </style>
 </@layout.header>
 <body>
-<@layout.common_menu />
+<#--<@layout.common_menu />-->
 
 <div class="container">
     <div class="row">

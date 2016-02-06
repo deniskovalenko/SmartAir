@@ -3,11 +3,11 @@
 <html>
 <@layout.header "SmartAir - Keep your area co2 free">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<meta name="google-site-verification" content="-2u6NzbFCW-LpLIE6tLmyjfpPfWbOmCe9nP-wS2hHj0" />
+<#--<meta name="google-site-verification" content="-2u6NzbFCW-LpLIE6tLmyjfpPfWbOmCe9nP-wS2hHj0" />-->
 
 <!-- Custom Fonts -->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<#--<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>-->
+<#--<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>-->
 
 <#--
 <link rel="stylesheet" href="font-awesome/styles/css/font-awesome.min.css" type="text/css">
@@ -23,7 +23,11 @@
 <link rel="stylesheet" href="resources/index/styles/css/stylesheetOverBootstrap2.css" type="text/css">
 -->
 
-<link rel="stylesheet" href="resources/index/styles/styles.css" type="text/css">
+<#--<link rel="stylesheet" href="resources/index/styles/styles.css" type="text/css">-->
+
+<!-- inject:css -->
+<link rel="stylesheet" href="../../../resources/index/styles/styles.css">
+<!-- endinject -->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -207,7 +211,7 @@
     <div class="container text-center">
         <div class="call-to-action">
             <h2>Start to use SmartAir device right now!</h2>
-            <a href="#" class="btn btn-default btn-xl wow tada">Order</a>
+            <a href="/order" class="btn btn-default btn-xl wow tada">Order</a>
         </div>
     </div>
 </aside>
@@ -222,11 +226,11 @@
             </div>
             <div class="col-lg-4 col-lg-offset-2 text-center">
                 <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                <p>123-456-6789</p>
+                <p>(097)58862??</p>
             </div>
             <div class="col-lg-4 text-center">
                 <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                <p><a href="mailto:your-email@your-domain.com">smartair@gmail.com</a></p>
+                <p><a href="mailto:smartair.team@gmail.com">smartair.team@gmail.com</a></p>
             </div>
         </div>
     </div>

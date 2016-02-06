@@ -12,13 +12,17 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     order = require('gulp-order'),
     sourcemaps = require('gulp-sourcemaps'),
+    inject = require('gulp-inject'),
     gulpIf = require('gulp-if'),
     debug = require('gulp-debug');
 
 var isDevelopment = true;
 
 var paths = {
-    src: 'src/main/webapp/resources/index'
+    src: 'src/main/webapp/resources/index',
+    pages: 'src/main/webapp/WEB-INF/pages',
+    styles: 'src/main/webapp/resources/index/styles',
+    index: 'src/main/webapp/WEB-INF/pages/common/index.ftl'
 };
 
 gulp.task('less', function () {
@@ -39,7 +43,7 @@ gulp.task('styles', ['less', 'sass'], function () {
     return gulp.src(paths.src + '/styles/css/**/*.css')
         .pipe(concat('styles.css'))
         .pipe(mincss())
-        .pipe(gulp.dest(paths.src + '/styles/'));
+        .pipe(gulp.dest(paths.styles));
 });
 
 gulp.task('styles:login', function () {
@@ -61,7 +65,19 @@ gulp.task('styles:login', function () {
         .pipe(gulp.dest(paths.src + '/styles/'));
 });
 
-gulp.task('default', function () {
+gulp.task('styles:inject:index', function () {
+    return gulp.src(paths.index)
+        .pipe(inject(gulp.src(paths.styles + '/styles.css'), {relative: true}))
+        .pipe(gulp.dest(paths.pages+'/common'))
+});
+
+gulp.task('styles:inject:login', function () {
+    return gulp.src(paths.pages + '/common/login.ftl')
+        .pipe(inject(gulp.src(paths.styles + '/styles-login.css'), {relative: true}))
+        .pipe(gulp.dest(paths.pages+'/common'))
+});
+
+gulp.task('default', ['styles', 'styles:login', 'styles:inject:index', 'styles:inject:login'], function () {
     gulp.src('/')
-        .pipe(notify('Default Gulp task is running'));
+        .pipe(notify('Gulp done'));
 });

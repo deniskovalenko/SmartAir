@@ -1,7 +1,7 @@
 <#macro header title="SmartAir">
 <head>
     <#--google analytics-->
-    <script>
+    <#--<script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -9,19 +9,19 @@
 
         ga('create', 'UA-71784385-1', 'auto');
         ga('send', 'pageview');
-    </script>
+    </script>-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="google-site-verification" content="yqEVAdMcIMlxJlEa-IbHZak0JerbA8uLyOVRFUFKLhM" />
+    <#--<meta name="google-site-verification" content="yqEVAdMcIMlxJlEa-IbHZak0JerbA8uLyOVRFUFKLhM" />-->
 
     <title>${title}</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="/resources/index/styles/css/stylesheetOverBootstrap2.css"/>
+    <#--<link rel="stylesheet" href="/resources/css/bootstrap.min.css">-->
+    <#--<link type="text/css" rel="stylesheet" href="/resources/index/styles/css/stylesheetOverBootstrap2.css"/>-->
     <link rel="icon" href="/resources/images/common/favicon.ico">
     <#nested/>
 </head>
@@ -84,7 +84,7 @@
 </nav>
 </#macro>
 
-<#macro common_menu>
+<#--<#macro common_menu>
 <nav class="navbar" role="navigation">
     <div class="container" style="width: 100%;">
         <div class="navbar-header">
@@ -99,7 +99,7 @@
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left menu-text-style">
-            <#--<div id="auth" class="menu-text-style">-->
+            &lt;#&ndash;<div id="auth" class="menu-text-style">&ndash;&gt;
                 <li><a href="/user">About</a></li>
                 <li><a href="/user">Information</a></li>
                 <li><a href="/user">Order</a></li>
@@ -113,7 +113,7 @@
         </div>
     </div>
 </nav>
-</#macro>
+</#macro>-->
 
 <#macro scripts>
     <script src="/resources/js/jquery-2.1.3.min.js"></script>
