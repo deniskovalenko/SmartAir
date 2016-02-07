@@ -11,12 +11,14 @@ import com.smartair.service.DeviceService;
 import com.smartair.service.UserService;
 import com.smartair.service.mail.MailService;
 import com.smartair.utils.MailMessageBuilder;
+import org.apache.commons.lang.RandomStringUtils;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.*;
 
@@ -50,7 +52,7 @@ public class UserServiceImpl implements UserService {
         user.setPasswordSetTime(new Date());
         userRepository.create(user);
 
-        final SimpleMailMessage msg = mailMessageBuilder.build(user);
+        final SimpleMailMessage msg = mailMessageBuilder.buildRegistrationMail(user);
         mailService.sendMail(msg);
     }
 
@@ -146,4 +148,11 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    @Override
+    public void addSubscriber(String email) {
+        String generatedPassword = RandomStringUtils.random(10, 0, 0, true, true, null, new SecureRandom());
+        userRepository.create(new User(email, email, email, generatedPassword));
+        final SimpleMailMessage msg = mailMessageBuilder.buildSubscribeMail(email);
+        mailService.sendMail(msg);
+    }
 }

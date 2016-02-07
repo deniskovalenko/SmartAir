@@ -23,5 +23,4 @@ public String getDatabaseName() {
     public Mongo mongo() throws Exception {
         return new MongoClient( new MongoClientURI("mongodb://smartair:xnndxdfkoavg@ds053894.mongolab.com:53894/co2"));
     }
-    // maksdimaden
 }

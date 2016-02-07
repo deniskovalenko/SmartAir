@@ -10,9 +10,7 @@ import org.springframework.security.authentication.LockedException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -68,6 +66,12 @@ public class WelcomeController {
         return new ModelAndView(COMMON + SIGN_UP, model);
     }
 
+    @RequestMapping(value = "/subscribe", method = RequestMethod.POST)
+    public @ResponseBody String subsribeForNewsletter(@RequestParam final String email) {
+        userService.addSubscriber(email);
+        return "Thank you for subscribing!";
+    }
+
     @RequestMapping(value = "/article", method = RequestMethod.GET)
     public ModelAndView readArticle() {
         return new ModelAndView(COMMON + "article", null);
@@ -103,7 +107,7 @@ public class WelcomeController {
     @RequestMapping(value = "/signup_lab", method = RequestMethod.POST)
     public ModelAndView generatePassword(@ModelAttribute("user") User user, BindingResult bindingResult) {
         String generatedPassword = RandomStringUtils.random(10, 0, 0, true, true, null, new SecureRandom());
-            user.setPassword(generatedPassword);
+        user.setPassword(generatedPassword);
         try {
             userService.add(user);
         } catch (UserException e) {

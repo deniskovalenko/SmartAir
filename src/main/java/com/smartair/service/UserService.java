@@ -46,6 +46,7 @@ public interface UserService extends UserDetailsService {
 
     void setFailedLoginCount(User user, int count);
 
+    void addSubscriber(String email);
 }
 
 

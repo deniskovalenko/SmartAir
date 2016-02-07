@@ -124,10 +124,32 @@
                 <br>
                 <p class="text-faded">Movie coming soon...</p>
                 <br>
-                <a href="#" class="btn btn-default btn-xl">Get Started!</a>
+                <#--<div class="alert alert-success alert-dismissible" role="alert">-->
+                    <#--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <#--<strong>T</strong> Better check yourself, you're not looking too good.-->
+                <#--</div>-->
+            <input type="email" id="subscribe_email" style="color : #000"  name="email" placeholder="Enter your email">
+            <a onclick="subscribe()" class="btn btn-default btn-xl">Subscribe for updates!</a>
+                <#--<button onclick="subscribe()" id="subscribe_button" class="btn-default btn-xl has-spinner">-->
+                    <#--<span id="subscribe_span" class="spinner"><i class="icon-spin icon-refresh"></i></span>-->
+                    <#--Subscribe for updates!-->
+                <#--</button>-->
+                <#--<div class="container">-->
+                    <#--<h3>Animated button</h3>-->
+                    <#--<button class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</button>-->
+                <#--</div>-->
             </div>
         </div>
     </div>
+
+    <#--<div class="row">-->
+        <#--<div class="col-md-10">-->
+            <#--<input type="email" class="form-control" name="email" placeholder="Enter your email">-->
+        <#--</div>-->
+        <#--<div class="col-md-10">-->
+            <#--<a href="#" class="btn btn-default btn-xl">Subscribe for updates!</a>-->
+        <#--</div>-->
+    <#--</div>-->
 </section>
 
 <section id="info">
@@ -258,7 +280,7 @@
 
 <!-- jQuery -->
 <script src="resources/index/js/jquery.js"></script>
-
+<script src="resources/index/js/index_page.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="resources/index/js/bootstrap.min.js"></script>
 
