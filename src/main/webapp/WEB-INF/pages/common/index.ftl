@@ -128,8 +128,16 @@
                     <#--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
                     <#--<strong>T</strong> Better check yourself, you're not looking too good.-->
                 <#--</div>-->
-            <input type="email" id="subscribe_email" style="color : #000"  name="email" placeholder="Enter your email">
-            <a onclick="subscribe()" class="btn btn-default btn-xl">Subscribe for updates!</a>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                            <div class="input-group input-group-lg " >
+                                <input class="form-control" type="email" id="subscribe_email" style="color : #000"  name="email" placeholder="Enter your email">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-info" onclick="subscribe()">Subscribe for updates!</button>
+                                </span>
+                            </div>
+                    </div>
+                </div>
                 <#--<button onclick="subscribe()" id="subscribe_button" class="btn-default btn-xl has-spinner">-->
                     <#--<span id="subscribe_span" class="spinner"><i class="icon-spin icon-refresh"></i></span>-->
                     <#--Subscribe for updates!-->
@@ -249,7 +257,7 @@
     <div class="container text-center">
         <div class="call-to-action">
             <h2>Start to use SmartAir device right now!</h2>
-            <a href="/order" class="btn btn-default btn-xl wow tada">Order</a>
+            <a href="/order" class="btn btn-lg btn-success btn-xl wow tada">Order SmartAir</a>
         </div>
     </div>
 </aside>

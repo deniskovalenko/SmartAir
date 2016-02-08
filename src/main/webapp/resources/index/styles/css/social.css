@@ -26,7 +26,7 @@
   background: url("/resources/index/img/soc_sprite.png") no-repeat 0 -79px; }
 
 .g_plus {
-  background: url("/resources/index/img/soc_sprite.png") no-repeat -94px 0px; }
+  background: url("/resources/index/img/soc_sprite.png") no-repeat -94px 0; }
 
 .g_plus:hover {
   background: url("/resources/index/img/soc_sprite.png") no-repeat -94px -79px; }

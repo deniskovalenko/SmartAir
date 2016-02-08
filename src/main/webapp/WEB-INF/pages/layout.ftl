@@ -20,8 +20,9 @@
     <title>${title}</title>
 
     <!-- Bootstrap core CSS -->
-    <#--<link rel="stylesheet" href="/resources/css/bootstrap.min.css">-->
-    <#--<link type="text/css" rel="stylesheet" href="/resources/index/styles/css/stylesheetOverBootstrap2.css"/>-->
+
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/resources/index/styles/css/stylesheetOverBootstrap2.css">
     <link rel="icon" href="/resources/images/common/favicon.ico">
     <#nested/>
 </head>
