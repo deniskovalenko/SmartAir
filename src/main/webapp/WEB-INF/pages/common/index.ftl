@@ -1,7 +1,7 @@
 <#import "../layout.ftl" as layout/>
 <!DOCTYPE html>
 <html>
-<@layout.header "SmartAir - Keep your area co2 free">
+<@layout.header "SmartAir - make your indoor life better!">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 <#--<meta name="google-site-verification" content="-2u6NzbFCW-LpLIE6tLmyjfpPfWbOmCe9nP-wS2hHj0" />-->
 
@@ -57,7 +57,7 @@
                     <a class="page-scroll" href="#about">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#info">Information</a>
+                    <a class="page-scroll" href="#info">Motivation</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#order">Order</a>
@@ -88,9 +88,9 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Keep you area CO<sub>2</sub> free</h1>
+            <h1>Make your indoor air CO<sub>2</sub> free</h1>
 
-            <p>Service that helps you to keep track of air quality</p>
+            <p>Service that helps you to improve your air quality</p>
             <a href="#about" class="page-scroll header-btn white-btn">Find Out More</a><a href="#order" class="page-scroll header-btn order-button green-btn">Order</a>
             <div class="share">
                 <ul>
@@ -116,9 +116,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">What we do</h2>
+                <h2 class="section-heading">What is SmartAir?</h2>
                 <hr class="light">
-                <p class="text-faded">SmartAir is sensors that tracks down the quality of your air condition.</p>
+                <p class="text-faded">SmartAir is a system of sensors and cloud-based platform that tracks your air quality and improves your indoor air quality by providing you with data about what you are breeting in and taking control of your Smart Home devices like ventilation systems and conditioners.</p>
                 <#--<script height="352px" width="540px" src="http://player.ooyala.com/iframe.js#ec=05NHZycTqiSuUIE3KIded0oHhfByfvQA&pbid=59b4de92e6b44145b5b692f41dd00d0a"></script>-->
                 <img src="/resources/index/img/movie_icon_small.png">
                 <br>
@@ -164,7 +164,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Why should we care?</h2>
+                <h2 class="section-heading">Why should you care?</h2>
                 <hr class="primary">
             </div>
         </div>
@@ -172,7 +172,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <p class="text-muted">Be aware of you are breathing in!</p>
+                <p class="text-muted">You are what you are breathing in! <br>High CO<sub>2</sub> level can cause:</p>
             </div>
         </div>
         <div class="row">
@@ -195,13 +195,21 @@
                 <div class="service-box">
                     <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
                     <h3>Mood</h3>
-                    <p class="text-muted">You start to feel bad.</p>
+                    <p class="text-muted">You start feeling exhausted</p>
                 </div>
             </div>
     </div>
 </section>
 
 <section class="no-padding" id="order">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Why should you use our service?</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row no-gutter">
             <div class="col-lg-4 col-sm-6">
@@ -213,7 +221,7 @@
                                 Chart Statistic
                             </div>
                             <div class="project-name">
-                                Easy to work with
+                                See your air quality data in easy way
                             </div>
                         </div>
                     </div>
@@ -225,10 +233,10 @@
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
-                               Table Statistic
+                               Managing your SmartHome devices
                             </div>
                             <div class="project-name">
-                                You data archive
+                                Let your home take care of your air!
                             </div>
                         </div>
                     </div>
@@ -256,7 +264,7 @@
 <aside class="bg-primary">
     <div class="container text-center">
         <div class="call-to-action">
-            <h2>Start to use SmartAir device right now!</h2>
+            <h2>Start using SmartAir device right now!</h2>
             <a href="/order" class="btn btn-lg btn-success btn-xl wow tada">Order SmartAir</a>
         </div>
     </div>
@@ -272,9 +280,9 @@
             </div>
             <div class="col-lg-4 col-lg-offset-2 text-center">
                 <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                <p>(098) 821-20-78</p>
-                <p>(097) 588-62-77</p>
-                <p>(093) 745-97-99</p>
+                <p>(098) 821-20-78 Maksym</p>
+                <p>(097) 588-62-77 Dmitry</p>
+                <p>(093) 745-97-99 Denys</p>
             </div>
             <div class="col-lg-4 text-center">
                 <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
