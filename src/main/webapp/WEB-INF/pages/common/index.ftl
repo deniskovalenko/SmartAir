@@ -38,6 +38,7 @@
 
 </@layout.header>
 <body id="page-top">
+
 <#--<@layout.common_menu/>-->
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container container-fluid" style="width: 100%; background-color: #fff">
@@ -124,7 +125,10 @@
                 <br>
                 <p class="text-faded">Movie coming soon...</p>
                 <br>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/gtJn5pY4xb4" frameborder="0" allowfullscreen></iframe>
+                <div class="videoWrapper">
+                    <iframe src="https://www.youtube.com/embed/gtJn5pY4xb4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <br>
                 <#--<div class="alert alert-success alert-dismissible" role="alert">-->
                     <#--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
                     <#--<strong>T</strong> Better check yourself, you're not looking too good.-->
