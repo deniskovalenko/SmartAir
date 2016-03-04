@@ -82,7 +82,7 @@
             <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-list.png"/></div>List</a></li>
             <li class="divider"></li>
             <li><a href="/user/addDevice"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-add.png"/></div>Add</a></li>
-            <li><a href="#"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-buy.png"/></div>Order</a></li>
+            <li><a href="/order"><div class="dropdown-ico"><img src="/resources/images/userMenu/ico-buy.png"/></div>Order</a></li>
         </ul>
     </li>
 </ul>
