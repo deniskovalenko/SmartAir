@@ -2,14 +2,21 @@
 <!DOCTYPE html>
 <html>
     <@layout.header "SmartAir - Statistics">
-        <link rel="stylesheet" href="/resources/css/chart/nv.d3.min.css" type="text/css">
+        <#--<link rel="stylesheet" href="/resources/css/chart/nv.d3.min.css" type="text/css">
         <script src="/resources/js/chart/d3.v3.min.js" charset="utf-8"></script>
         <script src="/resources/js/chart/nv.d3.min.js"></script>
         <script src="/resources/js/jquery-2.1.3.min.js"></script>
-        <script src="/resources/js/chart/chart.js"></script>
+        <script src="/resources/js/chart/chart.js"></script>-->
     </@layout.header>
 <body>
-<nav class="navbar" role="navigation">
+
+<#if username??>
+    <@layout.user_menu "${username}"/>
+<#else>
+    <@layout.user_menu "User" />
+</#if>
+
+<#--<nav class="navbar" role="navigation">
     <div class="container menu-container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -25,19 +32,32 @@
                 <li><a href="/user/profile">User</a></li>
                 <li><a href="/logout">Log Out</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div><!--/.nav-collapse &ndash;&gt;
 
 
     </div>
-</nav>
+</nav>-->
 
 
 <div class="container" style="margin-top: 50px; width: 100%">
-    <h1 align="center">Statistics</h1>
-    <h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user">table</a></h2>
+    <h1 align="center">Statistic</h1>
+    <#--<h2 align="center" class="gray-text" style="font-size: 16px">Show statistics as a <a href="/user">table</a></h2>-->
+    <div id="error-bar" class="alert alert-danger" role="alert"></div>
+    <div id="charts">
+        <div style = "width: 90%; height: 100px; margin-left: auto; margin-right: auto;">
+            <div class="alert alert-info" role="alert">
+                Latest CO<sub>2</sub> level:
+                <strong>
+                    <span id="latestCo2Value"></span>
+                </strong>
+            </div>
+            <canvas id="testChart" width="auto" height="100px"></canvas>
+        </div>
+    </div>
     <div id="loadingDiv" align="center">
         <img src="/resources/images/common/progress.gif">
     </div>
+    <!--
     <div class="row">
          <div class="col-md-4">
              <label class="form-group-sm">Get your statistic for last:</label>
@@ -65,13 +85,13 @@
                  </ul>
              </div>
          </div>
-    </div>
+    </div>-->
 
-    <div id="Statistic" style="height: 400px;">
+    <div id="chart" style="height: 300px;">
         <svg></svg>
     </div>
 
-    <script type="text/javascript">
+    <#--<script type="text/javascript">
         $("#searchFilter").on("change", ".chartFilter", function ( event ) {
            getChartData();
         });
@@ -89,9 +109,14 @@
                 .ajaxStop(function () {
                     $loading.hide();
                 });
-    </script>
+    </script>-->
+
 
 </div>
+
+<script src="/resources/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/resources/bower_components/Chart.js/Chart.min.js"></script>
+<script src="/resources/js/chart/chart.v2.js"></script>
 
 <@layout.scripts/>
 

@@ -1,0 +1,25 @@
+{
+  "name": "co2-webapp",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "SmartAirTeam"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/main/webapp/resources/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "Chart.js": "~1.0.2",
+    "jquery": "~2.2.1"
+  }
+}
