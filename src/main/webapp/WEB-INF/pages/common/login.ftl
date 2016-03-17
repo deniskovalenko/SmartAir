@@ -71,11 +71,11 @@
                     <h4 style="color:red;"> ${login_error}</h4>
                 </#if>
                 </div>
-                <button id="hideShowPassword" aria-pressed="false"
-                        style="position: absolute; right: 15px; top: 0px;"
-                        class="hideShowPassword-toggle" tabindex="0"
-                        aria-label="Show Password" role="button" type="button" onclick="showPasswordLogin()">Show
-                </button>
+                <#--<button id="hideShowPassword" aria-pressed="false"-->
+                        <#--style="position: absolute; right: 15px; top: 0px;"-->
+                        <#--class="hideShowPassword-toggle" tabindex="0"-->
+                        <#--aria-label="Show Password" role="button" type="button" onclick="showPasswordLogin()">Show-->
+                <#--</button>-->
             </div>
         </div>
             <div class="row" align="center">
